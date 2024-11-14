@@ -14,10 +14,10 @@ class CreateCustomerTable extends Migration
     public function up()
     {
         Schema::create('customer', function (Blueprint $table) {
-            $table->bigIncrements('id_customer');
-            $table->string('nama_customer');
-            $table->string('nomor_customer');
-            $table->string('alamat_customer');
+            $table->id('id_customer');
+            $table->string('nama');
+            $table->string('nomor');
+            $table->text('alamat')->nullable();
             $table->timestamps();
         });
     }

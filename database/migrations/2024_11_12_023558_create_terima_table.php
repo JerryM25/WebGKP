@@ -14,9 +14,9 @@ class CreateTerimaTable extends Migration
     public function up()
     {
         Schema::create('terima', function (Blueprint $table) {
-            $table->bigIncrements('id_terima');
-            $table->bigIncrements('id_reqbeli');
-            $table->date('tanggal_terima');
+            $table->id('id_pembelian');
+            $table->foreignId('id_req_beli')->constrained('req_belis')->onDelete('cascade');
+            $table->date('tanggal');
             $table->integer('quantity');
             $table->string('status');
             $table->timestamps();

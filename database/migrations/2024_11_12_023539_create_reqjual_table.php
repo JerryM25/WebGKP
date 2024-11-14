@@ -14,12 +14,12 @@ class CreateReqjualTable extends Migration
     public function up()
     {
         Schema::create('reqjual', function (Blueprint $table) {
-            $table->bigIncrements('id_reqjual');
-            $table->bigIncrements('id_notajual');
-            $table->bigIncrements('id_brg');
+            $table->id('id_req_jual');
+            $table->foreignId('id_nota_jual')->constrained('nota_juals')->onDelete('cascade');
+            $table->foreignId('id_barang')->constrained('barangs')->onDelete('cascade');
             $table->integer('quantity');
-            $table->integer('harga_jual');
-            $table->integer('total');
+            $table->decimal('harga_jual', 10, 2);
+            $table->decimal('total', 15, 2);
             $table->timestamps();
         });
     }

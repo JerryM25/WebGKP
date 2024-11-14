@@ -14,16 +14,10 @@ class CreateNotabeliTable extends Migration
     public function up()
     {
         Schema::create('notabeli', function (Blueprint $table) {
-            $table->bigIncrements('id_notabeli');
-            $table->bigIncrements('id_vendor');
-            $table->date('tanggalbeli');
+            $table->id('id_nota_beli');
+            $table->foreignId('id_vendor')->constrained('vendors')->onDelete('cascade');
+            $table->date('tanggal');
             $table->timestamps();
-        });
-
-        Schema::table('vendor', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_vendor');
-
-            $table->foreign('id_vendor')->references('id')->on('vendor');
         });
     }
 

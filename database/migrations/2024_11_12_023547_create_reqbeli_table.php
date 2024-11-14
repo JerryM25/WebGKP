@@ -14,12 +14,12 @@ class CreateReqbeliTable extends Migration
     public function up()
     {
         Schema::create('reqbeli', function (Blueprint $table) {
-            $table->bigIncrements('id_reqbeli');
-            $table->bigIncrements('id_notabeli');
-            $table->bigIncrements('id_brg');
+            $table->id('id_req_beli');
+            $table->foreignId('id_nota_beli')->constrained('nota_belis')->onDelete('cascade');
+            $table->foreignId('id_barang')->constrained('barangs')->onDelete('cascade');
             $table->integer('quantity');
-            $table->integer('harga_beli');
-            $table->integer('total');
+            $table->decimal('harga_beli', 10, 2);
+            $table->decimal('total', 15, 2);
             $table->timestamps();
         });
     }
