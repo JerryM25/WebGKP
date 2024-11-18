@@ -14,7 +14,7 @@ class CreateBarangTable extends Migration
     public function up()
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->id('id_barang');
+            $table->bigIncrements('id_barang');
             $table->string('nama_barang');
             $table->decimal('harga_beli', 10, 2);
             $table->decimal('harga_jual', 10, 2);

@@ -14,8 +14,12 @@ class CreateNotajualTable extends Migration
     public function up()
     {
         Schema::create('notajual', function (Blueprint $table) {
-            $table->id('id_nota_jual');
-            $table->foreignId('id_customer')->constrained('customers')->onDelete('cascade');
+            $table->bigIncrements('id_nota_jual');
+            $table->unsignedBigInteger('id_customer')->nullable();
+            $table->foreign('id_customer')
+                ->references('id_customer')
+                ->on('customer')
+                ->onDelete('set null');
             $table->date('tanggal');
             $table->timestamps();
         });

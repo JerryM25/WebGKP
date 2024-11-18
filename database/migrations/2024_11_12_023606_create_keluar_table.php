@@ -14,8 +14,12 @@ class CreateKeluarTable extends Migration
     public function up()
     {
         Schema::create('keluar', function (Blueprint $table) {
-            $table->id('id_penjualan');
-            $table->foreignId('id_req_jual')->constrained('req_juals')->onDelete('cascade');
+            $table->bigIncrements('id_penjualan');
+            $table->unsignedBigInteger('id_req_jual')->nullable();
+            $table->foreign('id_req_jual')
+                ->references('id_req_jual')
+                ->on('reqjual')
+                ->onDelete('set null');
             $table->date('tanggal');
             $table->integer('quantity');
             $table->string('status');

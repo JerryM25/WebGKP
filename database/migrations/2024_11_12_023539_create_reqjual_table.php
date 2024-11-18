@@ -14,9 +14,17 @@ class CreateReqjualTable extends Migration
     public function up()
     {
         Schema::create('reqjual', function (Blueprint $table) {
-            $table->id('id_req_jual');
-            $table->foreignId('id_nota_jual')->constrained('nota_juals')->onDelete('cascade');
-            $table->foreignId('id_barang')->constrained('barangs')->onDelete('cascade');
+            $table->bigIncrements('id_req_jual');
+            $table->unsignedBigInteger('id_nota_jual')->nullable();
+            $table->unsignedBigInteger('id_barang')->nullable();
+            $table->foreign('id_nota_jual')
+                ->references('id_nota_jual')
+                ->on('notajual')
+                ->onDelete('set null');
+            $table->foreign('id_barang')
+                ->references('id_barang')
+                ->on('barang')
+                ->onDelete('set null');
             $table->integer('quantity');
             $table->decimal('harga_jual', 10, 2);
             $table->decimal('total', 15, 2);
