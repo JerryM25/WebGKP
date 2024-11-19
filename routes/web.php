@@ -15,33 +15,12 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/product', function () {
-    return view('product');
-});
-
-Route::get('/team', function () {
-    return view('team');
-});
-
-Route::get('/service', function () {
-    return view('service');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/', 'WebController@home');
+Route::get('/about', 'WebController@about');
+Route::get('/contact', 'WebController@contact');
+Route::get('/product', 'WebController@product');
+Route::get('/team', 'WebController@team');
+Route::get('/service', 'WebController@service');
 
 Route::get('/admin', function () {
     return view('login');
