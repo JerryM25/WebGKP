@@ -23,6 +23,31 @@
 	<section class="team-two">
 		<div class="auto-container">
 			<div class="row clearfix">
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                </div>
+                <!-- Search -->
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="footer-newsletter">
+                        <div class="newsletter-box">
+                            <form method="post" action="/contact">
+                                <div class="form-group">
+                                    <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
+                                    <input type="text" name="search-field" value="" placeholder="Search" required>
+                                    <button type="submit" class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Search</span>
+                                            <span class="text-two">Search</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <br>
+                </div>
 
 				<!-- Team Block One -->
 				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
@@ -107,55 +132,5 @@
 		</div>
 	</section>
 	<!-- End Team Two -->
-
-	<!-- Mitra -->
-	<section class="clients-two style-two">
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="sec-title_title">Mitra Kami</div>
-			</div>
-			<div class="clients_slider swiper-container">
-				<div class="swiper-wrapper">
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<a href=""><img src="assets/images/clients/epson.svg" alt="" height="50" width="65"/></a>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<a href=""><img src="assets/images/clients/tp-link.svg" alt="" /></a>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<a href=""><img src="assets/images/clients/microsoft.svg" alt="" /></a>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<a href=""><img src="assets/images/clients/acer.svg" alt="" /></a>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<a href=""><img src="assets/images/clients/fargo.svg" alt="" /></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Mitra -->
 
 @endsection

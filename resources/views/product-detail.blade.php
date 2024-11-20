@@ -56,6 +56,19 @@
                             </div>
                         </div>
 
+                        <div class="row clearfix">
+                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                <div class="team-detail_button">
+                                    <a href="https://wa.me/+6283131139933" class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Tanyakan</span>
+                                            <span class="text-two">Tanyakan</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

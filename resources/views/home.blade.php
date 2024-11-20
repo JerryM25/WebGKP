@@ -188,7 +188,7 @@
                                         <div class="price-block_one-title text-center">Printer</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/printer1.jpeg" alt="">
+                                                <img class="rounded" src="assets/images/gallery/2.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                         <div class="price-block_one-title text-center">Computer</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/komputer.jpeg" alt="">
+                                                <img class="rounded" src="assets/images/gallery/1.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                         <div class="price-block_one-title text-center">Electronic</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/elektronik.jpeg" alt="">
+                                                <img class="rounded" src="assets/images/gallery/3.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -222,7 +222,7 @@
                         </div>
                     </div>
                     <div class="price-block_one-button text-center">
-                        <a class="template-btn price-one_button" href="/product">Lihat Lebih Lanjut</a>
+                        <a class="template-btn price-one_button" href="/product">Lihat Barang Lainnya</a>
                     </div>
                 </div>
 
