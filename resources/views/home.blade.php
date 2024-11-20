@@ -121,7 +121,7 @@
                         <img src="assets/images/icons/wrench.svg" alt="">
                     </div>
                     <h5 class="service-block_one-heading"><a href="/service">Service</a></h5>
-                    <div class="service-block_one-text">Melayani jasa service dengan teknisi berpengalaman <br><span>Authorize Service Center</span></div>
+                    <div class="service-block_one-text"><span>Melayani jasa service dengan teknisi berpengalaman <br>Authorize Service Center</span></div>
                     <div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
                         <div class="service-block_one-number">01</div>
                         <a class="service-block_one-join" href="/service">Detail <i class="fa-solid fa-plus fa-fw"></i></a>
@@ -136,7 +136,7 @@
                         <img src="assets/images/icons/printer.svg" alt="">
                     </div>
                     <h5 class="service-block_one-heading"><a href="/service">Product Quality</a></h5>
-                    <div class="service-block_one-text">Kami memberikan produk dengan <br><span>Kualitas Terbaik</span></div>
+                    <div class="service-block_one-text"><span>Kami memberikan produk dengan <br>Kualitas Terbaik</span></div>
                     <div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
                         <div class="service-block_one-number">02</div>
                         <a class="service-block_one-join" href="/service">Detail <i class="fa-solid fa-plus fa-fw"></i></a>
@@ -151,7 +151,7 @@
                         <img src="assets/images/icons/box.svg" alt="">
                     </div>
                     <h5 class="service-block_one-heading"><a href="/service">Shipment</a></h5>
-                    <div class="service-block_one-text">Kami menjamin pengiriman barang ke seluruh Indonesis terkirim dengan<br><span>Aman dan Cepat</span></div>
+                    <div class="service-block_one-text"><span>Kami menjamin pengiriman barang ke seluruh Indonesis terkirim dengan<br>Aman dan Cepat</span></div>
                     <div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
                         <div class="service-block_one-number">03</div>
                         <a class="service-block_one-join" href="/service">Detail <i class="fa-solid fa-plus fa-fw"></i></a>
