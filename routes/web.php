@@ -19,7 +19,6 @@ Route::get('/', 'WebController@home');
 Route::get('/about', 'WebController@about');
 Route::get('/contact', 'WebController@contact');
 Route::get('/product', 'WebController@product');
-Route::get('/team', 'WebController@team');
 Route::get('/service', 'WebController@service');
 
 Route::get('/admin', function () {
@@ -29,6 +28,8 @@ Route::get('/admin', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/dashboard', 'AuthController@login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

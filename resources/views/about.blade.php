@@ -118,4 +118,51 @@
 	</section>
 	<!-- End Value One -->
 
+    <!-- Contact Info -->
+	<section class="contact-info">
+		<div class="auto-container">
+            <div class="sec-title style-four centered">
+				<div class="sec-title_title">Contact Us</div>
+			</div>
+			<div class="row clearfix">
+
+				<!-- Info Block One -->
+				<div class="info-block_one col-lg-4 col-md-6 col-sm-12">
+					<div class="info-block_one-inner">
+						<div class="info-block_one-icon">
+							<i class="icon-phone"></i>
+						</div>
+						<h4>Call us on</h4>
+						<a href="https://wa.me/+6283131139933">0831 3113 9933</a> <br>
+					</div>
+				</div>
+
+				<!-- Info Block One -->
+				<div class="info-block_one active col-lg-4 col-md-6 col-sm-12">
+					<div class="info-block_one-inner">
+						<div class="info-block_one-icon">
+							<i class="icon-envelope"></i>
+						</div>
+						<h4>Email us</h4>
+						<a href="">glorykaryaperkasa@gmail.com</a> <br>
+					</div>
+				</div>
+
+				<!-- Info Block One -->
+				<div class="info-block_one col-lg-4 col-md-6 col-sm-12">
+					<div class="info-block_one-inner">
+						<div class="info-block_one-icon">
+							<i class="icon-map"></i>
+						</div>
+						<h4>Our location</h4>
+						<a href="https://maps.app.goo.gl/jKxhCBEgbQbrzAWg7">Jl. Nogosari No.2, RW.08, Kadipaten, Kecamatan Kraton, <br>Kota Yogyakarta, Daerah Istimewa Yogyakarta</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+        <br>
+	</section>
+	<!-- End Contact Info -->
+
 @endsection
