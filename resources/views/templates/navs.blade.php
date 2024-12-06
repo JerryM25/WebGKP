@@ -78,10 +78,10 @@
 
 								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 									<ul class="navigation clearfix">
-										<li><a class="nav-link {{ ($key == 'home') ? 'active' : '' }}" href="/">Home</a></li>
-                                        <li><a class="nav-link {{ ($key == 'service') ? 'active' : '' }}" href="/service">Service</a></li>
-										<li><a class="nav-link {{ ($key == 'product') ? 'active' : '' }}" href="/product">Product</a></li>
-										<li><a class="nav-link {{ ($key == 'about') ? 'active' : '' }}" href="/about">About</a></li>
+										<li><a href="/">Home</a></li>
+                                        <li><a href="/service">Service</a></li>
+										<li><a href="/product">Product</a></li>
+										<li><a href="/about">About Us</a></li>
 									</ul>
 								</div>
 							</nav>

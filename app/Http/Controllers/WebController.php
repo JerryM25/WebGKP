@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Barang;
+use App\Detailbarang;
+use App\Keluar;
+use App\Terima;
+use App\Reqjual;
+use App\Reqbeli;
+use App\Notajual;
+use App\Notabeli;
 
 class WebController extends Controller
 {
@@ -15,6 +24,14 @@ class WebController extends Controller
     }
 
     public function product() {
+        // $barang = Barang::orderBy('id_barang')->paginate(12)->get();
+        return view('product');
+    }
+
+    public function searchBarang(Request $request) {
+        $cari = $request->q;
+        $barang = Barang::where('nama_barang', 'Like', '%'.$cari.'%')->orWhere('kategori', 'like', '%'.$cari.'%')->orderBy('id', 'asc')->paginate(12);
+        $cari->appends($request->all());
         return view('product');
     }
 
@@ -22,11 +39,16 @@ class WebController extends Controller
         return view('about');
     }
 
-    public function team() {
-        return view('team');
+    public function admin() {
+        return view('login');
     }
 
-    public function contact() {
-        return view('contact');
+    public function login() {
+        return view('login');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }

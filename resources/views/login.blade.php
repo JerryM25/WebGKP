@@ -95,28 +95,18 @@
 				<h3 class="text-center">Login</h3>
 				<!-- Register Form -->
 				<div class="register-form">
-					<form method="post" action="/dashboard">
-
+					<form action="/dashboard" method="post">
+                        @csrf
 						<div class="form-group">
-							<label>Email</label>
-							<input type="text" name="email" placeholder="" required="">
+							<label>Email/Username</label>
+							<input type="text" name="email" required>
 						</div>
 
 						<div class="form-group">
 							<label>Password</label>
-							<span class="icon fa-regular fa-eye fa-fw"></span>
-							<input type="password" name="password" placeholder="" required="">
+							<input type="password" name="password" required>
 						</div>
-
-						<div class="form-group">
-							<div class="d-flex justify-content-between align-items-center flex-wrap">
-								<div class="check-box">
-									<input type="checkbox" name="remember-password" id="type-1">
-									<label for="type-1">Remember Me</label>
-								</div>
-								<a class="forgot-psw" href="#">Forget Password?</a>
-							</div>
-						</div>
+                        <br>
 
 						<div class="form-group">
 							<!-- Button Box -->
