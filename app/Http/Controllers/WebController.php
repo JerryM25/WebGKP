@@ -25,7 +25,7 @@ class WebController extends Controller
 
     public function product() {
         // $barang = Barang::orderBy('id_barang')->paginate(12)->get();
-        return view('product');
+        return view('product')->compact($collection, $item);
     }
 
     public function searchBarang(Request $request) {

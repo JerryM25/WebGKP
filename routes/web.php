@@ -49,7 +49,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/service', 'WebController@service');
     Route::get('/admin', 'WebController@admin');
     Route::get('/login', 'WebController@login');
-    Route::get('/ceklogin', 'AuthController@cekLogin');
+    Route::post('/ceklogin', 'AuthController@cekLogin');
 });
 // Route::post('/dashboard', 'AuthController@cekLogin');
 

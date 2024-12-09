@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Barang;
-use App\Detailbarang;
-use App\Keluar;
-use App\Terima;
-use App\Reqjual;
-use App\Reqbeli;
-use App\Notajual;
-use App\Notabeli;
+use App\akun;
+use App\barang;
+use App\betailbarang;
+use App\keluar;
+use App\terima;
+use App\reqjual;
+use App\reqbeli;
+use App\notajual;
+use App\notabeli;
 
 class AuthController extends Controller
 {

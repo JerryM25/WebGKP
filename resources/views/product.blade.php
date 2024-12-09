@@ -29,7 +29,7 @@
                 <div class="big-column col-lg-6 col-md-12 col-sm-12">
                     <div class="footer-newsletter">
                         <div class="newsletter-box">
-                            <form method="post" action="/contact">
+                            <form method="post" action="/caribarang">
                                 <div class="form-group">
                                     <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
                                     <input type="text" name="search-field" value="" placeholder="Search" required>
@@ -49,7 +49,22 @@
                     <br>
                 </div>
 
-				<!-- Team Block One -->
+                @foreach ($collection as $item)
+                    <!-- Team Block One -->
+				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
+					<div class="team-block_one-inner">
+						<div class="team-block_one-image">
+							<a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
+						</div>
+						<div class="team-block_one-content">
+							<h4 class="team-block_one-title"><a href="/detailproduct">Elliot S. Acevedo</a></h4>
+							<div class="team-block_one-designation">Founder</div>
+						</div>
+					</div>
+				</div>
+                @endforeach
+
+				{{-- <!-- Team Block One -->
 				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
 					<div class="team-block_one-inner">
 						<div class="team-block_one-image">
@@ -125,7 +140,7 @@
 							<div class="team-block_one-designation">Founder</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 
 			</div>
 

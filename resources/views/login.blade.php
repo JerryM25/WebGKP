@@ -95,11 +95,11 @@
 				<h3 class="text-center">Login</h3>
 				<!-- Register Form -->
 				<div class="register-form">
-					<form action="/dashboard" method="post">
+					<form action="/ceklogin" method="post">
                         @csrf
 						<div class="form-group">
-							<label>Email/Username</label>
-							<input type="text" name="email" required>
+							<label>Email</label>
+							<input type="email" name="email" required>
 						</div>
 
 						<div class="form-group">
@@ -127,7 +127,7 @@
 				<!-- End Default Form -->
 			</div>
 		</div>
-        <br><br>
+        <br><br><br><br><br>
 	</section>
 	<!-- End Register One -->
 
