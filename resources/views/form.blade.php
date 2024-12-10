@@ -61,13 +61,23 @@
 				<div class="register-form">
 					<form method="post" action="/dashboard">
                         <div class="form-group">
-							<label>Gambar</label>
-							<input type="file" name="gambar_brg" placeholder="" required="">
+							<label>Foto</label>
+							<input type="file" name="foto" placeholder="" required="">
 						</div>
 
 						<div class="form-group">
 							<label>Nama Barang</label>
 							<input type="text" name="nama_brg" placeholder="" required="">
+						</div>
+
+                        <div class="form-group">
+							<label>Keterangan</label>
+							<input type="text" name="keterangan" placeholder="" required="">
+						</div>
+
+                        <div class="form-group">
+							<label>Kategori</label>
+							<input type="text" name="kategori" placeholder="" required="">
 						</div>
 
 						<div class="form-group">
@@ -83,6 +93,11 @@
                         <div class="form-group">
 							<label>Stok</label>
 							<input type="text" name="stok" placeholder="" required="">
+						</div>
+
+                        <div class="form-group">
+							<label>Satuan</label>
+							<input type="text" name="satuan" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
