@@ -30,7 +30,7 @@ class AuthController extends Controller
     }
 
     public function dashboard() {
-        $barang = Barang::paginate(15);
+        $barang = barang::paginate(15);
         return view('dashboard', ['barang' => $barang]);
     }
 
