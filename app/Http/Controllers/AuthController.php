@@ -29,16 +29,11 @@ class AuthController extends Controller
         $user = akun::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            session([
-                'id' => $user->id,
-                'username' => $user->username,
-                'email' => $user->email,
-            ]);
-
-            return redirect('/dashboard');
+            Auth::login($user);
+            return redirect()->intended(route('dashboard'));
         }
 
-        return redirect('/login')->withErrors([
+        return redirect(route('login'))->withErrors([
             'login' => 'Email atau password salah!'
         ]);
     }
