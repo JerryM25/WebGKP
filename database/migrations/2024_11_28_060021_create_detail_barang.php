@@ -15,7 +15,7 @@ class CreateDetailBarang extends Migration
     {
         Schema::create('detail_barang', function (Blueprint $table) {
             $table->bigIncrements('id_detail');
-            $table->unsignedBigInteger('id_barang');
+            $table->unsignedBigInteger('id_barang')->nullable();
             $table->foreign('id_barang')
                 ->references('id_barang')
                 ->on('barang')

@@ -14,31 +14,48 @@ use App\reqjual;
 use App\reqbeli;
 use App\notajual;
 use App\notabeli;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function cekLogin(Request $request) {
-        if(Auth::attempt([
-            'email'=>$request->email,
-            'password'=>$request->password
-        ]))
-        {
+    public function cekLogin(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $user = akun::where('email', $request->email)->first();
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            session([
+                'id' => $user->id,
+                'username' => $user->username,
+                'email' => $user->email,
+            ]);
+
             return redirect('/dashboard');
-        }else{
-            return redirect('/login');
         }
+
+        return redirect('/login')->withErrors([
+            'login' => 'Email atau password salah!'
+        ]);
     }
 
-    public function dashboard() {
+    public function dashboard()
+    {
         $barang = barang::paginate(15);
         return view('dashboard', ['barang' => $barang]);
     }
 
-    public function formTambah() {
+    public function formTambah()
+    {
         return view('form');
     }
 
-    public function tambahBarang(Request $request){
+    public function tambahBarang(Request $request)
+    {
         Barang::create([
             'nama_barang' => $this->nama_barang,
             'harga_beli' => $this->harga_beli,
@@ -53,12 +70,14 @@ class AuthController extends Controller
         return redirect('/dashboard');
     }
 
-    public function formEdit() {
+    public function formEdit()
+    {
 
         return view('form');
     }
 
-    public function editBarang(Request $request){
-        Barang::where('id_barang', $id_barang)-first();
+    public function editBarang(Request $request)
+    {
+        Barang::where('id_barang', $id_barang) - first();
     }
 }
