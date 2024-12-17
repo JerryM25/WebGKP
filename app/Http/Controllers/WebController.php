@@ -25,7 +25,8 @@ class WebController extends Controller
 
     public function product() {
         // $barang = Barang::orderBy('id_barang')->paginate(12)->get();
-        return view('product')->compact($collection, $item);
+        // return view('product')->compact($collection, $item);
+        return view('product');
     }
 
     public function searchBarang(Request $request) {
@@ -49,6 +50,6 @@ class WebController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect('/');
+        return redirect('/login');
     }
 }

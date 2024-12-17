@@ -51,18 +51,18 @@ class AuthController extends Controller
 
     public function tambahBarang(Request $request)
     {
-        Barang::create([
-            'nama_barang' => $this->nama_barang,
-            'harga_beli' => $this->harga_beli,
-            'harga_jual' => $this->arga_jual,
-            'kategori' => $this->kategori,
-            'baru' => $this->baru,
-            'berat' => $this->berat,
-            'keterangan' => $this->keterangan,
-            'stok' => $this->stok,
-            'satuan' => $this->satuan
+        barang::create([
+            'foto' => $request->foto,
+            'nama_barang' => $request->nama_barang,
+            'keterangan' => $request->keterangan,
+            'kategori' => $request->kategori,
+            'harga_beli' => $request->hrg_beli,
+            'harga_jual' => $request->hrg_jual,
+            'stok' => $request->stok,
+            'satuan' => $request->satuan,
+            'berat' => $request->berat
         ]);
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('Berhasil Ditambahkan');
     }
 
     public function formEdit()

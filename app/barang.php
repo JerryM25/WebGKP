@@ -14,8 +14,7 @@ class barang extends Model
         'harga_beli',
         'harga_jual',
         'kategori',
-        'baru',
-        'berat',
+        'foto',
         'keterangan',
         'stok',
         'satuan'

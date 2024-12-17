@@ -7611,6 +7611,14 @@
 	border-color:var(--main-color);
 }
 
+.register-form .form-group input[type="file"]{
+    color: #ffffff;
+}
+
+.register-form .form-group input[type="text"]{
+    color: #ffffff;
+}
+
 .register-form .form-group textarea{
 	position:relative;
 	display:block;

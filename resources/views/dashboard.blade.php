@@ -30,7 +30,7 @@
                 <div class="sec-title_title">USERNAME</div>
             </div>
             <div class="main-header_buttons">
-                <a href="/admin" class="template-btn btn-style-two">
+                <a href="/logout" class="template-btn btn-style-two">
                     <span class="btn-wrap">
                         <span class="text-one">Log Out</span>
                         <span class="text-two">Log Out</span>

@@ -20,7 +20,6 @@ class CreateBarangTable extends Migration
             $table->decimal('harga_jual', 10, 2);
             $table->string('kategori')->nullable();
             $table->string('foto');
-            $table->decimal('berat', 8, 2)->nullable();
             $table->text('keterangan')->nullable();
             $table->integer('stok')->default(0);
             $table->string('satuan')->nullable();

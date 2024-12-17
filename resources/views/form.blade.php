@@ -59,50 +59,55 @@
 				<h3 class="text-center">Tambah Barang</h3>
 				<!-- Register Form -->
 				<div class="register-form">
-					<form method="post" action="/dashboard">
+					<form method="post" action="/savebarang">
+                        @csrf
                         <div class="form-group">
 							<label>Foto</label>
-							<input type="file" name="foto" placeholder="" required="">
+							<input type="file" id="foto" name="foto" placeholder="" required="" accept=".jpg, .jpeg, .png">
 						</div>
 
 						<div class="form-group">
 							<label>Nama Barang</label>
-							<input type="text" name="nama_brg" placeholder="" required="">
+							<input type="text" id="nama_barang" name="nama_barang" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
 							<label>Keterangan</label>
-							<input type="text" name="keterangan" placeholder="" required="">
+							<input type="text" id="keterangan" name="keterangan" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
 							<label>Kategori</label>
-							<input type="text" name="kategori" placeholder="" required="">
+							<input type="text" id="kategori" name="kategori" placeholder="" required="">
 						</div>
 
 						<div class="form-group">
 							<label>Harga Beli</label>
-							<input type="text" name="hrg_beli" placeholder="" required="">
+							<input type="text" id="hrg_beli" name="hrg_beli" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
 							<label>Harga Jual</label>
-							<input type="text" name="hrg_jual" placeholder="" required="">
+							<input type="text" id="hrg_jual" name="hrg_jual" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
 							<label>Stok</label>
-							<input type="text" name="stok" placeholder="" required="">
+							<input type="text" id="stok" name="stok" placeholder="" required="">
 						</div>
 
                         <div class="form-group">
 							<label>Satuan</label>
-							<input type="text" name="satuan" placeholder="" required="">
-						</div>
-
-                        <div class="form-group">
-							<label>Berat</label>
-							<input type="text" name="berat" placeholder="" required="">
+							{{-- <input type="text" id="satuan" name="satuan" placeholder="" required=""> --}}
+                            <select name="satuan" id="satuan">
+                                <option value="Pcs">Pcs</option>
+                                <option value="Unit">Unit</option>
+                                <option value="Box">Box</option>
+                                <option value="Paket">Paket</option>
+                                <option value="Lembar">Lembar</option>
+                                <option value="Roll">Roll</option>
+                                <option value="Pasang">Pasang</option>
+                            </select>
 						</div>
 
 						<div class="form-group">
