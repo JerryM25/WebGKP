@@ -70,3 +70,11 @@ Route::get('/detaildashboard', function () {
 Route::get('/detailproduct', function () {
     return view('product-detail');
 });
+
+// Tambahan dari bara
+// Tambah Barang
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/tambah-barang', 'AdminController@tambahBarang')->name('tambahBarang');
+});
+// Upload Foto BArang (Karena aku pakai library dropzone, jadi aku harus buat route khusus untuk upload foto)
+Route::post('/upload-foto', 'AdminController@uploadFoto')->name('uploadFoto');
