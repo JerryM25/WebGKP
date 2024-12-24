@@ -57,7 +57,6 @@ class AuthController extends Controller
             'harga_jual' => $this->arga_jual,
             'kategori' => $this->kategori,
             'baru' => $this->baru,
-            'berat' => $this->berat,
             'keterangan' => $this->keterangan,
             'stok' => $this->stok,
             'satuan' => $this->satuan
