@@ -25,9 +25,10 @@ class AdminController extends Controller
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
             'kategori' => 'required',
-            'baru' => 'required',
-            'berat' => 'required|numeric',
-            'foto' => 'required',
+            'keterangan' => 'required',
+            'satuan' => 'required',
+            'stok' => 'required',
+            'foto' => 'required'
         ]);
 
         $barang = new barang();
@@ -35,11 +36,13 @@ class AdminController extends Controller
         $barang->harga_beli = $request->harga_beli;
         $barang->harga_jual = $request->harga_jual;
         $barang->kategori = $request->kategori;
-        $barang->baru = $request->baru;
-        $barang->berat = $request->berat;
+        $barang->keterangan = $request->keterangan;
+        $barang->satuan = $request->satuan;
+        $barang->stok = $request->stok;
         $barang->foto = $request->foto;
         $barang->save();
 
+        return redirect('/dashboard');
         return response()->json(['message' => 'Barang berhasil ditambahkan'], 200);
     }
 }

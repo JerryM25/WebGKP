@@ -72,46 +72,41 @@
                                 <label>Foto</label>
                                 <div id="fotoDropzone" class="dropzone"></div>
                             </div>
-                            <input type="hidden" name="foto_path" id="foto_path">
+                            <input type="hidden" name="foto" id="foto">
 
                             <div class="form-group">
                                 <label>Nama Barang</label>
-                                <input type="text" name="nama_brg" placeholder="" required="">
+                                <input type="text" id="nama_barang" name="nama_barang" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <input type="text" name="keterangan" placeholder="" required="">
+                                <input type="text" id="keterangan" name="keterangan" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Kategori</label>
-                                <input type="text" name="kategori" placeholder="" required="">
+                                <input type="text" id="kategori" name="kategori" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Harga Beli</label>
-                                <input type="text" name="hrg_beli" placeholder="" required="">
+                                <input type="text" id="harga_beli" name="harga_beli" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Harga Jual</label>
-                                <input type="text" name="hrg_jual" placeholder="" required="">
+                                <input type="text" id="harga_jual" name="harga_jual" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Stok</label>
-                                <input type="text" name="stok" placeholder="" required="">
+                                <input type="text" id="stok" name="stok" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 <label>Satuan</label>
-                                <input type="text" name="satuan" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Berat</label>
-                                <input type="text" name="berat" placeholder="" required="">
+                                <input type="text" id="satuan" name="satuan" placeholder="" required="">
                             </div>
 
                             <div class="form-group">

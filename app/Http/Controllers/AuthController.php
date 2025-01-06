@@ -49,17 +49,39 @@ class AuthController extends Controller
         return view('form');
     }
 
+    public function uploadFoto(Request $request)
+    {
+        $request->validate([
+            'foto' => 'required|image|mimes:jpeg,png|max:2048',
+        ]);
+
+        $path = $request->file('foto')->store('uploads/foto', 'public');
+
+        return response()->json(['path' => $path], 200);
+    }
+
     public function tambahBarang(Request $request)
     {
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_beli' => 'required|numeric',
+            'harga_jual' => 'required|numeric',
+            'kategori' => 'required',
+            'keterangan' => 'required',
+            'satuan' => 'required',
+            'stok' => 'required',
+            'foto' => 'required'
+        ]);
+
         Barang::create([
-            'nama_barang' => $this->nama_barang,
-            'harga_beli' => $this->harga_beli,
-            'harga_jual' => $this->arga_jual,
-            'kategori' => $this->kategori,
-            'baru' => $this->baru,
-            'keterangan' => $this->keterangan,
-            'stok' => $this->stok,
-            'satuan' => $this->satuan
+            'nama_barang' => $request->nama_barang,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual,
+            'kategori' => $request->kategori,
+            'foto' => $request->foto,
+            'keterangan' => $request->keterangan,
+            'stok' => $request->stok,
+            'satuan' => $request->satuan
         ]);
         return redirect('/dashboard');
     }
