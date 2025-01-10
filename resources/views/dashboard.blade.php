@@ -25,12 +25,8 @@
     <header class="main-header header-style-two alternate">
         <div class="outer-box d-flex align-items-center flex-wrap">
             <div class="logo"><img src="assets/images/logo-removebg.png" alt="" title="" width="80" height="80"></div>
-            <div class="main-header_user">
-                <img src="/assets/images/gallery/user.png" alt="" width="35" height="35">
-                <div class="sec-title_title">USERNAME</div>
-            </div>
             <div class="main-header_buttons">
-                <a href="/admin" class="template-btn btn-style-two">
+                <a href="/logout" class="template-btn btn-style-two">
                     <span class="btn-wrap">
                         <span class="text-one">Log Out</span>
                         <span class="text-two">Log Out</span>
