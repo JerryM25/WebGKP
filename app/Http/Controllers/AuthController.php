@@ -49,17 +49,6 @@ class AuthController extends Controller
         return view('form');
     }
 
-    public function uploadFoto(Request $request)
-    {
-        $request->validate([
-            'foto' => 'required|image|mimes:jpeg,png|max:2048',
-        ]);
-
-        $path = $request->file('foto')->store('uploads/foto', 'public');
-
-        return response()->json(['path' => $path], 200);
-    }
-
     public function tambahBarang(Request $request)
     {
         $request->validate([
@@ -70,8 +59,11 @@ class AuthController extends Controller
             'keterangan' => 'required',
             'satuan' => 'required',
             'stok' => 'required',
-            'foto' => 'required'
+            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048'
         ]);
+
+        $path = $request->file('foto')->store('images', 'public');
+        // return response()->json(['path' => $path], 200);
 
         Barang::create([
             'nama_barang' => $request->nama_barang,

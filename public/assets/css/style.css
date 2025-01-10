@@ -7573,6 +7573,10 @@
 	margin-bottom:0px;
 }
 
+.register-form .form-group input[type="file"]{
+    color: #ffffff;
+}
+
 .register-form .form-group input[type="text"],
 .register-form .form-group input[type="password"],
 .register-form .form-group input[type="tel"],
@@ -7777,4 +7781,16 @@
 	z-index: 1;
 	font-size: 18px;
 	color: var(--color-six);
+}
+
+.register-form .dropdown {
+    width: 200px;
+    max-height: 150px; /* Maksimal tinggi dropdown */
+    overflow-y: auto;  /* Aktifkan scroll secara vertikal */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.register-form .dropdown option {
+    padding: 10px;
 }

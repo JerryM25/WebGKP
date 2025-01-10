@@ -21,8 +21,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/detaildashboard', function () {
         return view('dashboard-detail');
     });
-    Route::post('/uploadFoto', 'AdminController@uploadFoto')->name('uploadFoto');
-    Route::post('/tambahBarang', 'AdminController@tambahBarang')->name('tambahBarang');
+    Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
+    Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/logout', 'WebController@logout');
 });
 

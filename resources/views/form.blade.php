@@ -68,11 +68,16 @@
                     <div class="register-form">
                         <form method="post" action="{{ route('tambahBarang') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Foto</label>
                                 <div id="fotoDropzone" class="dropzone"></div>
                             </div>
-                            <input type="hidden" name="foto" id="foto">
+                            <input type="hidden" name="foto" id="foto"> --}}
+
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input type="file" id="foto" name="foto" placeholder="" required="">
+                            </div>
 
                             <div class="form-group">
                                 <label>Nama Barang</label>
@@ -85,8 +90,25 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Kategori</label>
-                                <input type="text" id="kategori" name="kategori" placeholder="" required="">
+                                {{-- <label>Kategori</label>
+                                <input type="text" id="kategori" name="kategori" placeholder="" required=""> --}}
+                                <label for="Kategori">Kategori</label>
+                                <select class="dropdown" id="kategori" name="kategori">
+                                    <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
+                                    <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
+                                    <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
+                                    <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
+                                    <option value="Alat Olahraga">Alat Olahraga</option>
+                                    <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
+                                    <option value="Jasa Sewa Server">Jasa Sewa Server</option>
+                                    <option value="Alat Kesehatan">Alat Kesehatan</option>
+                                    <option value="Alat Laboratorium">Alat Laboratorium</option>
+                                    <option value="Alat Kebakaran">Alat Kebakaran</option>
+                                    <option value="Mesin">Mesin</option>
+                                    <option value="Alat Musik">Alat Musik</option>
+                                    <option value="Furnitur">Furnitur</option>
+                                    <option value="Jasa Lainnya">Jasa Lainnya</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -105,8 +127,24 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Satuan</label>
-                                <input type="text" id="satuan" name="satuan" placeholder="" required="">
+                                {{-- <label>Satuan</label>
+                                <input type="text" id="satuan" name="satuan" placeholder="" required=""> --}}
+                                <label for="satuan">Satuan</label>
+                                <select class="dropdown" id="satuan" name="satuan">
+                                    <option value="Paket">Paket</option>
+                                    <option value="Pcs">Pcs</option>
+                                    <option value="Box">Box</option>
+                                    <option value="Unit">Unit</option>
+                                    <option value="Botol">Botol</option>
+                                    <option value="Karung">Karung</option>
+                                    <option value="Hari">Hari</option>
+                                    <option value="Jam">Jam</option>
+                                    <option value="Liter">Liter</option>
+                                    <option value="Lusin">Lusin</option>
+                                    <option value="Gelas">Gelas</option>
+                                    <option value="Meter">Meter</option>
+                                    <option value="Porsi">Porsi</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -174,33 +212,21 @@
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
     <script>
-        console.log("Dropzone URL:", `{{ route('uploadFoto') }}`);
-        Dropzone.autoDiscover = false;
-
-        $(document).ready(function() {
-            if (!Dropzone.instances.length) {
-                var fotoDropzone = new Dropzone("#fotoDropzone", {
-                    url: `{{ route('uploadFoto') }}`,
-                    paramName: "foto",
-                    maxFiles: 1,
-                    acceptedFiles: "image/png,image/jpeg,image/gif",
-                    addRemoveLinks: true,
-                    dictDefaultMessage: "Seret file di sini atau klik untuk mengunggah.",
-                    dictRemoveFile: "Hapus",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    init: function() {
-                        this.on("success", function(file, response) {
-                            $('#foto_path').val(response.path);
-                        });
-                        this.on("removedfile", function(file) {
-                            $('#foto_path').val('');
-                        });
-                    }
-                });
-            }
-        });
+        function previewImage(event) {
+      const file = event.target.files[0];
+      const preview = document.getElementById('preview');
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = '';
+        preview.style.display = 'none';
+      }
+    }
     </script>
 
 
