@@ -23,9 +23,14 @@ class WebController extends Controller
         return view('service');
     }
 
+    // public function product() {
+    //     // $barang = Barang::orderBy('id_barang')->paginate(15);
+    //     return view('product', ['barang' => $barang])->compact($barang, $barang);
+    // }
+
     public function product() {
-        // $barang = Barang::orderBy('id_barang')->paginate(12)->get();
-        return view('product')->compact($collection, $item);
+        // $barang = Barang::orderBy('id_barang')->paginate(15);
+        return view('product');
     }
 
     public function searchBarang(Request $request) {

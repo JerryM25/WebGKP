@@ -49,22 +49,24 @@
                     <br>
                 </div>
 
-                @foreach ($collection as $item)
+                {{-- @if ($barang -> num_rows > 0)
+                @foreach ($barang as $row)
                     <!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
+                <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
+                    <div class="team-block_one-inner">
+                        <div class="team-block_one-image">
+                            <a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
+                        </div>
+                        <div class="team-block_one-content">
+                            <h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+                            <div class="team-block_one-designation">Kategori</div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
+                @else --}}
 
-				{{-- <!-- Team Block One -->
+				<!-- Team Block One -->
 				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
 					<div class="team-block_one-inner">
 						<div class="team-block_one-image">
@@ -140,7 +142,7 @@
 							<div class="team-block_one-designation">Founder</div>
 						</div>
 					</div>
-				</div> --}}
+				</div>
 
 			</div>
 
