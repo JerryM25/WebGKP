@@ -216,7 +216,7 @@
 	display: inline-block;
 	transition: 1.3s cubic-bezier(0.5, 0.5, 0, 1);
     clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-	background-color: rgba(var(--main-color-rgb), 0.10);
+	background-color: rgba(252, 202, 24, 0.10);
 }
 
 .slider-one_title i{
@@ -701,7 +701,7 @@
 }
 
 .about-one .sec-title_title{
-	color: #3912e6;
+	color: #ff973c;
 }
 
 .about-one_icon{
@@ -887,7 +887,7 @@
 }
 
 .answer-one .sec-title_title {
-    color: #3912e6;
+    color: #ff973c;
 }
 
 .answer-one_title-column{
@@ -1202,7 +1202,7 @@
 }
 
 .testimonial-one .sec-title_title {
-    color: #3912e6;
+    color: #ff973c;
 }
 
 .testimonial-one .auto-container{
@@ -1336,7 +1336,7 @@
 }
 
 .steps-one .sec-title_title {
-    color: #3912e6;
+    color: #ff973c;
 }
 
 .steps-one_bg{
@@ -1417,8 +1417,8 @@
 	position: relative;
 	padding: 30px 25px;
 	border-radius: 8px;
-	background: rgba(var(--main-color-rgb), 1);
-    background: linear-gradient(to bottom, rgba(var(--main-color-rgb), 1) 0%, var(--color-two) 100%);
+	background: rgba(255, 151, 60, 1);
+    background: linear-gradient(to bottom, rgba(255, 151, 60, 1) 0%, var(--color-two) 100%);
 }
 
 .step-block_one-steps{
@@ -1428,7 +1428,7 @@
 	display: inline-block;
 	color: var(--white-color);
 	text-transform: capitalize;
-	background-color: var(--color-two);
+	background-color: #ca9566;
 }
 
 .step-block_one-title{
@@ -1444,7 +1444,7 @@
 	font-size: 17px;
 	line-height: 27px;
 	margin-top: 15px;
-	color: var(--color-six);
+	color: #ffffff;
 }
 
 .step-block_one-content{
@@ -1479,7 +1479,7 @@
 }
 
 .price-one .sec-title_title {
-    color: #3912e6;
+    color: #ff973c;
 }
 
 .price-one_bg{
@@ -1871,7 +1871,7 @@
 }
 
 .faq-one .sec-title_title{
-	color: #3912e6;
+	color: #ff973c;
 }
 
 .faq-one .sec-title_text{
@@ -2053,7 +2053,7 @@
 }
 
 .social-one .sec-title_title{
-	color: #3912e6;
+	color: #ff973c;
 }
 
 .social-one .sec-title{
@@ -2164,7 +2164,7 @@
 }
 
 .news-one .sec-title_title{
-	color: #3912e6;
+	color: #ff973c;
 }
 
 .news-one.style-two{
@@ -5248,7 +5248,7 @@
 }
 
 .story-one .sec-title_title{
-	color: #3912e6;
+	color: #ff973c;
 	padding: 0px;
 	background: none;
 }
@@ -5695,7 +5695,7 @@
 }
 
 .price-three .sec-title_title{
-    color: #3912e6;
+    color: #ff973c;
 }
 
 /***
@@ -7376,8 +7376,8 @@
 	font-size: 34px;
 	line-height: 76px;
 	border-radius: 50px;
-	color: var(--main-color);
-	background-color: rgba(var(--main-color-rgb), 0.20);
+	color: #ffffff;
+	background-color: rgba(255, 151, 60, 0.20);
 }
 
 .info-block_one h4{

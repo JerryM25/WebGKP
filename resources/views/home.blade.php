@@ -8,11 +8,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-                <div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-                <div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -39,11 +35,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-                <div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-                <div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -70,11 +62,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-                <div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-                <div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -245,7 +233,7 @@
                 <div class="about-one_tab-outer">
                     <div class="about-one_tab-shadow" style="background-image:url(assets/images/background/tab-shadow.png)"></div>
                     <div class="about-one_tab-image">
-                        <img class="rounded" src="assets/images/gallery/kantor2.jpg" alt="" />
+                        <img class="rounded" src="assets/images/gallery/kantor_GKP1.jpg" alt="" />
                     </div>
                 </div>
             </div>

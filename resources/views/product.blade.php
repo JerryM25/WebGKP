@@ -73,8 +73,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Elliot S. Acevedo</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>
@@ -86,8 +86,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-2.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Ronald Richards</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>
@@ -99,8 +99,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-3.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Guy Hawkins</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>
@@ -112,8 +112,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-4.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Albert Flores</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>
@@ -125,8 +125,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-5.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Jacob Jones</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>
@@ -138,8 +138,8 @@
 							<a href="/detailproduct"><img src="assets/images/resource/team-6.jpg" alt="" /></a>
 						</div>
 						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Robert Fox</a></h4>
-							<div class="team-block_one-designation">Founder</div>
+							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
+							<div class="team-block_one-designation">Kategori</div>
 						</div>
 					</div>
 				</div>

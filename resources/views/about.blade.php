@@ -29,7 +29,7 @@
 				<div class="story-one_image-column col-lg-6 col-md-12 col-sm-12">
 					<div class="story-one_image-outer">
 						<div class="story-one_image">
-							<img src="assets/images/gallery/kantor2.jpg" alt="" />
+							<img src="assets/images/gallery/kantor_GKP1.jpg" alt="" />
 						</div>
 					</div>
 				</div>

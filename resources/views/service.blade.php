@@ -22,7 +22,6 @@
 
     <section class="steps-one">
         <div class="steps-one_bg" style="background-image:url(assets/images/background/step-1_bg.png)"></div>
-        <div class="steps-one_icon" style="background-image:url(assets/images/icons/step.png)"></div>
         <div class="auto-container">
             <div class="inner-container">
                 <div class="circle-layer"></div>
