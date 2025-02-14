@@ -6,10 +6,7 @@
 
 	<!-- Page Title -->
     <section class="page-title">
-		<div class="page-title-icon" style="background-image:url(assets/images/icons/page-title_icon-1.png)"></div>
-		<div class="page-title-icon-two" style="background-image:url(assets/images/icons/page-title_icon-2.png)"></div>
-		<div class="page-title-shadow" style="background-image:url(assets/images/background/page-title-1.png)"></div>
-		<div class="page-title-shadow_two" style="background-image:url(assets/images/background/page-title-2.png)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
         <div class="auto-container">
 			<h2>Our Service</h2>
 			<ul class="bread-crumb clearfix">
@@ -21,7 +18,7 @@
     <!-- End Page Title -->
 
     <section class="steps-one">
-        <div class="steps-one_bg" style="background-image:url(assets/images/background/step-1_bg.png)"></div>
+        <div class="steps-one_bg" style="background-image:url(assets/images/gallery/gradient_circle_large.png)"></div>
         <div class="auto-container">
             <div class="inner-container">
                 <div class="circle-layer"></div>
@@ -63,7 +60,7 @@
                                 <div class="step-block_one-text">Melayani jasa service dengan teknisi berpengalaman <br>Authorize Service Center</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/service.jpg" alt="" height="300" width="300"/>
+                                        <img src="assets/images/gallery/servis2.jpg" alt="" height="300" width="600"/>
                                     </div>
                                 </div>
                             </div>
