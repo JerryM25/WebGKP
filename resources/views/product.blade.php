@@ -5,10 +5,7 @@
 
 	<!-- Page Title -->
     <section class="page-title">
-		<div class="page-title-icon" style="background-image:url(assets/images/icons/page-title_icon-1.png)"></div>
-		<div class="page-title-icon-two" style="background-image:url(assets/images/icons/page-title_icon-2.png)"></div>
-		<div class="page-title-shadow" style="background-image:url(assets/images/background/page-title-1.png)"></div>
-		<div class="page-title-shadow_two" style="background-image:url(assets/images/background/page-title-2.png)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
         <div class="auto-container">
 			<h2>Our Product</h2>
 			<ul class="bread-crumb clearfix">
@@ -23,22 +20,32 @@
 	<section class="team-two">
 		<div class="auto-container">
 			<div class="row clearfix">
-                <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                </div>
                 <!-- Search -->
-                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                <div class="big-column col-lg-12 col-md-12 col-sm-12">
                     <div class="footer-newsletter">
-                        <div class="newsletter-box">
-                            <form method="post" action="/caribarang">
+                        <div class="product-form">
+                            <form method="get" action="/product">
                                 <div class="form-group">
-                                    <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
-                                    <input type="text" name="search-field" value="" placeholder="Search" required>
-                                    <button type="submit" class="template-btn btn-style-one">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Search</span>
-                                            <span class="text-two">Search</span>
-                                        </span>
-                                    </button>
+                                    {{-- <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
+                                    <input type="text" name="search-field" value="" placeholder="Search" required> --}}
+                                    <label for="Kategori">Kategori</label>
+                                    <select class="dropdown" id="kategori" name="kategori" onchange="this.form.submit()">
+                                        <option value="Semua Kategori">Semua Kategori</option>
+                                        <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
+                                        <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
+                                        <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
+                                        <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
+                                        <option value="Alat Olahraga">Alat Olahraga</option>
+                                        <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
+                                        <option value="Jasa Sewa Server">Jasa Sewa Server</option>
+                                        <option value="Alat Kesehatan">Alat Kesehatan</option>
+                                        <option value="Alat Laboratorium">Alat Laboratorium</option>
+                                        <option value="Alat Kebakaran">Alat Kebakaran</option>
+                                        <option value="Mesin">Mesin</option>
+                                        <option value="Alat Musik">Alat Musik</option>
+                                        <option value="Furnitur">Furnitur</option>
+                                        <option value="Jasa Lainnya">Jasa Lainnya</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
@@ -49,100 +56,23 @@
                     <br>
                 </div>
 
-                {{-- @if ($barang -> num_rows > 0)
-                @foreach ($barang as $row)
-                    <!-- Team Block One -->
+                @foreach ($barang as $barang)
                 <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
                     <div class="team-block_one-inner">
                         <div class="team-block_one-image">
-                            <a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
+                            <a href="/detailproduct"><img src="{{ $barang->foto }}" alt="{{ $barang->nama_barang }}" /></a>
                         </div>
                         <div class="team-block_one-content">
-                            <h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-                            <div class="team-block_one-designation">Kategori</div>
+                            <h4 class="team-block_one-title"><a href="/detailproduct">{{ $barang->nama_barang }}</a></h4>
+                            <div class="team-block_one-designation">{{ $barang->kategori }}</div>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                @else --}}
 
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-2.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-3.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-4.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-5.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Team Block One -->
-				<div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="team-block_one-inner">
-						<div class="team-block_one-image">
-							<a href="/detailproduct"><img src="assets/images/resource/team-6.jpg" alt="" /></a>
-						</div>
-						<div class="team-block_one-content">
-							<h4 class="team-block_one-title"><a href="/detailproduct">Nama Barang</a></h4>
-							<div class="team-block_one-designation">Kategori</div>
-						</div>
-					</div>
-				</div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <br><br><br><br><br>
+                </div>
 
 			</div>
 

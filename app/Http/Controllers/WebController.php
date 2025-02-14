@@ -23,22 +23,18 @@ class WebController extends Controller
         return view('service');
     }
 
-    // public function product() {
-    //     // $barang = Barang::orderBy('id_barang')->paginate(15);
-    //     return view('product', ['barang' => $barang])->compact($barang, $barang);
+    public function tampil(Request $request) {
+        $kategori = $request->query('kategori', 'Semua Kategori');
+        $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
+        return view('product', compact('barang', 'kategori'));
+    }
+
+    // public function searchBarang(Request $request) {
+    //     $cari = $request->q;
+    //     $barang = Barang::where('nama_barang', 'Like', '%'.$cari.'%')->orWhere('kategori', 'like', '%'.$cari.'%')->orderBy('id', 'asc')->paginate(12);
+    //     $cari->appends($request->all());
+    //     return view('product');
     // }
-
-    public function product() {
-        // $barang = Barang::orderBy('id_barang')->paginate(15);
-        return view('product');
-    }
-
-    public function searchBarang(Request $request) {
-        $cari = $request->q;
-        $barang = Barang::where('nama_barang', 'Like', '%'.$cari.'%')->orWhere('kategori', 'like', '%'.$cari.'%')->orderBy('id', 'asc')->paginate(12);
-        $cari->appends($request->all());
-        return view('product');
-    }
 
     public function about() {
         return view('about');

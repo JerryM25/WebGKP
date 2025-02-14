@@ -38,10 +38,11 @@ class AuthController extends Controller
         ]);
     }
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        $barang = barang::paginate(15);
-        return view('dashboard', ['barang' => $barang]);
+        $kategori = $request->query('kategori', 'Semua Kategori');
+        $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
+        return view('dashboard', compact('barang', 'kategori'));
     }
 
     public function formTambah()
@@ -59,7 +60,7 @@ class AuthController extends Controller
             'keterangan' => 'required',
             'satuan' => 'required',
             'stok' => 'required',
-            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            'foto' => 'required|image|mimes:jpg,jpeg,png|max:5000'
         ]);
 
         $path = $request->file('foto')->store('images', 'public');

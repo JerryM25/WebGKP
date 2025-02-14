@@ -64,120 +64,67 @@
 </div>
 {{-- End Tambah Barang --}}
 {{-- Barang --}}
-<div class="container-fluid">
-<div class="row">
-    <div class="col-md-2">
-        <div class="d-flex align-items-start">
-            <div class="sec-title title-anim centered">
-                <div class="sec-title_title">Categories</div>
-            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <div class="form-check text-white">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Default checkbox
-                    </label>
-                  </div>
-                  <div class="form-check text-white">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Checked checkbox
-                    </label>
-                  </div>
+<section class="team-two">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Search -->
+            <div class="big-column col-lg-12 col-md-12 col-sm-12">
+                <div class="footer-newsletter">
+                    <div class="product-form">
+                        <form method="get" action="/dashboard">
+                            <div class="form-group">
+                                {{-- <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
+                                <input type="text" name="search-field" value="" placeholder="Search" required> --}}
+                                <label for="Kategori">Kategori</label>
+                                <select class="dropdown" id="kategori" name="kategori" onchange="this.form.submit()">
+                                    <option value="Semua Kategori">Semua Kategori</option>
+                                    <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
+                                    <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
+                                    <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
+                                    <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
+                                    <option value="Alat Olahraga">Alat Olahraga</option>
+                                    <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
+                                    <option value="Jasa Sewa Server">Jasa Sewa Server</option>
+                                    <option value="Alat Kesehatan">Alat Kesehatan</option>
+                                    <option value="Alat Laboratorium">Alat Laboratorium</option>
+                                    <option value="Alat Kebakaran">Alat Kebakaran</option>
+                                    <option value="Mesin">Mesin</option>
+                                    <option value="Alat Musik">Alat Musik</option>
+                                    <option value="Furnitur">Furnitur</option>
+                                    <option value="Jasa Lainnya">Jasa Lainnya</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <br>
+            </div>
+
+            @foreach ($barang as $barang)
+            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
+                <div class="team-block_one-inner">
+                    <div class="team-block_one-image">
+                        <a href="/detaildashboard"><img src="{{ $barang->foto }}" alt="{{ $barang->nama_barang }}" /></a>
+                    </div>
+                    <div class="team-block_one-content">
+                        <h4 class="team-block_one-title"><a href="/detaildashboard">{{ $barang->nama_barang }}</a></h4>
+                        <div class="team-block_one-designation">{{ $barang->kategori }}</div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <br>
+            </div>
+
         </div>
-          </div>
+
     </div>
-    <div class="col-md-10">
-        <div class="sec-title title-anim centered">
-            <div class="sec-title_title">Our Product</div>
-            <div class="tab active-tab" id="prod-monthly">
-                <div class="content">
-                    <div class="row clearfix">
-<!-- Team Two -->
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-1.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-2.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-3.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-4.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-5.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Block One -->
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="assets/images/resource/team-6.jpg" alt="" /></a>
-                    </div>
-                    <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">Nama Barang</a></h4>
-                        <div class="team-block_one-designation">Kategori</div>
-                    </div>
-                </div>
-            </div>
-
-<!-- End Team Two -->
-                    </div>
-        </div>
-    </div>
-</div>
-</div>
+</section>
 {{-- End Barang --}}
 
 <div class="progress-wrap">

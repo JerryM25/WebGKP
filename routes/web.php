@@ -32,7 +32,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/', 'WebController@home');
     Route::get('/about', 'WebController@about');
     Route::get('/contact', 'WebController@contact');
-    Route::get('/product', 'WebController@product');
+    Route::get('/product', 'WebController@tampil');
     Route::get('/service', 'WebController@service');
     Route::get('/admin', 'WebController@admin');
     Route::get('/login', 'WebController@login')->name('login');

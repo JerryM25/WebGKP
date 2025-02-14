@@ -6,10 +6,7 @@
 	<!-- Page Title -->
     <section class="page-title">
 
-		<div class="page-title-icon" style="background-image:url(assets/images/icons/page-title_icon-1.png)"></div>
-		<div class="page-title-icon-two" style="background-image:url(assets/images/icons/page-title_icon-2.png)"></div>
-		<div class="page-title-shadow" style="background-image:url(assets/images/background/page-title-1.png)"></div>
-		<div class="page-title-shadow_two" style="background-image:url(assets/images/background/page-title-2.png)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
         <div class="auto-container">
 			<h2>About us</h2>
 			<ul class="bread-crumb clearfix">
