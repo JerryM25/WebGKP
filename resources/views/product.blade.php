@@ -64,7 +64,7 @@
                             <a href="{{ "/product/{id}", $barang->id }}"><img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" /></a>
                         </div>
                         <div class="team-block_one-content">
-                            <h4 class="team-block_one-title"><a href="/detailproduct">{{ $barang->nama_barang }}</a></h4>
+                            <h4 class="team-block_one-title"><a href="{{ "/product/{id}", $barang->id }}">{{ $barang->nama_barang }}</a></h4>
                             <div class="team-block_one-designation">{{ $barang->kategori }}</div>
                         </div>
                     </div>
