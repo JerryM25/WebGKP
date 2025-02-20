@@ -19,4 +19,6 @@ class barang extends Model
         'stok',
         'satuan'
     ];
+
+    protected $primaryKey = 'id_barang';
 }

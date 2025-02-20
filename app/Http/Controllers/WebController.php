@@ -29,8 +29,8 @@ class WebController extends Controller
         return view('product', compact('barang', 'kategori'));
     }
 
-    public function detail($id) {
-        $barang = Barang::find($id);
+    public function detail($id_barang) {
+        $barang = Barang::where($id_barang);
         return view('product-detail', compact('barang'));
     }
 
