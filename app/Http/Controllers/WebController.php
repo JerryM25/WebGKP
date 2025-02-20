@@ -30,7 +30,7 @@ class WebController extends Controller
     }
 
     public function detail($id_barang) {
-        $barang = Barang::where($id_barang)->first();
+        $barang = Barang::where('id_barang', $id_barang)->first();
         return view('product-detail', compact('barang'));
     }
 

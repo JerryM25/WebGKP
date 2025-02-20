@@ -7017,6 +7017,8 @@
 	border-radius: 8px;
 	overflow: hidden;
 	display: inline-block;
+    max-width: 15cm;
+    max-height: 10cm;
 }
 
 .team-detail_content-column{

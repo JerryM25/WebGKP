@@ -5,10 +5,7 @@
 
 	<!-- Page Title -->
     <section class="page-title">
-		<div class="page-title-icon" style="background-image:url(assets/images/icons/page-title_icon-1.png)"></div>
-		<div class="page-title-icon-two" style="background-image:url(assets/images/icons/page-title_icon-2.png)"></div>
-		<div class="page-title-shadow" style="background-image:url(assets/images/background/page-title-1.png)"></div>
-		<div class="page-title-shadow_two" style="background-image:url(assets/images/background/page-title-2.png)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
         <div class="auto-container">
 			<h2>Our Product</h2>
 			<ul class="bread-crumb clearfix">
@@ -28,7 +25,7 @@
                 <div class="team-detail_image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="team-detail_image-outer">
                         <div class="team-detail_image">
-                            <img src="{{ asset('storage/' . $barang->foto) }}" alt="" />
+                            <img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
                         </div>
                     </div>
                 </div>
@@ -44,10 +41,10 @@
                             <div class="row clearfix">
                                 <!-- Column -->
                                 <div class="column col-lg-12 col-md-12 col-sm-12">
-                                    <div class="team-detail_info">
+                                    {{-- <div class="team-detail_info">
                                         Berat
                                         <span>500 gram</span>
-                                    </div>
+                                    </div> --}}
                                     <div class="team-detail_info">
                                         Satuan
                                         <span>{{ $barang->satuan }}</span>
