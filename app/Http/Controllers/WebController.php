@@ -29,7 +29,7 @@ class WebController extends Controller
         return view('product', compact('barang', 'kategori'));
     }
 
-    public function detail(Request $request, $id) {
+    public function detail($id) {
         $barang = Barang::find($id);
         return view('product-detail', compact('barang'));
     }
