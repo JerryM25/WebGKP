@@ -109,7 +109,6 @@
                         <br>
 
 						<div class="form-group">
-							<!-- Button Box -->
 							<button type="submit" class="submit-btn btn-style-one">
 								<span class="btn-wrap">
 									<span class="text-one">Login</span>

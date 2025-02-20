@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 {{-- <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
                                 <input type="text" name="search-field" value="" placeholder="Search" required> --}}
-                                <label for="Kategori">Kategori</label>
+                                <label for="Kategori">Filter by Kategori</label>
                                 <select class="dropdown" id="kategori" name="kategori" onchange="this.form.submit()">
                                     <option value="Semua Kategori">Semua Kategori</option>
                                     <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
@@ -107,7 +107,7 @@
             <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
                 <div class="team-block_one-inner">
                     <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="{{ $barang->foto }}" alt="{{ $barang->nama_barang }}" /></a>
+                        <a href="/detaildashboard"><img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" /></a>
                     </div>
                     <div class="team-block_one-content">
                         <h4 class="team-block_one-title"><a href="/detaildashboard">{{ $barang->nama_barang }}</a></h4>

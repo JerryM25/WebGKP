@@ -64,14 +64,13 @@ class AuthController extends Controller
         ]);
 
         $path = $request->file('foto')->store('images', 'public');
-        // return response()->json(['path' => $path], 200);
 
         Barang::create([
             'nama_barang' => $request->nama_barang,
             'harga_beli' => $request->harga_beli,
             'harga_jual' => $request->harga_jual,
             'kategori' => $request->kategori,
-            'foto' => $request->foto,
+            'foto' => $path,
             'keterangan' => $request->keterangan,
             'stok' => $request->stok,
             'satuan' => $request->satuan

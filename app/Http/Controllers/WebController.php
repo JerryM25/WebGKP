@@ -29,6 +29,11 @@ class WebController extends Controller
         return view('product', compact('barang', 'kategori'));
     }
 
+    public function detail(Request $request, $id) {
+        $barang = Barang::find($id);
+        return view('product-detail', compact('barang'));
+    }
+
     // public function searchBarang(Request $request) {
     //     $cari = $request->q;
     //     $barang = Barang::where('nama_barang', 'Like', '%'.$cari.'%')->orWhere('kategori', 'like', '%'.$cari.'%')->orderBy('id', 'asc')->paginate(12);

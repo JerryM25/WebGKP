@@ -28,7 +28,7 @@
                 <div class="team-detail_image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="team-detail_image-outer">
                         <div class="team-detail_image">
-                            <img src="assets/images/resource/team-7.jpg" alt="" />
+                            <img src="{{ asset('storage/' . $barang->foto) }}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                 <div class="team-detail_content-column col-lg-6 col-md-12 col-sm-12">
                     <div class="team-detail_content-outer">
                         <div class="team-detail_subtitle">Detail</div>
-                        <h2 class="team-detail_title">Nama Barang</h2>
-                        <div class="team-detail_text">Kategori</div>
-                        <div class="team-detail_text">Spesifikasi dll <br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, veniam! Deserunt, adipisci!</div>
+                        <h2 class="team-detail_title">{{ $barang->nama_barang }}</h2>
+                        <div class="team-detail_text">{{ $barang->kategori }}</div>
+                        <div class="team-detail_text">Spesifikasi<br>{{ $barang->keterangan }}</div>
                         <div class="team-detail_info-outer">
                             <div class="row clearfix">
                                 <!-- Column -->
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="team-detail_info">
                                         Satuan
-                                        <span>Unit/Kabinet/Pcs</span>
+                                        <span>{{ $barang->satuan }}</span>
                                     </div>
                                 </div>
                             </div>

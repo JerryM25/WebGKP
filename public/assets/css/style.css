@@ -526,6 +526,7 @@
 	border-radius: 8px;
 	background: rgba(var(--white-color-rgb), 0.10);
     background: linear-gradient(to bottom, rgba(var(--white-color-rgb), 0.10) 0%, var(--color-two) 100%);
+    height: 10cm;
 }
 
 .service-block_one-inner::before{
@@ -845,6 +846,7 @@
 	border-radius: 6px;
 	padding: 40px 30px 38px;
 	background-color: rgba(var(--white-color-rgb), 0.10);
+    height: 6cm;
 }
 
 .counter-block_one-inner:hover .counter-block_one-icon{
@@ -5329,6 +5331,7 @@
 	padding: 50px 40px;
 	border-radius: 8px;
 	background-color: var(--color-eight);
+    height: 14cm;
 }
 
 .value-block_one-icon{
@@ -5433,12 +5436,16 @@
 	position: relative;
 	border-radius: 8px;
 	overflow: hidden;
+    height: 7cm;
+    max-height: 10cm;
 }
 
 .team-block_one-image img{
 	position: relative;
 	width: 100%;
 	display: block;
+    height: 7cm;
+    max-height: 10cm;
 }
 
 .team-block_one-content{
@@ -7370,6 +7377,7 @@
 	border-radius: 8px;
 	padding: 50px 30px 42px;
 	background-color: var(--color-seven);
+    height: 8cm;
 }
 
 .info-block_one-icon{
