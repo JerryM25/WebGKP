@@ -86,7 +86,14 @@ class AuthController extends Controller
 
     public function editBarang(Request $request)
     {
-        Barang::where('id_barang', $id_barang) - first();
+        Barang::where('id_barang', $id_barang)->first();
+    }
+
+    public function deleteBarang($id_barang){
+        $barang = Barang::where('id_barang', $id_barang)->first();
+        $barang->delete();
+
+        return redirect('/dashboard');
     }
 
     public function detail($id_barang) {

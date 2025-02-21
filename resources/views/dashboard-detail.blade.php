@@ -128,15 +128,20 @@
                         </div>
 
                         <div class="column col-lg-6 col-md-12 col-sm-12">
-                            <div class="team-detail_button">
-                                <a href="" class="template-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Delete</span>
-                                        <span class="text-two">Delete</span>
-                                    </span>
-                                </a>
-                            </div>
+                            <form action="{{ route('barang.delete', $barang->id_barang) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <div class="team-detail_button">
+                                    <button class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Delete</span>
+                                            <span class="text-two">Delete</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
+
                     </div>
 
                 </div>

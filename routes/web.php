@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/tambah', 'AuthController@formTambah');
 
     Route::get('/dashboard/{id}', 'AuthController@detail')->name('dashboard.detail');
+    Route::delete('/delete/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/logout', 'WebController@logout');
