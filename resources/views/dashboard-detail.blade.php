@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <title>Dashboard Detail- Glory Karya Perkasa</title>
 <!-- Stylesheets -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/meanmenu.min.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/meanmenu.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="shortcut icon" href="assets/images/logo-removebg.png" type="image/x-icon">
-<link rel="icon" href="assets/images/logo-removebg.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('assets/images/logo-removebg.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/images/logo-removebg.png') }}" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,7 +60,7 @@
 			<div class="close-btn"><span class="icon fa-solid fa-xmark fa-fw"></span></div>
 
 			<nav class="menu-box">
-				<div class="nav-logo"><a href="/"><img src="assets/images/logo-removebg.png" alt="" title="" height="50" width="50"></a></div>
+				<div class="nav-logo"><a href="/"><img src="{{ asset('assets/images/logo-removebg.png') }}" alt="" title="" height="50" width="50"></a></div>
 				<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
 			</nav>
 		</div>
@@ -77,7 +77,7 @@
             <div class="team-detail_image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="team-detail_image-outer">
                     <div class="team-detail_image">
-                        <img src="assets/images/resource/team-7.jpg" alt="" />
+                        <img class="team-detail_image" src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
                     </div>
                 </div>
             </div>
@@ -86,20 +86,21 @@
             <div class="team-detail_content-column col-lg-6 col-md-12 col-sm-12">
                 <div class="team-detail_content-outer">
                     <div class="team-detail_subtitle">Detail</div>
-                        <h2 class="team-detail_title">Nama Barang</h2>
-                        <div class="team-detail_text">Kategori</div>
-                        <div class="team-detail_text">Spesifikasi dll <br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, veniam! Deserunt, adipisci!</div>
+                        <h2 class="team-detail_title">{{ $barang->nama_barang }}</h2>
+                        <div class="team-detail_text">{{ $barang->kategori }}</div>
+                        <div class="team-detail_subtitle"><span>Spesifikasi</span></div>
+                        <div class="team-detail_text">{{ $barang->keterangan }}</div>
                         <div class="team-detail_info-outer">
                             <div class="row clearfix">
                                 <!-- Column -->
                                 <div class="column col-lg-12 col-md-12 col-sm-12">
-                                    <div class="team-detail_info">
+                                    {{-- <div class="team-detail_info">
                                         Berat
                                         <span>500 gram</span>
-                                    </div>
+                                    </div> --}}
                                     <div class="team-detail_info">
                                         Satuan
-                                        <span>Unit/Kabinet/Pcs</span>
+                                        <span>{{ $barang->satuan }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -144,32 +145,32 @@
 	</svg>
 </div>
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/parallax.min.js"></script>
-<script src="assets/js/tilt.jquery.min.js"></script>
-<script src="assets/js/jquery.paroller.min.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/swiper.min.js"></script>
-<script src="assets/js/backtotop.js"></script>
-<script src="assets/js/odometer.js"></script>
-<script src="assets/js/parallax-scroll.js"></script>
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/appear.js') }}"></script>
+<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+<script src="{{ asset('assets/js/tilt.jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.paroller.min.js') }}"></script>
+<script src="{{ asset('assets/js/wow.js') }}"></script>
+<script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+<script src="{{ asset('assets/js/backtotop.js') }}"></script>
+<script src="{{ asset('assets/js/odometer.js') }}"></script>
+<script src="{{ asset('assets/js/parallax-scroll.js') }}"></script>
 
-<script src="assets/js/gsap.min.js"></script>
-<script src="assets/js/SplitText.min.js"></script>
-<script src="assets/js/ScrollTrigger.min.js"></script>
-<script src="assets/js/ScrollToPlugin.min.js"></script>
-<script src="assets/js/ScrollSmoother.min.js"></script>
+<script src="{{ asset('assets/js/gsap.min.js') }}"></script>
+<script src="{{ asset('assets/js/SplitText.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollToPlugin.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollSmoother.min.js') }}"></script>
 
-<script src="assets/js/touchspin.js"></script>
-<script src="assets/js/jquery.marquee.min.js"></script>
-<script src="assets/js/magnific-popup.min.js"></script>
-<script src="assets/js/nav-tool.js"></script>
-<script src="assets/js/jquery-ui.js"></script>
-<script src="assets/js/element-in-view.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="{{ asset('assets/js/touchspin.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.marquee.min.js') }}"></script>
+<script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/nav-tool.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+<script src="{{ asset('assets/js/element-in-view.js') }}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/blade.php5shiv/3.7.3/blade.php5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->

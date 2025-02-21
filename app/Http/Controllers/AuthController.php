@@ -88,4 +88,9 @@ class AuthController extends Controller
     {
         Barang::where('id_barang', $id_barang) - first();
     }
+
+    public function detail($id_barang) {
+        $barang = Barang::where('id_barang', $id_barang)->first();
+        return view('dashboard-detail', compact('barang'));
+    }
 }

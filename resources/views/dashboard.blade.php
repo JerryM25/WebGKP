@@ -104,13 +104,14 @@
             </div>
 
             @foreach ($barang as $barang)
+            @csrf
             <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
                 <div class="team-block_one-inner">
                     <div class="team-block_one-image">
-                        <a href="/detaildashboard"><img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" /></a>
+                        <a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}"><img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" /></a>
                     </div>
                     <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="/detaildashboard">{{ $barang->nama_barang }}</a></h4>
+                        <h4 class="team-block_one-title"><a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}">{{ $barang->nama_barang }}</a></h4>
                         <div class="team-block_one-designation">{{ $barang->kategori }}</div>
                     </div>
                 </div>

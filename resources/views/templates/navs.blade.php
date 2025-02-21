@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <title>@yield('title') - CV Glory Karya Perkasa</title>
 <!-- Stylesheets -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/meanmenu.min.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/meanmenu.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="shortcut icon" href="assets/images/logo-removebg.png" type="image/x-icon">
-<link rel="icon" href="assets/images/logo-removebg.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('assets/images/logo-removebg.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/images/logo-removebg.png') }}" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +61,7 @@
 					<div class="d-flex justify-content-between align-items-center flex-wrap">
 
 						<div class="logo-box">
-							<div class="logo"><a href="/"><img src="assets/images/logo-removebg.png" alt="" title="" width="50" height="50"></a></div>
+							<div class="logo"><a href="/"><img src="{{ asset('assets/images/logo-removebg.png') }}" alt="" title="" width="50" height="50"></a></div>
 						</div>
 
 						<div class="nav-outer d-flex flex-wrap">
@@ -109,7 +109,7 @@
 			<div class="close-btn"><span class="icon fa-solid fa-xmark fa-fw"></span></div>
 
 			<nav class="menu-box">
-				<div class="nav-logo"><a href="/"><img src="assets/images/logo-removebg.png" alt="" title="" height="50" width="50"></a></div>
+				<div class="nav-logo"><a href="/"><img src="{{ asset('assets/images/logo-removebg.png') }}" alt="" title="" height="50" width="50"></a></div>
 				<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
 			</nav>
 		</div>
@@ -119,12 +119,12 @@
         @yield('content')
 
         <footer class="main-footer">
-            <div class="footer_pattern" style="background-image: url(assets/images/background/footer-pattern.png)"></div>
+            {{-- <div class="footer_pattern" style="background-image: url(assets/images/background/footer-pattern.png)"></div> --}}
 
             <div class="footer-bottom">
                 <div class="auto-container">
                     <div class="inner-container d-flex justify-content-between align-items-center flex-wrap">
-                        <div class="footer-logo"><a href="/"><img src="assets/images/logo-removebg.png" width="50" height="50"></a></div>
+                        <div class="footer-logo"><a href="/"><img src="{{ asset('assets/images/logo-removebg.png') }}" width="50" height="50"></a></div>
                         <div class="footer-copyright">&copy; 2024 <a href="/">CV Glory Karya Perkasa</a> All rights reserved.</div>
                     </div>
                 </div>
@@ -138,32 +138,32 @@
 	</svg>
 </div>
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/parallax.min.js"></script>
-<script src="assets/js/tilt.jquery.min.js"></script>
-<script src="assets/js/jquery.paroller.min.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/swiper.min.js"></script>
-<script src="assets/js/backtotop.js"></script>
-<script src="assets/js/odometer.js"></script>
-<script src="assets/js/parallax-scroll.js"></script>
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/appear.js') }}"></script>
+<script src="{{ asset('assets/js/parallax.min.js') }}"></script>
+<script src="{{ asset('assets/js/tilt.jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.paroller.min.js') }}"></script>
+<script src="{{ asset('assets/js/wow.js') }}"></script>
+<script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+<script src="{{ asset('assets/js/backtotop.js') }}"></script>
+<script src="{{ asset('assets/js/odometer.js') }}"></script>
+<script src="{{ asset('assets/js/parallax-scroll.js') }}"></script>
 
-<script src="assets/js/gsap.min.js"></script>
-<script src="assets/js/SplitText.min.js"></script>
-<script src="assets/js/ScrollTrigger.min.js"></script>
-<script src="assets/js/ScrollToPlugin.min.js"></script>
-<script src="assets/js/ScrollSmoother.min.js"></script>
+<script src="{{ asset('assets/js/gsap.min.js') }}"></script>
+<script src="{{ asset('assets/js/SplitText.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollToPlugin.min.js') }}"></script>
+<script src="{{ asset('assets/js/ScrollSmoother.min.js') }}"></script>
 
-<script src="assets/js/touchspin.js"></script>
-<script src="assets/js/jquery.marquee.min.js"></script>
-<script src="assets/js/magnific-popup.min.js"></script>
-<script src="assets/js/nav-tool.js"></script>
-<script src="assets/js/jquery-ui.js"></script>
-<script src="assets/js/element-in-view.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="{{ asset('assets/js/touchspin.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.marquee.min.js') }}"></script>
+<script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/nav-tool.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+<script src="{{ asset('assets/js/element-in-view.js') }}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/blade.php5shiv/3.7.3/blade.php5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->

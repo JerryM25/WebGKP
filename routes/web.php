@@ -18,9 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'AuthController@dashboard')->name('dashboard');
     Route::get('/tambah', 'AuthController@formTambah');
 
-    Route::get('/detaildashboard', function () {
-        return view('dashboard-detail');
-    });
+    Route::get('/dashboard/{id}', 'AuthController@detail')->name('dashboard.detail');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/logout', 'WebController@logout');
@@ -33,7 +31,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/about', 'WebController@about');
     Route::get('/contact', 'WebController@contact');
     Route::get('/product', 'WebController@tampil');
-    Route::get('/product/{id}', 'WebController@detail');
+    Route::get('/product/{id}', 'WebController@detail')->name('product.detail');
     Route::get('/service', 'WebController@service');
     Route::get('/admin', 'WebController@admin')->name('login');
     Route::get('/login', 'WebController@login')->name('login');

@@ -3,9 +3,8 @@
 
 @section('content')
 
-	<!-- Page Title -->
     <section class="page-title">
-		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
+		<div class="page-title-shadow" style="background-image:url('{{ asset('assets/images/main-slider/background-daun-gelap-1.png') }}')"></div>
         <div class="auto-container">
 			<h2>Our Product</h2>
 			<ul class="bread-crumb clearfix">
@@ -15,17 +14,16 @@
 			</ul>
         </div>
     </section>
-    <!-- End Page Title -->
-    <!-- Team Detail -->
+
+
     <section class="team-detail">
         <div class="auto-container">
             <div class="row clearfix">
 
-                <!-- Team Block One -->
                 <div class="team-detail_image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="team-detail_image-outer">
                         <div class="team-detail_image">
-                            <img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
+                            <img class="team-detail_image" src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
                         </div>
                     </div>
                 </div>
@@ -36,7 +34,8 @@
                         <div class="team-detail_subtitle">Detail</div>
                         <h2 class="team-detail_title">{{ $barang->nama_barang }}</h2>
                         <div class="team-detail_text">{{ $barang->kategori }}</div>
-                        <div class="team-detail_text">Spesifikasi<br>{{ $barang->keterangan }}</div>
+                        <div class="team-detail_subtitle"><span>Spesifikasi</span></div>
+                        <div class="team-detail_text">{{ $barang->keterangan }}</div>
                         <div class="team-detail_info-outer">
                             <div class="row clearfix">
                                 <!-- Column -->
@@ -65,15 +64,13 @@
                                 </div>
                             </div>
                         </div>
-
+                        <br>
                     </div>
                 </div>
-
             </div>
 
         </div>
     </section>
-    <!-- End Team Detail -->
 
 
 @endsection
