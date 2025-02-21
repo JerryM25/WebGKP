@@ -92,12 +92,21 @@
                         <div class="team-detail_text">{{ $barang->keterangan }}</div>
                         <div class="team-detail_info-outer">
                             <div class="row clearfix">
-                                <!-- Column -->
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="team-detail_info">
+                                        Harga Jual
+                                        <span>Rp {{ number_format($barang->harga_jual, 0, ',', '.') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="team-detail_info">
+                                        Harga Beli
+                                        <span>Rp {{ number_format($barang->harga_beli, 0, ',', '.') }}</span>
+                                    </div>
+                                </div>
+
                                 <div class="column col-lg-12 col-md-12 col-sm-12">
-                                    {{-- <div class="team-detail_info">
-                                        Berat
-                                        <span>500 gram</span>
-                                    </div> --}}
                                     <div class="team-detail_info">
                                         Satuan
                                         <span>{{ $barang->satuan }}</span>
@@ -109,7 +118,7 @@
                     <div class="row clearfix">
                         <div class="column col-lg-6 col-md-12 col-sm-12">
                             <div class="team-detail_button">
-                                <a href="/tambah" class="template-btn btn-style-one">
+                                <a href="" class="template-btn btn-style-one">
                                     <span class="btn-wrap">
                                         <span class="text-one">Edit</span>
                                         <span class="text-two">Edit</span>
@@ -120,7 +129,7 @@
 
                         <div class="column col-lg-6 col-md-12 col-sm-12">
                             <div class="team-detail_button">
-                                <a href="/tambah" class="template-btn btn-style-one">
+                                <a href="" class="template-btn btn-style-one">
                                     <span class="btn-wrap">
                                         <span class="text-one">Delete</span>
                                         <span class="text-two">Delete</span>

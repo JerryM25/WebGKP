@@ -516,12 +516,13 @@
 
 .service-block_one{
 	position: relative;
+    margin-top: 30px;
 	margin-bottom: 30px;
 }
 
 .service-block_one-inner{
 	position: relative;
-	padding: 30px 30px;
+	padding: 30px;
 	overflow: hidden;
 	border-radius: 8px;
 	background: rgba(var(--white-color-rgb), 0.10);
@@ -543,7 +544,12 @@
 }
 
 .service-block_one-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	position: relative;
+    margin: 0;
+    padding: 0;
 	width: 70px;
 	height: 70px;
 	font-size: 32px;
@@ -561,6 +567,9 @@
 }
 
 .service-block_one-icon::before{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	position: absolute;
 	content: '';
 	left: 0px;
@@ -5520,7 +5529,7 @@
 }
 
 .clients-two .sec-title_title{
-	color: var(--color-five);
+	color: #ff973c;
 }
 
 .clients-two .client-image{
@@ -7399,6 +7408,9 @@
 }
 
 .info-block_one-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	position: relative;
 	width: 70px;
 	height: 70px;
