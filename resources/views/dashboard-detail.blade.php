@@ -106,7 +106,14 @@
                                     </div>
                                 </div>
 
-                                <div class="column col-lg-12 col-md-12 col-sm-12">
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="team-detail_info">
+                                        Stok
+                                        <span>{{ $barang->stok }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
                                     <div class="team-detail_info">
                                         Satuan
                                         <span>{{ $barang->satuan }}</span>
@@ -118,7 +125,7 @@
                     <div class="row clearfix">
                         <div class="column col-lg-6 col-md-12 col-sm-12">
                             <div class="team-detail_button">
-                                <a href="" class="template-btn btn-style-one">
+                                <a href="{{ route('barang.edit', $barang->id_barang) }}" class="template-btn btn-style-one">
                                     <span class="btn-wrap">
                                         <span class="text-one">Edit</span>
                                         <span class="text-two">Edit</span>

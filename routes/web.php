@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/delete/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
+    Route::get('/dashboard/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
+    Route::put('/dashboard/{id}', 'AuthController@updateBarang')->name('barang.update');
     Route::get('/logout', 'WebController@logout');
 });
 

@@ -7633,7 +7633,7 @@
 	border-radius:8px;
 	font-weight: 400;
 	font-size:15px;
-	color:var(--color-six);
+	color:var(--white-color);
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
@@ -7664,7 +7664,7 @@
 	line-height:24px;
 	padding:15px 25px 25px;
 	font-size:15px;
-	color:var(--color-six);
+	color:var(--white-color);
 	height:190px;
 	resize:none;
 	border-radius:8px;
@@ -7680,6 +7680,15 @@
 
 .register-form .form-group button{
 	margin-top: 10px;
+}
+
+.product-form .form-group label{
+	position: relative;
+	display: block;
+	font-size: 14px;
+	font-weight: 550;
+	margin-bottom: 10px;
+	color: var(--white-color);
 }
 
 .register-form label{

@@ -78,15 +78,40 @@ class AuthController extends Controller
         return redirect('/dashboard');
     }
 
-    public function formEdit()
+    public function updateBarang(Request $request, $id_barang)
     {
+        $barang = Barang::where('id_barang', $id_barang)->first();
 
-        return view('form');
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_beli' => 'required|numeric',
+            'harga_jual' => 'required|numeric',
+            'kategori' => 'required',
+            'keterangan' => 'required',
+            'satuan' => 'required',
+            'stok' => 'required|numeric',
+            // 'foto' => 'required|image|mimes:jpg,jpeg,png|max:5000'
+        ]);
+
+        // $path = $request->file('foto')->store('images', 'public');
+
+        $barang->update([
+            'nama_barang' => $request->nama_barang,
+            'keterangan' => $request->keterangan,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual,
+            'stok' => $request->stok,
+            'satuan' => $request->satuan,
+            'kategori' => $request->kategori
+        ]);
+
+        return redirect()->route('dashboard.detail', ['id' => $barang->id_barang])->with('success', 'Barang Berhasil Terupdate');
     }
 
-    public function editBarang(Request $request)
+    public function editBarang($id_barang)
     {
-        Barang::where('id_barang', $id_barang)->first();
+        $barang = Barang::where('id_barang', $id_barang)->first();
+        return view('form-edit', compact('barang'));
     }
 
     public function deleteBarang($id_barang){
