@@ -130,7 +130,7 @@
 							<i class="icon-phone"></i>
 						</div>
 						<h4>Call us on</h4>
-						<a href="https://wa.me/+6283131139933">0831 3113 9933</a> <br>
+						<a href="https://wa.me/+6283131139933" target="_blank">0831 3113 9933</a> <br>
 					</div>
 				</div>
 
@@ -141,7 +141,7 @@
 							<i class="icon-envelope"></i>
 						</div>
 						<h4>Email us</h4>
-						<a href="">glorykaryaperkasa@gmail.com</a> <br>
+						<a href="https://mail.google.com/mail/?view=cm&fs=1&to=glorykaryaperkasa@gmail.com" target="_blank">glorykaryaperkasa@gmail.com</a> <br>
 					</div>
 				</div>
 
@@ -152,7 +152,7 @@
 							<i class="icon-map"></i>
 						</div>
 						<h4>Our location</h4>
-						<a href="https://maps.app.goo.gl/jKxhCBEgbQbrzAWg7">Jl. Nogosari No.2, RW.08, Kadipaten, Kecamatan Kraton, <br>Kota Yogyakarta, Daerah Istimewa Yogyakarta</a>
+						<a href="https://maps.app.goo.gl/jKxhCBEgbQbrzAWg7" target="_blank">Jl. Nogosari No.2, RW.08, Kadipaten, Kecamatan Kraton, <br>Kota Yogyakarta, Daerah Istimewa Yogyakarta</a>
 					</div>
 				</div>
 
