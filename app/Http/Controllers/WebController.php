@@ -24,7 +24,15 @@ class WebController extends Controller
     }
 
     public function tampil(Request $request) {
+        // $kategori = $request->query('kategori', 'Semua Kategori');
         $kategori = $request->query('kategori', 'Semua Kategori');
+
+        if ($kategori == 'Semua Kategori') {
+            $barang = Barang::all();
+        } else {
+            $barang = Barang::where('kategori', $kategori)->get();
+        }
+        // dd($barang);
         $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
         return view('product', compact('barang', 'kategori'));
     }

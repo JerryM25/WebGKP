@@ -30,12 +30,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::group(['middleware' => ['guest']], function () {
-    Route::get('/', 'WebController@home');
-    Route::get('/about', 'WebController@about');
-    Route::get('/contact', 'WebController@contact');
-    Route::get('/product', 'WebController@tampil');
+    Route::get('/', 'WebController@home')->name('home');
+    Route::get('/about', 'WebController@about')->name('about');
+    Route::get('/product', 'WebController@tampil')->name('product');
     Route::get('/product/{id}', 'WebController@detail')->name('product.detail');
-    Route::get('/service', 'WebController@service');
+    Route::get('/service', 'WebController@service')->name('service');
     Route::get('/admin', 'WebController@admin')->name('login');
     Route::get('/login', 'WebController@login')->name('login');
     Route::post('/ceklogin', 'AuthController@cekLogin');

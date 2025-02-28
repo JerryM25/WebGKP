@@ -73,10 +73,9 @@
                     <div class="product-form">
                         <form method="get" action="/dashboard">
                             <div class="form-group">
-                                {{-- <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
-                                <input type="text" name="search-field" value="" placeholder="Search" required> --}}
-                                <label class="label" for="Kategori">Filter by Kategori</label>
+                                <label class="label" for="kategori">Filter by Kategori</label>
                                 <select class="dropdown" id="kategori" name="kategori" onchange="this.form.submit()">
+                                    <option value="">Filter Kategori</option>
                                     <option value="Semua Kategori">Semua Kategori</option>
                                     <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
                                     <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
@@ -133,6 +132,19 @@
 		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
 	</svg>
 </div>
+
+<script>
+    document.getElementById("kategori").addEventListener("change", function () {
+        let kategori = this.value;
+        let url = new URL(window.location.href);
+        if (kategori === "Semua Kategori") {
+            url.searchParams.delete("kategori"); // Hapus filter jika memilih Semua Kategori
+        } else {
+            url.searchParams.set("kategori", kategori);
+        }
+        window.location.href = url.toString();
+    });
+</script>
 
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>

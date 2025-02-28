@@ -78,10 +78,22 @@
 
 								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 									<ul class="navigation clearfix">
-										<li><a href="/">Home</a></li>
+										<li class="{{ Route::currentRouteName() == 'home' ? 'active current' : '' }}">
+                                            <a href="{{ route('home') }}">Home</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'service' ? 'active current' : '' }}">
+                                            <a href="{{ route('service') }}">Service</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'product' ? 'active current' : '' }}">
+                                            <a href="{{ route('product') }}">Product</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
+                                            <a href="{{ route('about') }}">About Us</a>
+                                        </li>
+                                        {{-- <li><a href="/">Home</a></li>
                                         <li><a href="/service">Service</a></li>
 										<li><a href="/product">Product</a></li>
-										<li><a href="/about">About Us</a></li>
+										<li><a href="/about">About Us</a></li> --}}
 									</ul>
 								</div>
 							</nav>

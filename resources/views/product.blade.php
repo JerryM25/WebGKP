@@ -28,8 +28,9 @@
                                 <div class="form-group">
                                     {{-- <span class="icon fa-solid fa-magnifying-glass fa-fw"></span>
                                     <input type="text" name="search-field" value="" placeholder="Search" required> --}}
-                                    <label for="Kategori">Filter by Kategori</label>
+                                    <label for="kategori">Filter by Kategori</label>
                                     <select class="dropdown" id="kategori" name="kategori" onchange="this.form.submit()">
+                                        <option value="">Filter Kategori</option>
                                         <option value="Semua Kategori">Semua Kategori</option>
                                         <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
                                         <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
@@ -81,4 +82,16 @@
 	</section>
 	<!-- End Team Two -->
 
+    <script>
+        document.getElementById("kategori").addEventListener("change", function () {
+            let kategori = this.value;
+            let url = new URL(window.location.href);
+            if (kategori === "Semua Kategori") {
+                url.searchParams.delete("kategori"); // Hapus filter jika memilih Semua Kategori
+            } else {
+                url.searchParams.set("kategori", kategori);
+            }
+            window.location.href = url.toString();
+        });
+    </script>
 @endsection
