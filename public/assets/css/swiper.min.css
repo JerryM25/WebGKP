@@ -39,6 +39,23 @@
     transition-property: transform;
     box-sizing: content-box
 }
+
+.client-image img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    box-sizing: content-box;
+}
+
+.client-image-home img{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    box-sizing: content-box;
+}
+
 .swiper-container-android .swiper-slide,
 .swiper-wrapper {
     transform: translate3d(0px, 0, 0)

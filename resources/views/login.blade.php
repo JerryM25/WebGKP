@@ -104,8 +104,12 @@
 
 						<div class="form-group">
 							<label>Password</label>
-							<input type="password" name="password" required>
+							<input id="password" type="password" name="password" required>
 						</div>
+                        <div class="form-group checkbox-container">
+                            <input type="checkbox" id="showPassword">
+                            <label for="showPassword">Show Password</label>
+                        </div>
                         <br>
 
 						<div class="form-group">
@@ -116,10 +120,6 @@
 								</span>
 							</button>
 						</div>
-
-						{{-- <div class="form-group">
-							<div class="creat-account">Don't have an account? <a href="#">Create a free account</a></div>
-						</div> --}}
 
 					</form>
 				</div>
@@ -150,6 +150,17 @@
 		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
 	</svg>
 </div>
+
+<script>
+    document.getElementById('showPassword').addEventListener('change', function () {
+        let passwordField = document.getElementById('password');
+        if (this.checked) {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+</script>
 
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>

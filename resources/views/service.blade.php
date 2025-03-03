@@ -99,35 +99,35 @@
 					<!-- Slide -->
 					<div class="swiper-slide">
 						<div class="client-image">
-							<a href="#"><img src="assets/images/clients/epson.svg" alt="" height="50" width="65"/></a>
+							<img src="assets/images/clients/epson.svg" alt="" />
 						</div>
 					</div>
 
 					<!-- Slide -->
 					<div class="swiper-slide">
 						<div class="client-image">
-							<a href="#"><img src="assets/images/clients/tp-link.svg" alt="" /></a>
+							<img src="assets/images/clients/tp-link.svg" alt="" />
 						</div>
 					</div>
 
 					<!-- Slide -->
 					<div class="swiper-slide">
 						<div class="client-image">
-							<a href="#"><img src="assets/images/clients/microsoft.svg" alt="" /></a>
+							<img src="assets/images/clients/microsoft.svg" alt="" />
 						</div>
 					</div>
 
 					<!-- Slide -->
 					<div class="swiper-slide">
 						<div class="client-image">
-							<a href="#"><img src="assets/images/clients/acer.svg" alt="" /></a>
+							<img src="assets/images/clients/acer.svg" alt="" />
 						</div>
 					</div>
 
 					<!-- Slide -->
 					<div class="swiper-slide">
 						<div class="client-image">
-							<a href="#"><img src="assets/images/clients/fargo.svg" alt="" /></a>
+							<img src="assets/images/clients/fargo.svg" alt="" />
 						</div>
 					</div>
 				</div>

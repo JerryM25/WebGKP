@@ -1204,6 +1204,23 @@
 	color:var(--white-color);
 }
 
+.checkbox-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-container label{
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
 /***
 
 ====================================================================
@@ -5542,6 +5559,8 @@
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
 	background-color: rgba(var(--white-color-rgb), 0.10);
+    height: "50" ;
+    width: "65";
 }
 
 .clients-two .client-image:hover{
@@ -7437,7 +7456,8 @@
 	font-size: 16px;
 	margin-bottom: 5px;
 	display: inline-block;
-	color: var(--color-three);
+	color: #ca9566;
+    font-weight: bold;
 }
 
 .info-block_one-inner a:hover{

@@ -274,7 +274,46 @@
             </div>
             <div class="row clearfix">
 
-                <!-- Counter Block One -->
+                <div class="clients_slider swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="client-image-home">
+                                <img src="assets/images/icons/soerojo.png" alt="" />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="client-image-home">
+                                <img src="assets/images/clients/pemkab sleman.png" alt="" />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="client-image-home">
+                                <img src="assets/images/clients/oku.png" alt="" />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="client-image-home">
+                                <img src="assets/images/clients/kotaJogja.png" alt="" />
+                            </div>
+                        </div>
+
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <div class="client-image-home">
+                                <img src="assets/images/clients/kominfo.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <!-- Counter Block One -->
                 <div class="counter-block_one col-lg-4 col-md-6 col-sm-12 text-center">
                     <div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <img src="assets/images/icons/soerojo.png" alt="">
@@ -296,7 +335,7 @@
                         <img src="assets/images/icons/oku.png" alt="" width="80" height="90">
                         <div class="counter-block_one-text">Pemkab OKU</div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
