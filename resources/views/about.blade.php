@@ -6,7 +6,7 @@
 	<!-- Page Title -->
     <section class="page-title">
 
-		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
         <div class="auto-container">
 			<h2>About us</h2>
 			<ul class="bread-crumb clearfix">
@@ -129,8 +129,8 @@
 						<div class="info-block_one-icon">
 							<i class="icon-phone"></i>
 						</div>
-						<h4>Call us on</h4>
-						<a href="https://wa.me/+6283131139933" target="_blank">0831 3113 9933</a> <br>
+						<h4>Whatsapp us on</h4>
+						<a href="https://wa.me/+62811292554" target="_blank">0811 292 554</a> <br>
 					</div>
 				</div>
 

@@ -8,7 +8,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -35,7 +35,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -62,7 +62,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-gelap-1.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -171,41 +171,95 @@
                             <div class="row clearfix">
 
                                 <!-- Price Block One -->
-                                <div class="price-block_one col-lg-4 col-md-6 col-sm-12">
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
                                         <div class="price-block_one-title text-center">Printer</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/2.png" alt="">
+                                                <img class="rounded" src="assets/images/gallery/2.png" alt="Printer">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Price Block One -->
-                                <div class="price-block_one col-lg-4 col-md-6 col-sm-12">
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
                                         <div class="price-block_one-title text-center">Computer</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/1.png" alt="">
+                                                <img class="rounded" src="assets/images/gallery/1.png" alt="Computer">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Price Block One -->
-                                <div class="price-block_one col-lg-4 col-md-6 col-sm-12">
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
                                         <div class="price-block_one-title text-center">Electronic</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
-                                                <img class="rounded" src="assets/images/gallery/3.png" alt="">
+                                                <img class="rounded" src="assets/images/gallery/3.png" alt="Electronic">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
+                                    <div class="price-block_one-inner">
+                                        <div class="price-block_one-title text-center">Server</div>
+                                        <div class="price-block_one-content">
+                                            <div class="text-center">
+                                                <img class="rounded" src="assets/images/gallery/6.png" alt="Server">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
+                                    <div class="price-block_one-inner">
+                                        <div class="price-block_one-title text-center">Alat Musik</div>
+                                        <div class="price-block_one-content">
+                                            <div class="text-center">
+                                                <img class="rounded" src="assets/images/gallery/4.png" alt="Alat Musik">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
+                                    <div class="price-block_one-inner">
+                                        <div class="price-block_one-title text-center">Alat Olahraga</div>
+                                        <div class="price-block_one-content">
+                                            <div class="text-center">
+                                                <img class="rounded" src="assets/images/gallery/7.png" alt="Alat Olahraga">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
+                                    <div class="price-block_one-inner">
+                                        <div class="price-block_one-title text-center">Alat Medis</div>
+                                        <div class="price-block_one-content">
+                                            <div class="text-center">
+                                                <img class="rounded" src="assets/images/gallery/5.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
+                                    <div class="price-block_one-inner">
+                                        <div class="price-block_one-title text-center">Furnitur</div>
+                                        <div class="price-block_one-content">
+                                            <div class="text-center">
+                                                <img class="rounded" src="assets/images/gallery/8.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -222,7 +276,7 @@
 
 <!-- About One -->
 <section class="about-one">
-    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/adjusted_gradient_circle.png)"></div>
+    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/gradient_circle_large.png)"></div>
     <div class="about-one_icon" style="background-image:url(assets/images/icons/about-1.png)"></div>
     <div class="auto-container">
         <div class="row clearfix">

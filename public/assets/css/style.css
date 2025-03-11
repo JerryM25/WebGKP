@@ -99,7 +99,7 @@
 	bottom: 0px;
 	height: 50px;
 	z-index: 10;
-	background-color: var(--color-two);
+	background-color: #393c39;
 	clip-path: polygon(15% 60%, 100% 0, 100% 100%, 0 100%, 0 0);
 }
 
@@ -1757,6 +1757,11 @@
 	padding-top: 25px;
 	margin-top: 24px;
 	border-top: 1px solid rgba(var(--white-color-rgb), 0.06);
+}
+
+.price-block_one-content img{
+	height: 5cm;
+    width: 5cm;
 }
 
 .price-block_one-price{
@@ -3880,6 +3885,9 @@
 	bottom: 0px;
 	z-index: -1;
 	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
 }
 
 /***
