@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use App\User;
 use App\akun;
-use App\barang;
-use App\betailbarang;
-use App\keluar;
-use App\terima;
-use App\reqjual;
-use App\reqbeli;
-use App\notajual;
-use App\notabeli;
+use App\barang as Barang;
+use App\detailbarang as Detailbarang;
+use App\keluar as Keluar;
+use App\terima as Terima;
+use App\reqjual as Reqjual;
+use App\reqbeli as Reqbeli;
+use App\notajual as Notajual;
+use App\notabeli as Notabeli;
+use App\vendor as Vendor;
+use App\customer as Customer;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -23,8 +26,20 @@ class AuthController extends Controller
         // Validasi input
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'g-recaptcha-response' => 'required'
         ]);
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => env('6LeIH_8qAAAAAFHtgYnVbVyDbYv0gLbvK4oD0XcG'),
+            'response' => $request->input('g-recaptcha-response')
+        ]);
+
+        $captchaValidation = $response->json();
+
+        if (!$captchaValidation['success']) {
+            return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal.']);
+        }
 
         $user = akun::where('email', $request->email)->first();
 
@@ -63,7 +78,7 @@ class AuthController extends Controller
             'foto' => 'required|image|mimes:jpg,jpeg,png|max:5000'
         ]);
 
-        $path = $request->file('foto')->store('images', 'public');
+        $path = $request->file('foto')->store('storage', 'public');
 
         Barang::create([
             'nama_barang' => $request->nama_barang,

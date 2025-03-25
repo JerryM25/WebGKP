@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Barang;
-use App\Detailbarang;
-use App\Keluar;
-use App\Terima;
-use App\Reqjual;
-use App\Reqbeli;
-use App\Notajual;
-use App\Notabeli;
+use App\barang as Barang;
+use App\detailbarang as Detailbarang;
+use App\keluar as Keluar;
+use App\terima as Terima;
+use App\reqjual as Reqjual;
+use App\reqbeli as Reqbeli;
+use App\notajual as Notajual;
+use App\notabeli as Notabeli;
+use App\vendor as Vendor;
+use App\customer as Customer;
 
 class WebController extends Controller
 {

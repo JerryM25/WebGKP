@@ -19,6 +19,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -111,6 +112,7 @@
                             <label for="showPassword">Show Password</label>
                         </div>
                         <br>
+                        <div class="g-recaptcha" data-sitekey="6LeIH_8qAAAAAMQMRPMwz5woTocN9vRvQ2ZWLJ4S"></div><br>
 
 						<div class="form-group">
 							<button type="submit" class="submit-btn btn-style-one">
