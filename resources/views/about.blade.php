@@ -41,7 +41,7 @@
 						</div>
 						<p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
                             Mananjemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
-                        <p>Berdiri Sejak Tahun </p>
+                        <div class="sec-title_title">Sejak 2011</div>
 					</div>
 				</div>
 
@@ -72,7 +72,7 @@
             <div class="story-one_image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="story-one_image-outer">
                     <div class="story-one_image">
-                        <img src="assets/images/gallery/komitmen.jpg" alt="" />
+                        <img src="assets/images/gallery/kantorGKP1.jpg" alt="" />
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
 				<!-- Value Block One -->
 				<div class="value-block_one col-lg-6 col-md-6 col-sm-12">
 					<div class="value-block_one-inner">
-						<img src="assets/images/gallery/visi.png" alt="" height="250" width="150">
+						<img src="assets/images/gallery/visi.png" alt="" class="img-fluid">
 						<h5 class="value-block_one-title">Visi</h5>
 						<div class="value-block_one-text">Menjadi penyedia IT dan peralatan kantor yang melayani semua wilayah indonesia dengan kinerja terbaik</div>
 					</div>
@@ -102,7 +102,7 @@
 				<!-- Value Block One -->
 				<div class="value-block_one col-lg-6 col-md-6 col-sm-12">
 					<div class="value-block_one-inner">
-						<img src="assets/images/gallery/misi.png" alt="" height="250" width="150">
+						<img src="assets/images/gallery/misi.png" alt="" class="img-fluid">
 						<h5 class="value-block_one-title">Misi</h5>
 						<div class="value-block_one-text">- Memberikan pelayanan prima, produk berkualitas dan harga yang kompetitif
                             <br>- Menjalin kerjasama menguntungkan dengan mitra usaha dan mitra kerja serta mengenbangkan secara sinergis dalam penyedia kebutuhan kantor
@@ -124,7 +124,7 @@
 			<div class="row clearfix">
 
 				<!-- Info Block One -->
-				<div class="info-block_one col-lg-4 col-md-6 col-sm-12">
+				<div class="info-block_one col-lg-4 col-md-4 col-sm-12">
 					<div class="info-block_one-inner">
 						<div class="info-block_one-icon">
 							<i class="icon-phone"></i>
@@ -135,7 +135,7 @@
 				</div>
 
 				<!-- Info Block One -->
-				<div class="info-block_one active col-lg-4 col-md-6 col-sm-12">
+				<div class="info-block_one active col-lg-4 col-md-4 col-sm-12">
 					<div class="info-block_one-inner">
 						<div class="info-block_one-icon">
 							<i class="icon-envelope"></i>
@@ -146,7 +146,7 @@
 				</div>
 
 				<!-- Info Block One -->
-				<div class="info-block_one col-lg-4 col-md-6 col-sm-12">
+				<div class="info-block_one col-lg-4 col-md-4 col-sm-12">
 					<div class="info-block_one-inner">
 						<div class="info-block_one-icon">
 							<i class="icon-map"></i>

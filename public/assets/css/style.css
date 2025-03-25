@@ -161,6 +161,10 @@
 .slider-one_author i{
 	position: relative;
 	display: block;
+    max-width: 350px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
 }
 
 .slider-one_author-name{
@@ -741,7 +745,7 @@
 	top: -250px;
 	width: 709px;
 	height: 1152px;
-    margin-right: -250px;
+    margin-right: -150px;
 	background-position: right center;
 	background-repeat: no-repeat;
 }
@@ -843,6 +847,20 @@
 	border-radius: 10px;
 	padding: 80px 160px 50px;
 	background-color: var(--main-color);
+}
+
+.choose-one .swiper-slide .client-image-home{
+	height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.choose-one .swiper-slide .client-image-home img{
+	height: auto;
+    width: auto;
+    max-height: 100px;
+    margin-left: 32%;
+    object-fit: contain;
 }
 
 .counter-block_one{
@@ -1727,9 +1745,10 @@
 
 .price-block_one-title{
 	position: relative;
-	font-weight: 600;
-	font-size: 30px;
+	font-weight: 500;
+	font-size: 25px;
 	line-height: 1em;
+    height: 0,5cm;
 	color: var(--white-color);
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
@@ -5382,6 +5401,12 @@
 	background-color: var(--main-color);
 }
 
+.value-block_one img {
+    max-width: 100px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
 .value-block_one-title{
 	position: relative;
 	margin-top: 25px;
@@ -5392,8 +5417,11 @@
 	position: relative;
 	margin-top: 20px;
 	font-size: 17px;
-	line-height: 27px;
+	line-height: 1.5;
 	color: var(--color-three);
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
 }
 
 .value-block_one.active .value-block_one-inner{
@@ -5546,7 +5574,7 @@
 .clients-two{
 	position: relative;
 	padding: 100px 0px 100px;
-	background-color: var(--color-four);
+	background-color: #393c39;
 }
 
 .clients-two.style-two{
@@ -5566,7 +5594,7 @@
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
-	background-color: rgba(var(--white-color-rgb), 0.10);
+	background-color: rgba(var(--white-color-rgb), 0.20);
     height: "50" ;
     width: "65";
 }
@@ -7022,7 +7050,7 @@
 .team-two{
 	position: relative;
 	padding: 100px 0px 70px;
-	background-color: var(--color-four);
+	background-color: #393c39;
 }
 
 /***
@@ -7416,7 +7444,7 @@
 .contact-info{
 	position: relative;
 	padding: 100px 0px 70px;
-	background-color: var(--color-four);
+	background-color: #393c39;
 	border-bottom: 1px solid rgba(var(--white-color-rgb), 0.06);
 }
 

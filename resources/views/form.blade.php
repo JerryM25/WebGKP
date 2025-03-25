@@ -79,7 +79,11 @@
                             @csrf
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input type="file" id="foto" name="foto" placeholder="" required="">
+                                <input type="file" id="foto" name="foto" accept="image/*" onchange="validateFoto(event)">
+                                <br>
+                                <img id="preview" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
+                                <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
                             </div>
 
                             <div class="form-group">
@@ -176,6 +180,36 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+    <script>
+        function validateFoto(event) {
+            var input = event.target;
+            var preview = document.getElementById('preview');
+            var warning = document.getElementById('file-warning');
+
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+
+                // Cek ukuran file (maksimal 5MB)
+                if (file.size > 5 * 1024 * 1024) { // 5MB dalam bytes
+                    warning.style.display = "block"; // Tampilkan peringatan
+                    preview.style.display = "none";  // Sembunyikan preview
+                    input.value = ""; // Reset input file
+                    return;
+                } else {
+                    warning.style.display = "none"; // Sembunyikan peringatan
+                }
+
+                // Tampilkan preview gambar jika ukuran file valid
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/popper.min.js"></script>

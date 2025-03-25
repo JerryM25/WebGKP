@@ -8,7 +8,34 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/view.png)"></div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!-- Content Column -->
+                        <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
+                            <div class="slider-one_content-inner">
+                                <div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i>Hello</div>
+                                <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
+                                <div class="slider-one_text">To Be With You</div>
+                            </div>
+                        </div>
+                        <!-- Image Column -->
+                        <div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
+                            <div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
+                            <div class="slider-one_image-outer">
+                                <!-- Slider One Author -->
+                                <div class="slider-one_author">
+                                    <i><img src="assets/images/logo-removebg.png" alt="" /></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div class="swiper-slide">
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/view.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -35,34 +62,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <!-- Content Column -->
-                        <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
-                            <div class="slider-one_content-inner">
-                                <div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i>Hello</div>
-                                <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
-                                <div class="slider-one_text">To Be With You</div>
-                            </div>
-                        </div>
-                        <!-- Image Column -->
-                        <div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-                            <div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-                            <div class="slider-one_image-outer">
-                                <!-- Slider One Author -->
-                                <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="350" height="350"/></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide -->
-            <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/view.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -219,7 +219,7 @@
 
                                 <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
-                                        <div class="price-block_one-title text-center">Alat Musik</div>
+                                        <div class="price-block_one-title text-center">Musical Instrument</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
                                                 <img class="rounded" src="assets/images/gallery/4.png" alt="Alat Musik">
@@ -230,7 +230,7 @@
 
                                 <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
-                                        <div class="price-block_one-title text-center">Alat Olahraga</div>
+                                        <div class="price-block_one-title text-center">Sports Equipment</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
                                                 <img class="rounded" src="assets/images/gallery/7.png" alt="Alat Olahraga">
@@ -241,7 +241,7 @@
 
                                 <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
-                                        <div class="price-block_one-title text-center">Alat Medis</div>
+                                        <div class="price-block_one-title text-center">Medical Equipment</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
                                                 <img class="rounded" src="assets/images/gallery/5.png" alt="">
@@ -252,7 +252,7 @@
 
                                 <div class="price-block_one col-lg-3 col-md-4 col-sm-12">
                                     <div class="price-block_one-inner">
-                                        <div class="price-block_one-title text-center">Furnitur</div>
+                                        <div class="price-block_one-title text-center">Furniture</div>
                                         <div class="price-block_one-content">
                                             <div class="text-center">
                                                 <img class="rounded" src="assets/images/gallery/8.png" alt="">
@@ -276,7 +276,7 @@
 
 <!-- About One -->
 <section class="about-one">
-    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/gradient_circle_large.png)"></div>
+    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/dark_gradient_circle.png)"></div>
     <div class="about-one_icon" style="background-image:url(assets/images/icons/about-1.png)"></div>
     <div class="auto-container">
         <div class="row clearfix">
@@ -367,29 +367,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- <!-- Counter Block One -->
-                <div class="counter-block_one col-lg-4 col-md-6 col-sm-12 text-center">
-                    <div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <img src="assets/images/icons/soerojo.png" alt="">
-                        <div class="counter-block_one-text">RS Soerojo Magelang</div>
-                    </div>
-                </div>
-
-                <!-- Counter Block One -->
-                <div class="counter-block_one col-lg-4 col-md-6 col-sm-12 text-center">
-                    <div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
-                        <img src="assets/images/icons/pemkab sleman.png" alt="" width="90" height="100">
-                        <div class="counter-block_one-text">Pemkab Sleman</div>
-                    </div>
-                </div>
-
-                <!-- Counter Block One -->
-                <div class="counter-block_one col-lg-4 col-md-6 col-sm-12 text-center">
-                    <div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <img src="assets/images/icons/oku.png" alt="" width="80" height="90">
-                        <div class="counter-block_one-text">Pemkab OKU</div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>

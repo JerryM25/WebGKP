@@ -102,20 +102,29 @@
                 <br>
             </div>
 
-            @foreach ($barang as $barang)
-            @csrf
-            <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
-                <div class="team-block_one-inner">
-                    <div class="team-block_one-image">
-                        <a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}"><img src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" /></a>
-                    </div>
+            @if($barang->isEmpty())
                     <div class="team-block_one-content">
-                        <h4 class="team-block_one-title"><a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}">{{ $barang->nama_barang }}</a></h4>
-                        <div class="team-block_one-designation">{{ $barang->kategori }}</div>
+                        <h3 class="team-block_one-title text-white text-center">Barang Belum Tersedia</h3>
                     </div>
-                </div>
-            </div>
-            @endforeach
+                @else
+                    @foreach ($barang as $barang)
+                        <div class="team-block_one col-lg-4 col-md-6 col-sm-12">
+                            <div class="team-block_one-inner">
+                                <div class="team-block_one-image">
+                                    <a href="{{ route('product.detail', ['id' => $barang->id_barang]) }}">
+                                        <img src="{{ asset('storage/'.$barang->foto) }}" alt="Barang">
+                                    </a>
+                                </div>
+                                <div class="team-block_one-content">
+                                    <h4 class="team-block_one-title">
+                                        <a href="{{ route('product.detail', ['id' => $barang->id_barang]) }}">{{ $barang->nama_barang }}</a>
+                                    </h4>
+                                    <div class="team-block_one-designation">{{ $barang->kategori }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
 
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <br>
