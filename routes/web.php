@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/dashboard/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
     Route::put('/dashboard/{id}', 'AuthController@updateBarang')->name('barang.update');
-    Route::get('/logout', 'WebController@logout');
+    Route::post('/logout', 'WebController@logout')->name('logout');
 });
 
 
@@ -35,6 +35,8 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/product', 'WebController@tampil')->name('product');
     Route::get('/product/{id}', 'WebController@detail')->name('product.detail');
     Route::get('/service', 'WebController@service')->name('service');
+    Route::get('/news', 'WebController@news')->name('news');
+    Route::get('/portofolio', 'WebController@portofolio')->name('portofolio');
     Route::get('/admin', 'WebController@admin')->name('login');
     Route::get('/login', 'WebController@login')->name('login');
     Route::post('/ceklogin', 'AuthController@cekLogin');

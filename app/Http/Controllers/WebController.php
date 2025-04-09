@@ -44,13 +44,6 @@ class WebController extends Controller
         return view('product-detail', compact('barang'));
     }
 
-    // public function searchBarang(Request $request) {
-    //     $cari = $request->q;
-    //     $barang = Barang::where('nama_barang', 'Like', '%'.$cari.'%')->orWhere('kategori', 'like', '%'.$cari.'%')->orderBy('id', 'asc')->paginate(12);
-    //     $cari->appends($request->all());
-    //     return view('product');
-    // }
-
     public function about() {
         return view('about');
     }
@@ -63,8 +56,11 @@ class WebController extends Controller
         return view('login');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/login');
     }
 }

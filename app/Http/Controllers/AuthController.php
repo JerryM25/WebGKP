@@ -18,6 +18,7 @@ use App\notabeli as Notabeli;
 use App\vendor as Vendor;
 use App\customer as Customer;
 use Illuminate\Support\Facades\Hash;
+use GuzzleHttp\Client;
 
 class AuthController extends Controller
 {
@@ -27,19 +28,22 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'g-recaptcha-response' => 'required'
+            // 'g-recaptcha-response' => 'required'
         ]);
 
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => env('6LeIH_8qAAAAAFHtgYnVbVyDbYv0gLbvK4oD0XcG'),
-            'response' => $request->input('g-recaptcha-response')
-        ]);
+        // $client = new Client();
+        // $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+        //     'form_params' => [
+        //         'secret'   => env('RECAPTCHA_SECRET_KEY'),
+        //         'response' => $request->input('g-recaptcha-response'),
+        //     ],
+        // ]);
 
-        $captchaValidation = $response->json();
+        // $captchaValidation = json_decode($response->getBody(), true);
 
-        if (!$captchaValidation['success']) {
-            return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal.']);
-        }
+        // if (!$captchaValidation['success']) {
+        //     return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal.']);
+        // }
 
         $user = akun::where('email', $request->email)->first();
 

@@ -26,12 +26,16 @@
         <div class="outer-box d-flex align-items-center flex-wrap">
             <div class="logo"><img src="assets/images/logo-removebg.png" alt="" title="" width="80" height="80"></div>
             <div class="main-header_buttons">
-                <a href="/logout" class="template-btn btn-style-two">
-                    <span class="btn-wrap">
-                        <span class="text-one">Log Out</span>
-                        <span class="text-two">Log Out</span>
-                    </span>
-                </a>
+                <form action="{{ route('logout') }}" id="logout" method="POST">
+                    @csrf
+                    <a href="{{ route('logout') }}" class="template-btn btn-style-two" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                        <span class="btn-wrap">
+                            <span class="text-one">Log Out</span>
+                            <span class="text-two">Log Out</span>
+                        </span>
+                    </a>
+                </form>
+
             </div>
         </div>
     </header>
