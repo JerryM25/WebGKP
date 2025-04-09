@@ -90,10 +90,12 @@
                                         <li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
                                             <a href="{{ route('about') }}">About Us</a>
                                         </li>
-                                        {{-- <li><a href="/">Home</a></li>
-                                        <li><a href="/service">Service</a></li>
-										<li><a href="/product">Product</a></li>
-										<li><a href="/about">About Us</a></li> --}}
+                                        <li class="{{ Route::currentRouteName() == 'news' ? 'active current' : '' }}">
+                                            <a href="{{ route('news') }}">News</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'portofolio' ? 'active current' : '' }}">
+                                            <a href="{{ route('portofolio') }}">Portofolio</a>
+                                        </li>
 									</ul>
 								</div>
 							</nav>
