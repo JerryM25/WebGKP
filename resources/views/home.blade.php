@@ -319,58 +319,7 @@
 <!-- End About One -->
 
 <!-- Choose One -->
-<section class="choose-one">
-    <div class="auto-container">
-        <div class="inner-container">
-            <!-- Sec Title -->
-            <div class="sec-title light centered">
-                <div class="sec-title_title">Customer Kami</div>
-            </div>
-            <div class="row clearfix">
 
-                <div class="clients_slider swiper-container">
-                    <div class="swiper-wrapper">
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/icons/soerojo.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/pemkab sleman.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/oku.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/kotaJogja.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/kominfo.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- End Choose One -->
 <div class="auto-container">
     <div class="inner-container">

@@ -63,4 +63,18 @@ class WebController extends Controller
 
         return redirect('/login');
     }
+
+    public function news() {
+        return view('news');
+    }
+
+    public function detailnews($id_berita){
+        // $barang = Barang::where('id_barang', $id_berita)->first();
+        // return view('news-detail', compact('berita'));
+        return view('news-detail');
+    }
+
+    public function portofolio(){
+        return view('portofolio');
+    }
 }

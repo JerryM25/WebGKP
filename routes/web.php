@@ -36,16 +36,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/product/{id}', 'WebController@detail')->name('product.detail');
     Route::get('/service', 'WebController@service')->name('service');
     Route::get('/news', 'WebController@news')->name('news');
+    Route::get('/news/{id}', 'WebController@detailnews')->name('news.detail');
     Route::get('/portofolio', 'WebController@portofolio')->name('portofolio');
     Route::get('/admin', 'WebController@admin')->name('login');
     Route::get('/login', 'WebController@login')->name('login');
     Route::post('/ceklogin', 'AuthController@cekLogin');
 });
-
-// Tambahan dari bara
-// Tambah Barang
-// Route::group(['middleware' => ['auth']], function () {
-//     Route::post('/tambah-barang', 'AdminController@tambahBarang')->name('tambahBarang');
-// });
-// Upload Foto BArang (Karena aku pakai library dropzone, jadi aku harus buat route khusus untuk upload foto)
-// Route::post('/upload-foto', 'AdminController@uploadFoto')->name('uploadFoto');

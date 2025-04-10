@@ -28,14 +28,14 @@
             <div class="main-header_buttons">
                 <form action="{{ route('logout') }}" id="logout" method="POST">
                     @csrf
-                    <a href="{{ route('logout') }}" class="template-btn btn-style-two" onclick="event.preventDefault(); document.getElementById('logout').submit();">
-                        <span class="btn-wrap">
-                            <span class="text-one">Log Out</span>
-                            <span class="text-two">Log Out</span>
-                        </span>
-                    </a>
                 </form>
 
+                <a href="#" class="template-btn btn-style-two" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                    <span class="btn-wrap">
+                        <span class="text-one">Log Out</span>
+                        <span class="text-two">Log Out</span>
+                    </span>
+                </a>
             </div>
         </div>
     </header>
