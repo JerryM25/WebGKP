@@ -1136,6 +1136,10 @@
     -o-transition: all 900ms ease;
 }
 
+.mobile-logout-btn {
+    text-align: center;
+}
+
 .mobile-menu-visible .mobile-menu .menu-box{
 	right:0px;
 	-webkit-transition-delay: 600ms;

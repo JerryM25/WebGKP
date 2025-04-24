@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'AuthController@dashboard')->name('dashboard');
-    Route::get('/tambah', 'AuthController@formTambah');
+    Route::get('/dashprod', 'AuthController@dashboardProduct')->name('dashboardProduct');
+    Route::get('/dashnews', 'AuthController@dashboardNews')->name('dashboardNews');
+    Route::post('/tambahBerita', 'AuthController@tambahBerita')->name('tambahBerita');
+    Route::get('/formnews', 'AuthController@formBerita');
 
-    Route::get('/dashboard/{id}', 'AuthController@detail')->name('dashboard.detail');
+    Route::get('/dashnews/{id}', 'AuthController@detNews')->name('news.dashdetail');
+    Route::get('/dashprod/{id}', 'AuthController@detail')->name('dashboard.detail');
     Route::delete('/delete/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');

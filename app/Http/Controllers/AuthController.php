@@ -29,28 +29,28 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'g-recaptcha-response' => 'required'
+            // 'g-recaptcha-response' => 'required'
         ]);
 
-        $client = new Client();
-        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
-            'form_params' => [
-                'secret'   => env('RECAPTCHA_SECRET_KEY'),
-                'response' => $request->input('g-recaptcha-response'),
-            ],
-        ]);
+        // $client = new Client();
+        // $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+        //     'form_params' => [
+        //         'secret'   => env('RECAPTCHA_SECRET_KEY'),
+        //         'response' => $request->input('g-recaptcha-response'),
+        //     ],
+        // ]);
 
-        $captchaValidation = json_decode($response->getBody(), true);
+        // $captchaValidation = json_decode($response->getBody(), true);
 
-        if (!$captchaValidation['success']) {
-            return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal.']);
-        }
+        // if (!$captchaValidation['success']) {
+        //     return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal.']);
+        // }
 
         $user = akun::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended(route('dashboard'))->with('user', $user);
         }
 
         return redirect(route('login'))->withErrors([
@@ -60,9 +60,21 @@ class AuthController extends Controller
 
     public function dashboard(Request $request)
     {
+        return view('dashboard');
+    }
+
+    public function dashboardProduct(Request $request)
+    {
         $kategori = $request->query('kategori', 'Semua Kategori');
         $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
-        return view('dashboard', compact('barang', 'kategori'));
+        return view('dashboardprod', compact('barang', 'kategori'));
+    }
+
+    public function dashboardNews(Request $request)
+    {
+        $berita = Berita::all();
+        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        return view('dashboardnews', compact('berita', 'news'));
     }
 
     public function formTambah()
@@ -95,7 +107,7 @@ class AuthController extends Controller
             'stok' => $request->stok,
             'satuan' => $request->satuan
         ]);
-        return redirect('/dashboard');
+        return redirect('dashboardProduct');
     }
 
     public function updateBarang(Request $request, $id_barang)
@@ -135,7 +147,7 @@ class AuthController extends Controller
         $barang = Barang::where('id_barang', $id_barang)->first();
         $barang->delete();
 
-        return redirect('/dashboard');
+        return redirect('dashboardProduct');
     }
 
     public function detail($id_barang) {
@@ -144,27 +156,39 @@ class AuthController extends Controller
     }
 
     public function formBerita(){
-        return view('formBerita');
+        return view('formnews');
     }
 
     public function tambahBerita(Request $request){
         $request->validate([
             'judul' => 'required',
             'foto1' => 'required|image|mimes:jpg,jpeg,png|max:5000',
-            'foto2' => 'required|image|mimes:jpg,jpeg,png|max:5000',
-            'foto3' => 'required|image|mimes:jpg,jpeg,png|max:5000',
-            'berita' => 'required'
+            'foto2' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+            'foto3' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+            'berita' => 'required',
+            'penulis' => 'required',
+            'tanggal' => 'required'
         ]);
 
-        $path = $request->file('foto')->store('storage', 'public');
+        $path1 = $request->file('foto1')->store('storage', 'public');
+        $path2 = $request->file('foto2') ? $request->file('foto2')->store('storage', 'public') : null;
+        $path3 = $request->file('foto3') ? $request->file('foto3')->store('storage', 'public') : null;
 
         Berita::create([
-            'judul' => $request->nama_barang,
-            'foto1' => $path,
-            'foto2' => $path,
-            'foto3' => $path,
-            'berita' => $request->kategori
+            'judul' => $request->judul,
+            'foto1' => $path1,
+            'foto2' => $path2,
+            'foto3' => $path3,
+            'berita' => $request->berita,
+            'penulis' => $request->penulis,
+            'tanggal' => $request->tanggal
         ]);
-        return redirect('/dashboard');
+        return redirect('dashboardNews');
+    }
+
+    public function detNews($id_berita) {
+        $berita = Berita::where('id_berita', $id_berita)->first();
+        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        return view('dashNews', compact('berita', 'news'));
     }
 }

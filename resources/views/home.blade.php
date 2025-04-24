@@ -277,7 +277,6 @@
 <!-- About One -->
 <section class="about-one">
     <div class="about-one_pattern" style="background-image:url(assets/images/gallery/dark_gradient_circle.png)"></div>
-    <div class="about-one_icon" style="background-image:url(assets/images/icons/about-1.png)"></div>
     <div class="auto-container">
         <div class="row clearfix">
 

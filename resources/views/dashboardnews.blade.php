@@ -1,23 +1,19 @@
-@extends('templates.navs')
-@section('title', 'News')
+@extends('templates.nav-admin')
+@section('title', 'Dashboard News')
 
 @section('content')
-<section class="page-title">
-    <div class="page-title-shadow" style="background-image:url({{ asset('assets/images/main-slider/background-daun-adjust-upscale.jpg') }})"></div>
-    <div class="auto-container">
-        <h2>News</h2>
-        <ul class="bread-crumb clearfix">
-            <li><a href="/">Home</a></li>
-            <li>News</li>
-        </ul>
-    </div>
-</section>
 
 <div class="auto-container">
     <div class="inner-container">
         <div class="row clearfix">
-            <br><br>
+            <br><br><br><br><br>
         </div>
+    </div>
+</div>
+
+<div class="price-block_one-button text-center">
+    <div class="container-fluid">
+        <a class="template-btn price-one_button" href="/formnews">Tambah Berita</a><br>
     </div>
 </div>
 
@@ -37,7 +33,7 @@
                             <div class="news-block_three">
                                 <div class="news-block_three-inner">
                                     <div class="news-block_three-image">
-                                        <a href="{{ route('news.detail', ['id' => $item->id_berita]) }}">
+                                        <a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}">
                                             <img src="{{ asset('storage/'.$item->foto1) }}" alt="" /></a>
                                     </div>
                                     <div class="news-block_three-content">
@@ -45,9 +41,9 @@
                                             <li><i class="fa-regular fa-user fa-fw"></i>{{ $item->penulis }}</li>
                                             <li><i class="fa-regular fa-calendar fa-fw"></i>{{ $item->tanggal }}</li>
                                         </ul>
-                                        <h3 class="news-block_three-title"><a href="{{ route('news.detail', ['id' => $item->id_berita]) }}">{{ $item->judul }}</a></h3>
+                                        <h3 class="news-block_three-title"><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}">{{ $item->judul }}</a></h3>
                                         <div class="news-block_three-button">
-                                            <a href="{{ route('news.detail', ['id' => $item->id_berita]) }}" class="template-btn btn-style-one">
+                                            <a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}" class="template-btn btn-style-one">
                                                 <span class="btn-wrap">
                                                     <span class="text-one">Read more</span>
                                                     <span class="text-two">Read more</span>
@@ -77,15 +73,14 @@
                 <aside class="sidebar">
                     <div class="sidebar-inner">
 
-                        <!-- Post Widget -->
                         <div class="sidebar-widget post-widget">
                             <div class="widget-content">
                                 <h5 class="sidebar-widget_title">Latest post</h5>
 
-                                @foreach ($berita->take(5) as $item)
+                                @foreach ($news->take(5) as $item)
                                     <div class="post">
-                                        <div class="thumb"><a href="blog-detail.html"><img src="{{ asset('storage/'.$item->foto1) }}" alt=""></a></div>
-                                        <h6><a href="blog-detail.html">{{ $item->judul }}</a></h6>
+                                        <div class="thumb"><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}"><img src="{{ asset('storage/'.$item->foto1) }}" alt=""></a></div>
+                                        <h6><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}">{{ $item->judul }}</a></h6>
                                         <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $item->tanggal }}</div>
                                     </div>
                                 @endforeach
@@ -97,14 +92,6 @@
                 </aside>
             </div>
 
-        </div>
-    </div>
-</div>
-
-<div class="auto-container">
-    <div class="inner-container">
-        <div class="row clearfix">
-            <br><br>
         </div>
     </div>
 </div>

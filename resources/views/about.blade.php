@@ -41,7 +41,7 @@
 						</div>
 						<p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
                             Mananjemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
-                        <div class="sec-title_title">Sejak 2011</div>
+                        <div class="sec-title_title">Sejak 2012</div>
 					</div>
 				</div>
 

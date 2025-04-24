@@ -14,6 +14,7 @@ use App\notajual as Notajual;
 use App\notabeli as Notabeli;
 use App\vendor as Vendor;
 use App\customer as Customer;
+use App\berita as Berita;
 
 class WebController extends Controller
 {
@@ -26,7 +27,6 @@ class WebController extends Controller
     }
 
     public function tampil(Request $request) {
-        // $kategori = $request->query('kategori', 'Semua Kategori');
         $kategori = $request->query('kategori', 'Semua Kategori');
 
         if ($kategori == 'Semua Kategori') {
@@ -34,7 +34,6 @@ class WebController extends Controller
         } else {
             $barang = Barang::where('kategori', $kategori)->get();
         }
-        // dd($barang);
         $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
         return view('product', compact('barang', 'kategori'));
     }
@@ -65,13 +64,15 @@ class WebController extends Controller
     }
 
     public function news() {
-        return view('news');
+        $berita = Berita::all();
+        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        return view('news', compact('berita', 'news'));
     }
 
     public function detailnews($id_berita){
-        // $barang = Barang::where('id_barang', $id_berita)->first();
-        // return view('news-detail', compact('berita'));
-        return view('news-detail');
+        $berita = Berita::where('id_berita', $id_berita)->first();
+        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        return view('news-detail', compact('berita', 'news'));
     }
 
     public function portofolio(){

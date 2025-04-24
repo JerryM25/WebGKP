@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Form News - Glory Karya Perkasa</title>
+    <title>Form - Glory Karya Perkasa</title>
     <!-- Stylesheets -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -62,7 +62,7 @@
         <!-- Register One -->
         <section class="register-one">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardProduct') }}" class="template-btn btn-style-one">
+                <a href="{{ route('dashboardNews') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -72,86 +72,74 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Barang</h3>
+                    <h3 class="text-center">Tambah Berita</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahBarang') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('tambahBerita') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label>Foto</label>
-                                <input type="file" id="foto" name="foto" accept="image/*" onchange="validateFoto(event)">
+                                <label>Foto 1 (wajib)</label>
+                                <input type="file" id="foto1" name="foto1" accept=".jpg,.jpeg,.png" onchange="validateFoto1(event)">
                                 <br>
-                                <img id="preview" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
-                                <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                <img id="preview1" src="" alt="Preview Gambar1" style="max-width: 200px; display: none; margin-top: 10px;">
+                                <p id="file-warning1" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
                                 {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Barang</label>
-                                <input type="text" id="nama_barang" name="nama_barang" placeholder="" required="">
+                                <label>Foto 2</label>
+                                <input type="file" id="foto2" name="foto2" accept=".jpg,.jpeg,.png" onchange="validateFoto2(event)">
+                                <br>
+                                <img id="preview2" src="" alt="Preview Gambar2" style="max-width: 200px; display: none; margin-top: 10px;">
+                                <p id="file-warning2" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
                             </div>
 
                             <div class="form-group">
-                                <label>Keterangan</label>
-                                <input type="text" id="keterangan" name="keterangan" placeholder="" required="">
+                                <label>Foto 3</label>
+                                <input type="file" id="foto3" name="foto3" accept=".jpg,.jpeg,.png" onchange="validateFoto3(event)">
+                                <br>
+                                <img id="preview3" src="" alt="Preview Gambar3" style="max-width: 200px; display: none; margin-top: 10px;">
+                                <p id="file-warning3" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
+                            </div>
+
+                            <div class="form-group">
+                                <label>Judul Berita</label>
+                                <input type="text" id="judul" name="judul" placeholder="" required="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Isi Berita</label>
+                                <input type="text" id="berita" name="berita" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
                                 {{-- <label>Kategori</label>
                                 <input type="text" id="kategori" name="kategori" placeholder="" required=""> --}}
-                                <label for="Kategori">Kategori</label>
-                                <select class="dropdown" id="kategori" name="kategori">
-                                    <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
-                                    <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
-                                    <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
-                                    <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
-                                    <option value="Alat Olahraga">Alat Olahraga</option>
-                                    <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
-                                    <option value="Jasa Sewa Server">Jasa Sewa Server</option>
-                                    <option value="Alat Kesehatan">Alat Kesehatan</option>
-                                    <option value="Alat Laboratorium">Alat Laboratorium</option>
-                                    <option value="Alat Kebakaran">Alat Kebakaran</option>
-                                    <option value="Mesin">Mesin</option>
-                                    <option value="Alat Musik">Alat Musik</option>
-                                    <option value="Furnitur">Furnitur</option>
-                                    <option value="Jasa Lainnya">Jasa Lainnya</option>
+                                <label for="penulis">Penulis</label>
+                                <select class="dropdown" id="penulis" name="penulis">
+                                    <option value="Ali">Ali</option>
+                                    <option value="Gunadi">Gunadi</option>
+                                    <option value="Isa">Isa</option>
+                                    <option value="Jabbar">Jabbar</option>
+                                    <option value="Jerry">Jerry</option>
+                                    <option value="Brilly">Brilly</option>
+                                    <option value="Tisna">Tisna</option>
+                                    <option value="Andri">Andri</option>
+                                    <option value="Oka">Oka</option>
+                                    <option value="Khusni">Khusni</option>
+                                    <option value="Anna">Anna</option>
+                                    <option value="Eka">Eka</option>
+                                    <option value="Salis">Salis</option>
+                                    <option value="Dani">Dani</option>
+                                    <option value="Angel">Angel</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Harga Beli</label>
-                                <input type="text" id="harga_beli" name="harga_beli" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Jual</label>
-                                <input type="text" id="harga_jual" name="harga_jual" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Stok</label>
-                                <input type="text" id="stok" name="stok" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                {{-- <label>Satuan</label>
-                                <input type="text" id="satuan" name="satuan" placeholder="" required=""> --}}
-                                <label for="satuan">Satuan</label>
-                                <select class="dropdown" id="satuan" name="satuan">
-                                    <option value="Paket">Paket</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Box">Box</option>
-                                    <option value="Unit">Unit</option>
-                                    <option value="Botol">Botol</option>
-                                    <option value="Karung">Karung</option>
-                                    <option value="Hari">Hari</option>
-                                    <option value="Jam">Jam</option>
-                                    <option value="Liter">Liter</option>
-                                    <option value="Lusin">Lusin</option>
-                                    <option value="Gelas">Gelas</option>
-                                    <option value="Meter">Meter</option>
-                                    <option value="Porsi">Porsi</option>
-                                </select>
+                                <label>Tanggal</label>
+                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
                             </div>
 
                             <div class="form-group">
@@ -182,10 +170,70 @@
     </div>
 
     <script>
-        function validateFoto(event) {
+        function validateFoto1(event) {
             var input = event.target;
-            var preview = document.getElementById('preview');
-            var warning = document.getElementById('file-warning');
+            var preview = document.getElementById('preview1');
+            var warning = document.getElementById('file-warning1');
+
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+
+                // Cek ukuran file (maksimal 5MB)
+                if (file.size > 5 * 1024 * 1024) { // 5MB dalam bytes
+                    warning.style.display = "block"; // Tampilkan peringatan
+                    preview.style.display = "none";  // Sembunyikan preview
+                    input.value = ""; // Reset input file
+                    return;
+                } else {
+                    warning.style.display = "none"; // Sembunyikan peringatan
+                }
+
+                // Tampilkan preview gambar jika ukuran file valid
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <script>
+        function validateFoto2(event) {
+            var input = event.target;
+            var preview = document.getElementById('preview2');
+            var warning = document.getElementById('file-warning2');
+
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+
+                // Cek ukuran file (maksimal 5MB)
+                if (file.size > 5 * 1024 * 1024) { // 5MB dalam bytes
+                    warning.style.display = "block"; // Tampilkan peringatan
+                    preview.style.display = "none";  // Sembunyikan preview
+                    input.value = ""; // Reset input file
+                    return;
+                } else {
+                    warning.style.display = "none"; // Sembunyikan peringatan
+                }
+
+                // Tampilkan preview gambar jika ukuran file valid
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <script>
+        function validateFoto3(event) {
+            var input = event.target;
+            var preview = document.getElementById('preview3');
+            var warning = document.getElementById('file-warning3');
 
             if (input.files && input.files[0]) {
                 var file = input.files[0];

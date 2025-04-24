@@ -60,7 +60,7 @@
                                 <div class="step-block_one-text">Melayani jasa service dengan teknisi berpengalaman <br>Authorize Service Center</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/servis2.jpg" alt="" height="300" width="600"/>
+                                        <img src="assets/images/gallery/servis7.jpg" alt="" height="300" width="600"/>
                                     </div>
                                 </div>
                             </div>

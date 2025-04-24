@@ -1,18 +1,7 @@
-@extends('templates.navs')
-@section('title', 'News')
+@extends('templates.nav-admin')
+@section('title', 'Dashboard News Detail')
 
 @section('content')
-<section class="page-title">
-    <div class="page-title-shadow" style="background-image:url({{ asset('assets/images/main-slider/background-daun-adjust-upscale.jpg') }})"></div>
-    <div class="auto-container">
-        <h2>Detail News</h2>
-        <ul class="bread-crumb clearfix">
-            <li><a href="/">Home</a></li>
-            <li><a href="/news">News</a></li>
-            <li>Detail News</li>
-        </ul>
-    </div>
-</section>
 
 <div class="auto-container">
     <div class="inner-container">
