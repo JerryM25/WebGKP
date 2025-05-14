@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\akun;
 use App\barang as Barang;
@@ -73,7 +74,7 @@ class AuthController extends Controller
     public function dashboardNews(Request $request)
     {
         $berita = Berita::all();
-        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        $news = Berita::orderBy('tanggal', 'desc')->limit(5)->get();
         return view('dashboardnews', compact('berita', 'news'));
     }
 
@@ -122,7 +123,19 @@ class AuthController extends Controller
             'keterangan' => 'required',
             'satuan' => 'required',
             'stok' => 'required|numeric',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5000'
         ]);
+
+        if ($request->hasFile('foto')) {
+            if ($barang->foto) {
+                Storage::delete('public/' . $barang->foto);
+            }
+
+            $path = $request->file('foto')->store('public');
+            $filename = basename($path);
+
+            $barang->foto = $filename;
+        }
 
         $barang->update([
             'nama_barang' => $request->nama_barang,
@@ -131,7 +144,8 @@ class AuthController extends Controller
             'harga_jual' => $request->harga_jual,
             'stok' => $request->stok,
             'satuan' => $request->satuan,
-            'kategori' => $request->kategori
+            'kategori' => $request->kategori,
+            'foto'
         ]);
 
         return redirect()->route('dashboard.detail', ['id' => $barang->id_barang])->with('success', 'Barang Berhasil Terupdate');
@@ -183,12 +197,64 @@ class AuthController extends Controller
             'penulis' => $request->penulis,
             'tanggal' => $request->tanggal
         ]);
-        return redirect('dashboardNews');
+        return redirect('dashnews');
+    }
+
+    public function updateBerita(Request $request, $id_berita)
+    {
+        $berita = Berita::where('id_berita', $id_berita)->first();
+
+        $request->validate([
+            'judul' => 'required',
+            'foto1' => 'required|image|mimes:jpg,jpeg,png|max:5000',
+            'foto2' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+            'foto3' => 'nullable|image|mimes:jpg,jpeg,png|max:5000',
+            'berita' => 'required',
+            'penulis' => 'required',
+            'tanggal' => 'required'
+        ]);
+
+        if ($request->hasFile('foto')) {
+            if ($barang->foto) {
+                Storage::delete('public/' . $barang->foto);
+            }
+
+            $path = $request->file('foto')->store('public');
+            $filename = basename($path);
+
+            $barang->foto = $filename;
+        }
+
+        $barang->update([
+            'nama_barang' => $request->nama_barang,
+            'keterangan' => $request->keterangan,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual,
+            'stok' => $request->stok,
+            'satuan' => $request->satuan,
+            'kategori' => $request->kategori,
+            'foto'
+        ]);
+
+        return redirect()->route('dashboard.detail', ['id' => $barang->id_barang])->with('success', 'Barang Berhasil Terupdate');
+    }
+
+    public function editBerita($id_berita)
+    {
+        $berita = Berita::where('id_berita', $id_berita)->first();
+        return view('form-edit', compact('barang'));
+    }
+
+    public function deleteBerita($id_berita){
+        $berita = Berita::where('id_berita', $id_berita)->first();
+        $berita->delete();
+
+        return redirect('dashboardProduct');
     }
 
     public function detNews($id_berita) {
         $berita = Berita::where('id_berita', $id_berita)->first();
-        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        $news = Berita::orderBy('tanggal', 'desc')->limit(5)->get();
         return view('dashNews', compact('berita', 'news'));
     }
 }

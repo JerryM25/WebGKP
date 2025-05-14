@@ -39,8 +39,9 @@
                                     <img src="{{ asset('storage/' . $berita->foto2) }}" alt="" />
                                 </div>
                             @endif
+                            <br>
                             @if ($berita->foto3)
-                                <div class="blog-detail_image-others">
+                                <div class="blog-detail_image-other">
                                     <img src="{{ asset('storage/' . $berita->foto3) }}" alt="" />
                                 </div>
                             @endif
@@ -71,6 +72,34 @@
                             </div>
                         </div>
 
+                        <div class="row clearfix">
+                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                <div class="team-detail_button">
+                                    <a href="{{ route('berita.edit', $berita->id_berita) }}" class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Edit</span>
+                                            <span class="text-two">Edit</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                <form action="{{ route('berita.delete', $berita->id_berita) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="team-detail_button">
+                                        <button class="template-btn btn-style-one">
+                                            <span class="btn-wrap">
+                                                <span class="text-one">Delete</span>
+                                                <span class="text-two">Delete</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
 
                 </aside>

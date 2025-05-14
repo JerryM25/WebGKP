@@ -78,10 +78,14 @@
                         <form method="post" action="{{ route('barang.update', $barang->id_barang) }}" enctype="multipart/form-data">
                             @csrf
                             @METHOD('PUT')
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label>Foto</label>
-                                <input type="file" id="foto" name="foto" value="{{ $barang->foto }}" placeholder="" required="">
-                            </div> --}}
+                                <input type="file" id="foto" name="foto" value="{{ $barang->foto }}" accept="image/*" onchange="validateFoto(event)">
+                                <br>
+                                <img id="preview" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
+                                <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
+                            </div>
 
                             <input type="hidden" id="id_barang" name="id_barang" value="{{ $barang->id_barang }}">
 

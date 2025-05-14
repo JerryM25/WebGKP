@@ -21,6 +21,56 @@
     </div>
 </div>
 
+<section>
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="sidebar-side d-flex justify-content-center">
+                    <aside class="sidebar col-lg-6 col-md-12 col-sm-12">
+                        <div class="sidebar-inner">
+                            <div class="sidebar-widget post-widget">
+                                <div class="widget-content">
+                                    <h5 class="sidebar-widget_title text-center">Portofolio</h5>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan Alat Rekam KTPel DISDUKCAPIL Kabupaten Brebes</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2018-10-24</div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan Peralatan Pelayanan DISDUKCAPIL Kabupaten Boyolali</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2020-07-01</div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan Alat Rekam DISDUKCAPIL Kabupaten Brebes</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2020-10-22</div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan ATK Rumah Sakit Sardjito</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-01-12</div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan Printer Evolis DISDUKCAPIL Kota Semarang</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-07-19</div>
+                                    </div>
+                                    <div class="post">
+                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                        <h6 class="text-white">Pengadaan Server BPKAD Provinsi Maluku Utara</h6>
+                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-12-16</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="choose-one">
     <div class="auto-container">
         <div class="inner-container">
@@ -82,3 +132,5 @@
     </div>
 </div>
 @endsection
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">

@@ -21,13 +21,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/tambahBerita', 'AuthController@tambahBerita')->name('tambahBerita');
     Route::get('/formnews', 'AuthController@formBerita');
 
+    Route::delete('/deletenews/{id}', 'AuthController@deleteBerita')->name('berita.delete');
+    Route::get('/dashnews/{id}/edit', 'AuthController@editBerita')->name('berita.edit');
+    Route::put('/dashnews/{id}', 'AuthController@updateBerita')->name('berita.update');
     Route::get('/dashnews/{id}', 'AuthController@detNews')->name('news.dashdetail');
     Route::get('/dashprod/{id}', 'AuthController@detail')->name('dashboard.detail');
-    Route::delete('/delete/{id}', 'AuthController@deleteBarang')->name('barang.delete');
+    Route::delete('/deleteprod/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
-    Route::get('/dashboard/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
-    Route::put('/dashboard/{id}', 'AuthController@updateBarang')->name('barang.update');
+    Route::get('/dashprod/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
+    Route::put('/dashprod/{id}', 'AuthController@updateBarang')->name('barang.update');
     Route::post('/logout', 'WebController@logout')->name('logout');
 });
 

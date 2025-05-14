@@ -65,7 +65,7 @@ class WebController extends Controller
 
     public function news() {
         $berita = Berita::all();
-        $news = Berita::orderBy('tanggal', 'asc')->limit(5)->get();
+        $news = Berita::orderBy('tanggal', 'desc')->limit(5)->get();
         return view('news', compact('berita', 'news'));
     }
 
