@@ -25,7 +25,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" /></i> --}}
+                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="350" height="350"/></i>
+                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="350" height="350"/></i>
+                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
                                 </div>
                             </div>
                         </div>
@@ -150,6 +150,49 @@
     </div>
 </section>
 <!-- End Services One -->
+
+<!-- About One -->
+<section class="about-one">
+    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/dark_gradient_circle.png)"></div>
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Tab Column -->
+            <div class="about-one_tab-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="about-one_tab-outer">
+                    <div class="about-one_tab-shadow" style="background-image:url(assets/images/background/tab-shadow.png)"></div>
+                    <div class="about-one_tab-image">
+                        <img class="rounded" src="assets/images/gallery/kantor_GKP1.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Column -->
+            <div class="about-one_content-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="about-one_content-outer">
+                    <!-- Sec Title -->
+                    <div class="sec-title">
+                        <div class="sec-title_title">About us</div>
+                        <h2 class="sec-title_heading">CV. GLORY KARYA PERKASA</h2>
+                    </div>
+                    <p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
+                        Manajemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
+                    <p>Berdiri Sejak Januari 2012</p>
+                    <div class="about-one_options d-flex align-items-center flex-wrap">
+                        <a href="/about" class="template-btn btn-style-one">
+                            <span class="btn-wrap">
+                                <span class="text-one">Detail</span>
+                                <span class="text-two">Detail</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End About One -->
 
 <!-- Product One -->
 <section class="price-one">
@@ -273,49 +316,6 @@
     </div>
 </section>
 <!-- End Product One -->
-
-<!-- About One -->
-<section class="about-one">
-    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/dark_gradient_circle.png)"></div>
-    <div class="auto-container">
-        <div class="row clearfix">
-
-            <!-- Tab Column -->
-            <div class="about-one_tab-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="about-one_tab-outer">
-                    <div class="about-one_tab-shadow" style="background-image:url(assets/images/background/tab-shadow.png)"></div>
-                    <div class="about-one_tab-image">
-                        <img class="rounded" src="assets/images/gallery/kantor_GKP1.jpg" alt="" />
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab Column -->
-            <div class="about-one_content-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="about-one_content-outer">
-                    <!-- Sec Title -->
-                    <div class="sec-title">
-                        <div class="sec-title_title">About us</div>
-                        <h2 class="sec-title_heading">CV. GLORY KARYA PERKASA</h2>
-                    </div>
-                    <p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
-                        Manajemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
-                    <p>Berdiri Sejak Tahun </p>
-                    <div class="about-one_options d-flex align-items-center flex-wrap">
-                        <a href="/about" class="template-btn btn-style-one">
-                            <span class="btn-wrap">
-                                <span class="text-one">Detail</span>
-                                <span class="text-two">Detail</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- End About One -->
 
 <!-- Choose One -->
 

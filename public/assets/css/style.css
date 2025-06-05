@@ -762,6 +762,10 @@
 	color: #ff973c;
 }
 
+.about-one .sec-title_h4{
+	color: #ffffff;
+}
+
 .about-one_icon{
 	position: absolute;
 	left: 5%;
@@ -7538,6 +7542,16 @@
 	padding: 50px 30px 42px;
 	background-color: var(--color-seven);
     height: 8cm;
+}
+
+.info-block_one-image{
+	position: relative;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+	padding: 50px 30px 42px;
+	background-color: var(--color-seven);
+    height: 5cm;
 }
 
 .info-block_one-icon{

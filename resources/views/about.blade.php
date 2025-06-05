@@ -6,7 +6,7 @@
 	<!-- Page Title -->
     <section class="page-title">
 
-		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/background-daun-adjust-upscale.jpg)"></div>
+		<div class="page-title-shadow" style="background-image:url(assets/images/main-slider/bgabout.png)"></div>
         <div class="auto-container">
 			<h2>About us</h2>
 			<ul class="bread-crumb clearfix">
@@ -120,6 +120,7 @@
 		<div class="auto-container">
             <div class="sec-title style-four centered">
 				<div class="sec-title_title">Contact Us</div>
+                <h6 class="sec-title_heading">Find us on</h6>
 			</div>
 			<div class="row clearfix">
 
@@ -152,10 +153,33 @@
 							<i class="icon-map"></i>
 						</div>
 						<h4>Our location</h4>
-						<a href="https://maps.app.goo.gl/jKxhCBEgbQbrzAWg7" target="_blank">Jl. Nogosari No.2, RW.08, Kadipaten, Kecamatan Kraton, <br>Kota Yogyakarta, Daerah Istimewa Yogyakarta</a>
+						<a href="https://maps.app.goo.gl/jKxhCBEgbQbrzAWg7" target="_blank">Jl. Nogosari No.2G, RW.08, Kadipaten, Kecamatan Kraton, <br>Kota Yogyakarta, Daerah Istimewa Yogyakarta</a>
 					</div>
 				</div>
 
+                <div class="info-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="info-block_one-image">
+						<a href="https://katalog.inaproc.id/glory-karya-perkasa" target="_blank">
+                            <img src="assets/images/icons/inaproc.png" alt="INAPROC">
+                        </a>
+					</div>
+				</div>
+
+                <div class="info-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="info-block_one-image">
+						<a href="https://siplah.tokoladang.co.id/official-store/glory-karya-perkasa.37992" target="_blank">
+                            <img src="assets/images/icons/tokoladang.png" alt="SIPLAH TOKO LADANG">
+                        </a>
+					</div>
+				</div>
+
+                <div class="info-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="info-block_one-image">
+						<a href="https://www.mbizmarket.co.id/p/cv-glory-karya-perkasa-yOe8W/catalog" target="_blank">
+                            <img src="assets/images/icons/mbizmarket.png" alt="MBIZ">
+                        </a>
+					</div>
+				</div>
 			</div>
 		</div>
         <br>
