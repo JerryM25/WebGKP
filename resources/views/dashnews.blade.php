@@ -71,6 +71,7 @@
 
                             </div>
                         </div>
+                        <br>
 
                         <div class="row clearfix">
                             <div class="column col-lg-6 col-md-12 col-sm-12">

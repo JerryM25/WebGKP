@@ -15,6 +15,7 @@ use App\notabeli as Notabeli;
 use App\vendor as Vendor;
 use App\customer as Customer;
 use App\berita as Berita;
+use App\portofolio as Portofolio;
 
 class WebController extends Controller
 {
@@ -76,6 +77,7 @@ class WebController extends Controller
     }
 
     public function portofolio(){
-        return view('portofolio');
+        $porto = Portofolio::orderBy('tanggal', 'desc')->get();
+        return view('portofolio', compact('porto'));
     }
 }

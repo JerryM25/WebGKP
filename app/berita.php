@@ -18,4 +18,6 @@ class berita extends Model
         'penulis',
         'tanggal'
     ];
+
+    protected $primaryKey = 'id_berita';
 }

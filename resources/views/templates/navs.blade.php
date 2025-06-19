@@ -2,7 +2,7 @@
 <blade.php>
 <head>
 <meta charset="utf-8">
-<title>@yield('title') - CV Glory Karya Perkasa</title>
+<title>@yield('title') - Glory Karya Perkasa</title>
 <!-- Stylesheets -->
 <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">

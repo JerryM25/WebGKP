@@ -14,7 +14,7 @@
                         <!-- Content Column -->
                         <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
-                                <div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i>Hello</div>
+
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
                             </div>
@@ -41,7 +41,7 @@
                         <!-- Content Column -->
                         <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
-                                <div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i>Hello</div>
+
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
                             </div>
@@ -68,7 +68,7 @@
                         <!-- Content Column -->
                         <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
-                                <div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i>Hello</div>
+
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
                             </div>

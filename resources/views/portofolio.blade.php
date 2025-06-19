@@ -31,36 +31,19 @@
                             <div class="sidebar-widget post-widget">
                                 <div class="widget-content">
                                     <h5 class="sidebar-widget_title text-center">Portofolio</h5>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan Alat Rekam KTPel DISDUKCAPIL Kabupaten Brebes</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2018-10-24</div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan Peralatan Pelayanan DISDUKCAPIL Kabupaten Boyolali</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2020-07-01</div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan Alat Rekam DISDUKCAPIL Kabupaten Brebes</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2020-10-22</div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan ATK Rumah Sakit Sardjito</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-01-12</div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan Printer Evolis DISDUKCAPIL Kota Semarang</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-07-19</div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                        <h6 class="text-white">Pengadaan Server BPKAD Provinsi Maluku Utara</h6>
-                                        <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>2022-12-16</div>
-                                    </div>
+                                    @if($porto->isEmpty())
+                                        <div class="team-block_one-content">
+                                            <h3 class="team-block_one-title text-white text-center">Portofolio Belum Tersedia</h3>
+                                        </div>
+                                    @else
+                                        @foreach ($porto as $porto)
+                                            <div class="post">
+                                                <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
+                                                <h6 class="text-white">{{ $porto->nama_porto }}</h6>
+                                                <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $porto->tanggal }}</div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

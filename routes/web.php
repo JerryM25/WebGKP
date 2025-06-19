@@ -18,8 +18,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'AuthController@dashboard')->name('dashboard');
     Route::get('/dashprod', 'AuthController@dashboardProduct')->name('dashboardProduct');
     Route::get('/dashnews', 'AuthController@dashboardNews')->name('dashboardNews');
+    Route::get('/dashporto', 'AuthController@dashboardPorto')->name('dashboardPorto');
     Route::post('/tambahBerita', 'AuthController@tambahBerita')->name('tambahBerita');
     Route::get('/formnews', 'AuthController@formBerita');
+    Route::post('/tambahPorto', 'AuthController@tambahPorto')->name('tambahPorto');
+    Route::get('/formporto', 'AuthController@formPorto');
+    Route::get('/dashporto/{id}/edit', 'AuthController@editPorto')->name('porto.edit');
+    Route::delete('/deleteporto/{id}', 'AuthController@deletePorto')->name('porto.delete');
+    Route::put('/updateporto/{id}', 'AuthController@updatePorto')->name('porto.update');
 
     Route::delete('/deletenews/{id}', 'AuthController@deleteBerita')->name('berita.delete');
     Route::get('/dashnews/{id}/edit', 'AuthController@editBerita')->name('berita.edit');
@@ -28,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashprod/{id}', 'AuthController@detail')->name('dashboard.detail');
     Route::delete('/deleteprod/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
+    Route::get('/formbarang', 'AuthController@formBarang');
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/dashprod/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
     Route::put('/dashprod/{id}', 'AuthController@updateBarang')->name('barang.update');

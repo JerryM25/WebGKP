@@ -55,6 +55,9 @@
                                         <li class="{{ Route::currentRouteName() == 'dashboardNews' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardNews') }}">News</a>
                                         </li>
+                                        <li class="{{ Route::currentRouteName() == 'dashboardPorto' ? 'active current' : '' }}">
+                                            <a href="{{ route('dashboardPorto') }}">Portofolio</a>
+                                        </li>
 									</ul>
 								</div>
 							</nav>
