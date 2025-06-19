@@ -75,7 +75,7 @@
                                 <div class="step-block_one-text">Kami menjamin pengiriman barang ke seluruh Indonesis terkirim dengan Aman dan Cepat</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/shipment.jpg" alt="" />
+                                        <img src="assets/images/gallery/gkp1.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
