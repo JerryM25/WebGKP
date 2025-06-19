@@ -85,56 +85,7 @@
                 </div>
             </div>
         </div>
+        <br><br>
     </section>
-
-    <!-- Authorize Service -->
-	<section class="clients-two style-two">
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="sec-title_title">Authorize Service</div>
-			</div>
-			<div class="clients_slider swiper-container">
-				<div class="swiper-wrapper">
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<img src="assets/images/clients/epson.svg" alt="" />
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<img src="assets/images/clients/tp-link.svg" alt="" />
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<img src="assets/images/clients/microsoft.svg" alt="" />
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<img src="assets/images/clients/acer.svg" alt="" />
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<div class="client-image">
-							<img src="assets/images/clients/fargo.svg" alt="" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Authorize Service -->
 
 @endsection
