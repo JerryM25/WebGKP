@@ -85,7 +85,7 @@
                                 @foreach ($berita->take(5) as $item)
                                     <div class="post">
                                         <div class="thumb"><a href="blog-detail.html"><img src="{{ asset('storage/'.$item->foto1) }}" alt=""></a></div>
-                                        <h6><a href="blog-detail.html">{{ $item->judul }}</a></h6>
+                                        <h6 class="sidebar-widget_text"><a href="blog-detail.html">{{ $item->judul }}</a></h6>
                                         <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $item->tanggal }}</div>
                                     </div>
                                 @endforeach

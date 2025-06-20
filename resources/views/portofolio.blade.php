@@ -30,7 +30,7 @@
                         <div class="sidebar-inner">
                             <div class="sidebar-widget post-widget">
                                 <div class="widget-content">
-                                    <h5 class="sidebar-widget_title text-center">Portofolio</h5>
+                                    <h5 class="sidebar-widget_title text-center">Portofolio</h5><br>
                                     @if($porto->isEmpty())
                                         <div class="team-block_one-content">
                                             <h3 class="team-block_one-title text-white text-center">Portofolio Belum Tersedia</h3>
@@ -39,8 +39,8 @@
                                         @foreach ($porto as $porto)
                                             <div class="post">
                                                 <div class="thumb"><i class="bi bi-geo" style="font-size: 50px; color: var(--main-color)"></i></div>
-                                                <h6 class="text-white">{{ $porto->nama_porto }}</h6>
-                                                <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $porto->tanggal }}</div>
+                                                <h6 class="porto-block_one-title text-white">{{ $porto->nama_porto }}</h6>
+                                                <div class="porto-block_one-date post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $porto->tanggal }}</div>
                                             </div>
                                         @endforeach
                                     @endif

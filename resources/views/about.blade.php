@@ -39,7 +39,7 @@
 							<div class="sec-title_title">About us</div>
                         <h2 class="sec-title_heading">CV. GLORY KARYA PERKASA</h2>
 						</div>
-						<p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
+						<p class="sec-title_text">Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
                             Mananjemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
                         <div class="sec-title_title">Berdiri Sejak Januari 2012</div>
 					</div>
@@ -63,7 +63,7 @@
                         <div class="sec-title_title">Komitmen</div>
                     <h2 class="sec-title_heading">CV. GLORY KARYA PERKASA</h2>
                     </div>
-                    <p>Hai, bergabunglah bersama keluarga besar CV. GLORY KARYA PERKASA. Kami selalu berkomitmen menyediakan produk berkualitas terbaik dengan garansi resmi.
+                    <p class="sec-title_text">Hai, bergabunglah bersama keluarga besar CV. Glory Karya Perkasa. Kami selalu berkomitmen menyediakan produk berkualitas terbaik dengan garansi resmi.
                         Dengan pelayanan cepat dan profesional dengan jaringan distributor yang tersebar diseluruh nusantara dengan pengiriman cepat dan aman.</p>
                 </div>
             </div>

@@ -44,18 +44,19 @@
                                     <li><span class="icon fa-regular fa-calendar fa-fw"></span>{{ $berita->tanggal }}</li>
                                 </ul>
                             </div>
-                            <p>{{ $berita->berita }}</p>
+                            <p class="blog-detail_text">{{ $berita->berita }}</p>
                             @if ($berita->foto2)
                                 <div class="blog-detail_image-others">
                                     <img src="{{ asset('storage/' . $berita->foto2) }}" alt="" />
                                 </div>
+                                <br><br>
                             @endif
                             @if ($berita->foto3)
                                 <div class="blog-detail_image-others">
                                     <img src="{{ asset('storage/' . $berita->foto3) }}" alt="" />
                                 </div>
+                                <br><br>
                             @endif
-
                         </div>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
                                 @foreach ($news->take(5) as $item)
                                     <div class="post">
                                         <div class="thumb"><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}"><img src="{{ asset('storage/'.$item->foto1) }}" alt=""></a></div>
-                                        <h6><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}">{{ $item->judul }}</a></h6>
+                                        <h6 class="sidebar-widget_text"><a href="{{ route('news.dashdetail', ['id' => $item->id_berita]) }}">{{ $item->judul }}</a></h6>
                                         <div class="post-date"><i class="fa-regular fa-calendar fa-fw"></i>{{ $item->tanggal }}</div>
                                     </div>
                                 @endforeach

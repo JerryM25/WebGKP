@@ -12,20 +12,10 @@
                 <div class="auto-container ">
                     <div class="row clearfix">
                         <!-- Content Column -->
-                        <div class="slider-one_content col-lg-7 col-md-8 col-sm-8">
+                        <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
-                            </div>
-                        </div>
-                        <!-- Image Column -->
-                        <div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-                            <div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-                            <div class="slider-one_image-outer">
-                                <!-- Slider One Author -->
-                                <div class="slider-one_author">
-                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -40,19 +30,8 @@
                         <!-- Content Column -->
                         <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
-
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
-                            </div>
-                        </div>
-                        <!-- Image Column -->
-                        <div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-                            <div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-                            <div class="slider-one_image-outer">
-                                <!-- Slider One Author -->
-                                <div class="slider-one_author">
-                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,19 +46,8 @@
                         <!-- Content Column -->
                         <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
                             <div class="slider-one_content-inner">
-
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
-                            </div>
-                        </div>
-                        <!-- Image Column -->
-                        <div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-                            <div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-                            <div class="slider-one_image-outer">
-                                <!-- Slider One Author -->
-                                <div class="slider-one_author">
-                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -174,9 +142,9 @@
                         <div class="sec-title_title">About us</div>
                         <h2 class="sec-title_heading">CV. GLORY KARYA PERKASA</h2>
                     </div>
-                    <p>Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani kementrian/Lembaga/satuan kerja/perangkat daerah/Sekolah/Institusi lainnya.
-                        Manajemen kami berkomitmen untuk senantiasa memberikan pelayanan,mutu dan harga terbaik kepada semua pelanggan kami.</p>
-                    <p>Berdiri Sejak Januari 2012</p>
+                    <p class="sec-title_text">Melayani berbagai kebutuhan produk berbasis IT, Kelengkapan kantor, Sekolah dan Stationery. Kami Telah dipercaya sebagai penyedia dalam komoditas perangkat komputer guna melayani Kementrian / Lembaga / Satuan Kerja / Perangkat Daerah / Sekolah / Institusi lainnya.
+                        Kami berkomitmen untuk senantiasa memberikan pelayanan, mutu dan harga terbaik kepada semua pelanggan.</p>
+                    <p class="sec-title_text">Berdiri Sejak Januari 2012</p>
                     <div class="about-one_options d-flex align-items-center flex-wrap">
                         <a href="/about" class="template-btn btn-style-one">
                             <span class="btn-wrap">
@@ -322,7 +290,7 @@
 <div class="auto-container">
     <div class="inner-container">
         <div class="row clearfix">
-            <br><br><br><br><br>
+            <br><br><br><br><br><br>
         </div>
     </div>
 </div>

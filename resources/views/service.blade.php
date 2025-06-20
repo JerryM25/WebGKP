@@ -31,7 +31,7 @@
                 <!-- Sec Title -->
                 <div class="sec-title">
                     <div class="sec-title_title">Our Services</div>
-                    <h2 class="sec-title_heading">Kami memberikan <br> <span>pelayanan terbaik</span><br><br><br></h2>
+                    <h2 class="sec-title_heading">Kami Memberikan<br>Pelayanan Terbaik</span><br><br><br></h2>
                 </div>
                 <div class="row clearfix">
                     <!-- Column -->
@@ -44,7 +44,7 @@
                                 <div class="step-block_one-text">Kami memberikan produk dengan Kualitas Terbaik</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/product.jpg" alt="" />
+                                        <img src="assets/images/gallery/product.png" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="step-block_one-text">Melayani jasa service dengan teknisi berpengalaman <br>Authorize Service Center</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/service01.jpg" alt="" height="300" width="600"/>
+                                        <img src="assets/images/gallery/servis.png" alt="" height="200" width="300"/>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="step-block_one-text">Kami menjamin pengiriman barang ke seluruh Indonesis terkirim dengan Aman dan Cepat</div>
                                 <div class="step-block_one-content">
                                     <div class="image">
-                                        <img src="assets/images/gallery/gkp1.jpg" alt="" />
+                                        <img src="assets/images/gallery/shipment.png" alt="" />
                                     </div>
                                 </div>
                             </div>

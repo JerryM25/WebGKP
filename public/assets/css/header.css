@@ -319,6 +319,7 @@
 
 .main-header.header-style-three .main-menu .navigation > li > a{
 	color: var(--white-color);
+    font-family: 'Graphie';
 }
 
 .main-header.header-style-three .outer-box{

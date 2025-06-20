@@ -1,6 +1,6 @@
 /* Braine Digital Agency Business HTML-5 Template */
 
-/*** 
+/***
 
 ====================================================================
 	Main Footer
@@ -155,11 +155,13 @@
 	position: relative;
 	font-size: 17px;
 	color: var(--color-three);
+    font-family: 'Graphie';
 }
 
 .footer-copyright a{
 	position: relative;
 	color: var(--main-color);
+    font-family: 'Graphie';
 }
 
 .footer-social_box{
