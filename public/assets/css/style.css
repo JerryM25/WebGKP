@@ -6532,6 +6532,7 @@
 .news-block_three-image img{
 	position: relative;
     object-fit: cover;
+    max-height: 500px;
 	width: 100%;
 	display: block;
 	transition:all 500ms ease;
@@ -6647,7 +6648,8 @@
 
 .blog-detail_image-others img{
 	position: static;
-	width: 55%;
+    height: 500px;
+	width: fit-content;
 	display: block;
 }
 

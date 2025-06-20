@@ -165,7 +165,7 @@ class AuthController extends Controller
             'stok' => $request->stok,
             'satuan' => $request->satuan
         ]);
-        return redirect('dashboardprod');
+        return redirect('dashprod');
     }
 
     public function updateBarang(Request $request, $id_barang)
