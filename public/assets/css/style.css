@@ -6622,6 +6622,8 @@
 
 .blog-detail_image img{
 	position: relative;
+    object-fit: cover;
+    height: 500px;
 	width: 100%;
 	display: block;
 }
@@ -6634,7 +6636,9 @@
 
 .blog-detail_image-other img{
 	position: static;
-	width: 55%;
+	object-fit: cover;
+    height: 500px;
+	width: 100%;
 	display: block;
 }
 
@@ -6648,8 +6652,9 @@
 
 .blog-detail_image-others img{
 	position: static;
+    object-fit: cover;
     height: 500px;
-	width: fit-content;
+	width: 100%;
 	display: block;
 }
 
