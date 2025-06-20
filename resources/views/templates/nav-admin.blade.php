@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
-<link rel="icon" href="{{ asset('assets/images/logo-removebg.png') }}" type="image/png">
+<link rel="icon" href="{{ asset('assets/images/logo-gkp-1.png') }}" type="image/png">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
 					<div class="d-flex justify-content-between align-items-center flex-wrap">
 
 						<div class="logo-box">
-							<div class="logo"><a href=""><img src="{{ asset('assets/images/logo-removebg.png') }}" alt="" title="" width="50" height="50"></a></div>
+							<div class="logo"><a href=""><img src="{{ asset('assets/images/logo-gkp-1.png') }}" alt="" title="" width="50" height="50"></a></div>
 						</div>
 
 						<div class="nav-outer d-flex flex-wrap">
@@ -99,7 +99,7 @@
 			<div class="close-btn"><span class="icon fa-solid fa-xmark fa-fw"></span></div>
 
 			<nav class="menu-box">
-				<div class="nav-logo"><a href=""><img src="{{ asset('assets/images/logo-removebg.png') }}" alt="" title="" height="50" width="50"></a></div>
+				<div class="nav-logo"><a href=""><img src="{{ asset('assets/images/logo-gkp-1.png') }}" alt="" title="" height="50" width="50"></a></div>
 				<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
                 <div class="mobile-logout-btn mt-4 px-3">
                     <form action="{{ route('logout') }}" id="logout" method="POST">

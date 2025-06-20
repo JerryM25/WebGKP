@@ -283,10 +283,9 @@
 }
 
 .slider-one_heading{
-	margin-top: 25px;
-	margin-bottom:30px;
+    top: -150px;
+	margin-bottom: 30px;
 	color: var(--white-color);
-
 	transition:all 900ms ease;
 	-moz-transition:all 900ms ease;
 	-webkit-transition:all 900ms ease;
@@ -296,11 +295,20 @@
     clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 }
 
+@font-face {
+    font-family: 'Graphie';
+    src: url('/assets/fonts/fonnts.com-Graphie_SemiBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 .slider-one_heading span{
 	position: relative;
-	font-weight: 600;
-	font-style: italic;
-	font-family: 'Lora', serif;
+    font-size: 82%;
+	font-weight: bold;
+	/* font-style: italic; */
+	font-family: 'Graphie';
 }
 
 .slider-one_heading span::before{
@@ -328,8 +336,10 @@
 .slider-one_text{
 	position: relative;
 	font-size: 17px;
+    font-family: 'Graphie';
 	max-width: 600px;
 	line-height: 27px;
+    top: -100px;
 	margin-bottom:35px;
 	color: var(--color-three);
 

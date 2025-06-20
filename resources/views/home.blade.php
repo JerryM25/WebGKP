@@ -9,12 +9,11 @@
             <!-- Slide -->
             <div class="swiper-slide">
                 <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home1.png)"></div>
-                <div class="auto-container">
+                <div class="auto-container ">
                     <div class="row clearfix">
                         <!-- Content Column -->
-                        <div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
+                        <div class="slider-one_content col-lg-7 col-md-8 col-sm-8">
                             <div class="slider-one_content-inner">
-
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
                             </div>
@@ -25,7 +24,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
+                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
                                 </div>
                             </div>
                         </div>
@@ -52,7 +51,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
+                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
                                 </div>
                             </div>
                         </div>
@@ -79,7 +78,7 @@
                             <div class="slider-one_image-outer">
                                 <!-- Slider One Author -->
                                 <div class="slider-one_author">
-                                    <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i>
+                                    {{-- <i><img src="assets/images/logo-removebg.png" alt="" width="250" height="250"/></i> --}}
                                 </div>
                             </div>
                         </div>
