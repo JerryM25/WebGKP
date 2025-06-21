@@ -54,7 +54,7 @@
     </div>
 </section>
 
-<section class="choose-one">
+{{-- <section class="choose-one">
     <div class="auto-container">
         <div class="inner-container">
             <!-- Sec Title -->
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <div class="auto-container">
     <div class="inner-container">
