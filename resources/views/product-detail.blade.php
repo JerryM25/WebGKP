@@ -4,7 +4,7 @@
 @section('content')
 
     <section class="page-title">
-		<div class="page-title-shadow" style="background-image:url('{{ asset('assets/images/main-slider/background-daun-gelap-1.png') }}')"></div>
+		<div class="page-title-shadow" style="background-image:url('{{ asset('assets/images/main-slider/bgproduct.png') }}')"></div>
         <div class="auto-container">
 			<h2>Our Product</h2>
 			<ul class="bread-crumb clearfix">
