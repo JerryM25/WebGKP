@@ -42,7 +42,7 @@
 
 .footer-newsletter{
 	position: relative;
-	padding: 34px 35px;
+	padding: 15px 12px;
 	border-radius: 8px;
 	background-color: var(--color-seven);
 	border: 1px solid rgba(var(--white-color-rgb), 0.07);

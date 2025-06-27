@@ -82,7 +82,7 @@
                 @endif
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <br><br><br><br><br>
+                    <br><br><br>
                 </div>
 
 			</div>

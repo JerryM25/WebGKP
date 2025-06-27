@@ -152,13 +152,11 @@
 .slider-one_pattern{
 	position: absolute;
 	left: 0px;
-	top: 0px;
+	top: -110px;
 	right: 0px;
 	bottom: 0px;
-	z-index: 1;
 	background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .slider-one_pattern-two{
@@ -563,7 +561,7 @@
 .services-one{
 	position: relative;
 	z-index: 1;
-	padding: 60px 0px 70px;
+	padding: 30px 0px 10px;
 }
 
 .services-one.style-two{
@@ -572,8 +570,8 @@
 
 .service-block_one{
 	position: relative;
-    margin-top: 30px;
-	margin-bottom: 30px;
+    margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .services-one .sec-title_heading{
@@ -777,7 +775,7 @@
 
 .about-one{
 	position: relative;
-	padding: 100px 0px 70px;
+	padding: 10px 0px 10px;
 }
 
 .about-one .sec-title_title{
@@ -823,7 +821,7 @@
 .about-one_pattern{
 	position: absolute;
 	right: 0px;
-	top: -250px;
+	top: -350px;
 	width: 709px;
 	height: 1152px;
     margin-right: -150px;
@@ -1465,8 +1463,8 @@
 
 .steps-one{
 	position: relative;
-	z-index: 2;
-	padding: 110px 0px 70px;
+	z-index: 4;
+	padding: 30px 0px 70px;
 }
 
 .steps-one .sec-title_title {
@@ -1477,7 +1475,8 @@
 .steps-one .sec-title_heading{
 	color: #ffffff;
     font-family: 'Graphie';
-    font-size: 45px;
+    font-size: 40px;
+    height: 100px;
 }
 
 .steps-one_bg{
@@ -1488,6 +1487,7 @@
 	bottom: 0px;
 	background-position: center center;
 	background-repeat: no-repeat;
+    height: 670px;
 }
 
 .steps-one_icon{
@@ -1542,7 +1542,7 @@
 }
 
 .steps-one .column:nth-child(2n + 0){
-	margin-top: -330px;
+	margin-top: 0px;
 }
 
 .steps-one_button{
@@ -1576,7 +1576,7 @@
 	position: relative;
 	font-size: 22px;
 	font-weight: 600;
-	margin-top: 22px;
+	margin-top: 2px;
 	color: var(--white-color);
     font-family: 'Graphie';
 }
@@ -1585,22 +1585,22 @@
 	position: relative;
 	font-size: 17px;
 	line-height: 27px;
-	margin-top: 15px;
+	margin-top: 2px;
 	color: #ffffff;
     font-family: 'Graphie';
 }
 
 .step-block_one-content{
 	position: relative;
-	margin-top: 35px;
+	margin-top: 2px;
 }
 
 .step-block_one-content img{
 	position: relative;
-	margin-top: 35px;
+	margin-top: 2px;
     width: fit-content;
     object-fit: cover;
-    height: 400px;
+    height: 180px;
     width: 100%;
 }
 
@@ -1653,7 +1653,7 @@
 .price-one .inner-container{
 	position: relative;
 	border-radius: 10px;
-	padding: 100px 120px 100px;
+	padding: 20px 30px 20px;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-color: var(--color-seven);
@@ -1753,7 +1753,7 @@
 
 .price-block_one{
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	transition:all 900ms ease;
 	-moz-transition:all 900ms ease;
 	-webkit-transition:all 900ms ease;
@@ -1764,7 +1764,7 @@
 .price-block_one-inner{
 	position: relative;
 	border-radius: 8px;
-	padding: 35px 35px 40px;
+	padding: 15px 15px 20px;
 	transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
 	-webkit-transition:all 500ms ease;
@@ -1876,8 +1876,8 @@
 
 .price-block_one-content{
 	position: relative;
-	padding-top: 25px;
-	margin-top: 24px;
+	padding-top: 10px;
+	margin-top: 10px;
 	border-top: 1px solid rgba(var(--white-color-rgb), 0.06);
 }
 
@@ -1927,7 +1927,7 @@
 
 .price-block_one-button{
 	position: relative;
-	margin-top: 35px;
+	margin-top: 10px;
 }
 
 .price-one_button{
@@ -5293,7 +5293,7 @@
 	position:relative;
 	text-align:center;
 	margin-top: 110px;
-	padding:135px 0px 135px;
+	padding:30px 0px 30px;
 }
 
 .page-title-icon{
@@ -5413,7 +5413,7 @@
 
 .story-one{
 	position: relative;
-	padding: 100px 0px 70px;
+	padding: 20px 0px 20px;
 }
 
 .story-one .sec-title_title{
@@ -5494,7 +5494,7 @@
 
 .value-one{
 	position: relative;
-	padding: 100px 0px 100px;
+	padding: 30px 0px 0px;
 	background-color: var(--color-nine);
 }
 
@@ -5506,10 +5506,10 @@
 .value-block_one-inner{
 	position: relative;
 	text-align: center;
-	padding: 50px 40px;
+	padding: 10px 30px;
 	border-radius: 8px;
 	background-color: var(--color-eight);
-    height: 14cm;
+    height: 11cm;
 }
 
 .value-block_one-icon{
@@ -5646,7 +5646,7 @@
 
 .team-block_one-content{
 	position: relative;
-	padding-top: 25px;
+	padding-top: 5px;
 }
 
 .team-block_one-title{
@@ -6384,7 +6384,7 @@
 
 .sidebar-page-container{
 	position:relative;
-	padding:100px 0px 70px;
+	padding:50px 0px 100px;
 	background-color: #393c39;
 }
 
@@ -7275,7 +7275,7 @@
 
 .team-two{
 	position: relative;
-	padding: 100px 0px 70px;
+	padding: 20px 0px 70px;
 	background-color: #393c39;
 }
 
@@ -7675,7 +7675,7 @@
 
 .contact-info{
 	position: relative;
-	padding: 100px 0px 70px;
+	padding: 30px 0px 70px;
 	background-color: #393c39;
 	border-bottom: 1px solid rgba(var(--white-color-rgb), 0.06);
 }

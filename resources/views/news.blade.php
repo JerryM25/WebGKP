@@ -13,14 +13,6 @@
     </div>
 </section>
 
-<div class="auto-container">
-    <div class="inner-container">
-        <div class="row clearfix">
-            <br><br>
-        </div>
-    </div>
-</div>
-
 <div class="sidebar-page-container">
     <div class="auto-container">
         <div class="row clearfix">
