@@ -6384,7 +6384,7 @@
 
 .sidebar-page-container{
 	position:relative;
-	padding:50px 0px 100px;
+	padding:20px 0px 50px;
 	background-color: #393c39;
 }
 
@@ -6658,7 +6658,7 @@
 .news-block_three-image img{
 	position: relative;
     object-fit: cover;
-    max-height: 500px;
+    max-height: 300px;
 	width: 100%;
 	display: block;
 	transition:all 500ms ease;
@@ -6675,7 +6675,7 @@
 
 .news-block_three-content{
 	position: relative;
-	padding: 25px 25px 25px;
+	padding: 10px 10px 10px;
 }
 
 .news-block_three-meta{
@@ -6701,7 +6701,7 @@
 
 .news-block_three-title{
 	position: relative;
-	margin-top: 20px;
+	margin-top: 10px;
     font-family: 'Graphie';
 }
 
@@ -6719,14 +6719,14 @@
 	position: relative;
 	font-size: 17px;
 	line-height: 27px;
-	margin-top: 15px;
+	margin-top: 10px;
 	color: var(--color-three);
     font-family: 'Graphie';
 }
 
 .news-block_three-button{
 	position: relative;
-	margin-top: 32px;
+	margin-top: 13px;
 }
 
 .blog-classic .styled-pagination{
@@ -6752,7 +6752,7 @@
 .blog-detail_image img{
 	position: relative;
     object-fit: cover;
-    height: 500px;
+    height: 350px;
 	width: 100%;
 	display: block;
 }
@@ -6766,7 +6766,7 @@
 .blog-detail_image-other img{
 	position: static;
 	object-fit: cover;
-    height: 500px;
+    height: 350px;
 	width: 100%;
 	display: block;
 }
@@ -6782,26 +6782,26 @@
 .blog-detail_image-others img{
 	position: static;
     object-fit: cover;
-    height: 500px;
+    height: 350px;
 	width: 100%;
 	display: block;
 }
 
 .blog-detail_content{
 	position: relative;
-	padding-top: 25px;
+	padding-top: 10px;
 }
 
 .blog-detail_heading{
 	position: relative;
-	padding-top: 20px;
+	padding-top: 0px;
     font-family: 'Graphie';
 }
 
 .blog-detail_author-outer{
 	position: relative;
 	gap: 15px;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .blog-detail-author{
@@ -7037,7 +7037,7 @@
 
 .blog-detail h3{
 	font-weight: 600;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	color: var(--white-color);
 }
 
@@ -7289,14 +7289,14 @@
 
 .team-detail{
 	position: relative;
-	padding: 100px 0px 70px;
+	padding: 20px 0px 70px;
 	background-color: #393c39;
 }
 
 .team-detail_image-column{
 	position: relative;
-    margin-top: 30px;
-    margin-right: 30px;
+    margin-top: 20px;
+    margin-right: 15px;
 	margin-bottom: 30px;
     width: 450px;
     height: 300px;
@@ -7330,7 +7330,7 @@
 .team-detail_info-outer{
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 45px;
+	margin-bottom: 10px;
 	border-right: none;
 	border-bottom: none;
 	border-radius: 8px;
@@ -7365,17 +7365,16 @@
 
 .team-detail_title{
 	position: relative;
-	margin-top: 20px;
 	color: var(--white-color);
     font-family: 'Graphie';
 }
 
 .team-detail_text{
 	position: relative;
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 17px;
 	line-height: 27px;
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 	color: var(--color-six);
     font-family: 'Graphie';
 }

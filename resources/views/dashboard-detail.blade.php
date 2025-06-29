@@ -2,22 +2,28 @@
 @section('title', 'Detail Dashboard Product')
 
 @section('content')
+<section class="team-detail">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+        </div>
+    </div>
+</section>
 <!-- Team Detail -->
 <section class="team-detail">
     <div class="auto-container">
         <div class="row clearfix">
 
-            <div class="nav-outer d-flex flex-wrap">
-                <!-- Main Menu -->
-                <nav class="main-menu navbar-expand-md">
-                    <div class="price-block_one-button text-center">
-                        <a class="template-btn price-one_button" href="/dashprod">Back</a>
-                    </div>
-                </nav>
-            </div>
-
             <!-- Team Block One -->
             <div class="team-detail_image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="nav-outer d-flex flex-wrap">
+                <!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="price-block_one-button text-center">
+                            <a class="template-btn price-one_button" href="/dashprod">Back</a>
+                        </div>
+                    </nav>
+                </div>
                 <div class="team-detail_image-outer">
                     <div class="team-detail_image">
                         <img class="team-detail_image" src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
