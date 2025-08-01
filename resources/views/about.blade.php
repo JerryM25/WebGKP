@@ -180,6 +180,13 @@
                         </a>
 					</div>
 				</div>
+
+                <div class="maps-block_one col-lg-12 col-md-12 col-sm-12">
+					<div class="maps-block_one-image">
+						<iframe class="rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1402.0242030890656!2d110.35882752085878!3d-7.809075870101511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57df10bbf52d%3A0x43a165b55f1e83c3!2sCv%20Glory%20Karya%20Perkasa!5e0!3m2!1sen!2sid!4v1753843486411!5m2!1sen!2sid"
+                        width="1250" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
 			</div>
 		</div>
         <br>

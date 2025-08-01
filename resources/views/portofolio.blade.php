@@ -13,7 +13,7 @@
     </div>
 </section>
 
-<section>
+{{-- <section>
     <div class="sidebar-page-container">
         <div class="auto-container">
             <div class="row clearfix">
@@ -44,65 +44,35 @@
             </div>
         </div>
     </div>
-</section>
-
-{{-- <section class="choose-one">
-    <div class="auto-container">
-        <div class="inner-container">
-            <!-- Sec Title -->
-            <div class="sec-title light centered">
-                <div class="sec-title_title">Customer Kami</div>
-            </div>
-            <div class="row clearfix">
-
-                <div class="clients_slider swiper-container">
-                    <div class="swiper-wrapper">
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/icons/soerojo.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/pemkab sleman.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/oku.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/kotaJogja.png" alt="" />
-                            </div>
-                        </div>
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="client-image-home">
-                                <img src="assets/images/clients/kominfo.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section> --}}
 
 <div class="auto-container">
     <div class="inner-container">
         <div class="row clearfix">
-            <br><br><br><br><br><br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<section class="choose-one">
+    <div class="auto-container">
+        <div class="inner-container">
+            <!-- Sec Title -->
+            <div class="sec-title light centered">
+                <div class="sec-title_title">Customer Kami</div>
+                <br>
+            </div>
+            <div class="row clearfix">
+                <img src="assets/images/gallery/cakupan.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="auto-container">
+    <div class="inner-container">
+        <div class="row clearfix">
+            <br><br><br><br><br>
         </div>
     </div>
 </div>
