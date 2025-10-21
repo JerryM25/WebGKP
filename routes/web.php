@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => ['auth']], function () {
+    //transaksi
+    Route::get('/dashboardTransaksi', 'AuthController@dashboardTransaksi')->name('dashboardTransaksi');
+    Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
+    Route::get('/dashtranster', 'AuthController@dashtranster')->name('terima');
+    Route::get('/dashtransper', 'AuthController@dashtransper')->name('permintaan');
+    Route::get('/dashtransjual', 'AuthController@dashtransjual')->name('jual');
+
+    //produk
     Route::get('/dashboard', 'AuthController@dashboard')->name('dashboard');
     Route::get('/dashprod', 'AuthController@dashboardProduct')->name('dashboardProduct');
     Route::get('/dashnews', 'AuthController@dashboardNews')->name('dashboardNews');
@@ -27,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/deleteporto/{id}', 'AuthController@deletePorto')->name('porto.delete');
     Route::put('/updateporto/{id}', 'AuthController@updatePorto')->name('porto.update');
 
+    //berita
     Route::delete('/deletenews/{id}', 'AuthController@deleteBerita')->name('berita.delete');
     Route::get('/dashnews/{id}/edit', 'AuthController@editBerita')->name('berita.edit');
     Route::put('/dashnews/{id}', 'AuthController@updateBerita')->name('berita.update');
@@ -39,6 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashprod/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
     Route::put('/dashprod/{id}', 'AuthController@updateBarang')->name('barang.update');
     Route::post('/logout', 'WebController@logout')->name('logout');
+
+    //porto
 });
 
 

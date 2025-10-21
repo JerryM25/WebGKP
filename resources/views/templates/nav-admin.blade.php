@@ -11,6 +11,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+/>
+
 
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ asset('assets/images/logo-gkp-1.png') }}" type="image/png">
@@ -48,6 +53,9 @@
 									<ul class="navigation clearfix">
 										<li class="{{ Route::currentRouteName() == 'dashboard' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'dashboardTransaksi' ? 'active current' : '' }}">
+                                            <a href="{{ route('dashboardTransaksi') }}">Transaksi</a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'dashboardProduct' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardProduct') }}">Product</a>

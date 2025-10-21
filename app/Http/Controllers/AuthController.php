@@ -65,6 +65,79 @@ class AuthController extends Controller
         return view('dashboard');
     }
 
+    public function dashboardTransaksi(Request $request)
+    {
+        return view('dashboardtransaksi');
+    }
+
+    public function dashtransreq(Request $request)
+    {
+        $b = [
+            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+        ];
+        return view('dashtrans-request', compact('b'));
+    }
+
+    public function dashtranster(Request $request)
+    {
+        $b = [
+            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+        ];
+        return view('dashtrans-terima', compact('b'));
+    }
+
+    public function dashtransper(Request $request)
+    {
+        $b = [
+            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+        ];
+        return view('dashtrans-permintaan', compact('b'));
+    }
+
+    public function dashtransjual(Request $request)
+    {
+        $b = [
+            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+        ];
+        return view('dashtrans-jual', compact('b'));
+    }
+
     public function dashboardProduct(Request $request)
     {
         $kategori = $request->query('kategori', 'Semua Kategori');
