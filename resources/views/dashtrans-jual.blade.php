@@ -15,6 +15,12 @@
             <div class="col-md-2">
                 <a class="template-btn price-one_button" href="{{ route('dashboardTransaksi') }}">Kembali</a>
             </div>
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-2">
+                <a class="template-btn price-one_button" href="">Tambah</a>
+            </div>
         </div>
     </div>
     <br>
@@ -35,6 +41,8 @@
                             <th>Deskripsi</th>
                             <th>Status</th>
                             <th>Tanggal</th>
+                            <th>File</th>
+                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +53,27 @@
                                 <td>{{ $a['deskripsi'] }}</td>
                                 <td>{{ $a['status'] }}</td>
                                 <td>{{ $a['tanggal'] }}</td>
+                                <td>
+                                    <a href="">
+                                        <button class="trans-block_one-icon">
+                                            <i class="bi bi-file-earmark"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <a href="">
+                                            <button class="trans-block_one-icon">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="trans-block_one-icon">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
 

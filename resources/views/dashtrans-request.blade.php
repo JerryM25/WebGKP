@@ -62,16 +62,18 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </a>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </a>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <a href="">
+                                            <button class="trans-block_one-icon">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="trans-block_one-icon">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -78,7 +78,9 @@
                                     @csrf
                                 </form>
 
-                                <a href="#" class="template-btn btn-style-two" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                                <a href="#" class="template-btn btn-style-two"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout').submit();">
                                     <span class="btn-wrap">
                                         <span class="text-one">Log Out</span>
                                         <span class="text-two">Log Out</span>
