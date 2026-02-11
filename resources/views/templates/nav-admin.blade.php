@@ -63,9 +63,9 @@
                                         <li class="{{ Route::currentRouteName() == 'dashboardNews' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardNews') }}">News</a>
                                         </li>
-                                        <li class="{{ Route::currentRouteName() == 'dashboardPorto' ? 'active current' : '' }}">
+                                        {{-- <li class="{{ Route::currentRouteName() == 'dashboardPorto' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardPorto') }}">Portofolio</a>
-                                        </li>
+                                        </li> --}}
 									</ul>
 								</div>
 							</nav>

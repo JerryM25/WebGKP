@@ -73,16 +73,16 @@ class AuthController extends Controller
     public function dashtransreq(Request $request)
     {
         $b = [
-            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+            ['nomor_notabeli' => '001/GKP/SP/X/25', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nomor_notabeli' => '002/GKP/SP/X/25', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nomor_notabeli' => '003/GKP/SP/X/25', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nomor_notabeli' => '004/GKP/SP/X/25', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nomor_notabeli' => '005/GKP/SP/X/25', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nomor_notabeli' => '006/GKP/SP/X/25', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nomor_notabeli' => '007/GKP/SP/X/25', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nomor_notabeli' => '008/GKP/SP/X/25', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nomor_notabeli' => '009/GKP/SP/X/25', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nomor_notabeli' => '010/GKP/SP/X/25', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
         ];
         return view('dashtrans-request', compact('b'));
     }
@@ -90,16 +90,16 @@ class AuthController extends Controller
     public function dashtranster(Request $request)
     {
         $b = [
-            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+            ['nomor_terima' => 'GKP/IN/0001', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nomor_terima' => 'GKP/IN/0002', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nomor_terima' => 'GKP/IN/0003', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nomor_terima' => 'GKP/IN/0004', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nomor_terima' => 'GKP/IN/0005', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nomor_terima' => 'GKP/IN/0006', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nomor_terima' => 'GKP/IN/0007', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nomor_terima' => 'GKP/IN/0008', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nomor_terima' => 'GKP/IN/0009', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nomor_terima' => 'GKP/IN/0010', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
         ];
         return view('dashtrans-terima', compact('b'));
     }
@@ -107,16 +107,16 @@ class AuthController extends Controller
     public function dashtransper(Request $request)
     {
         $b = [
-            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+            ['nomor_notajual' => '001/GKP/SO/X/25', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nomor_notajual' => '002/GKP/SO/X/25', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nomor_notajual' => '003/GKP/SO/X/25', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nomor_notajual' => '004/GKP/SO/X/25', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nomor_notajual' => '005/GKP/SO/X/25', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nomor_notajual' => '006/GKP/SO/X/25', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nomor_notajual' => '007/GKP/SO/X/25', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nomor_notajual' => '008/GKP/SO/X/25', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nomor_notajual' => '009/GKP/SO/X/25', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nomor_notajual' => '010/GKP/SO/X/25', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
         ];
         return view('dashtrans-permintaan', compact('b'));
     }
@@ -124,16 +124,16 @@ class AuthController extends Controller
     public function dashtransjual(Request $request)
     {
         $b = [
-            ['nama' => 'Permintaan Barang A', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nama' => 'Permintaan Barang B', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nama' => 'Permintaan Barang C', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nama' => 'Permintaan Barang D', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nama' => 'Permintaan Barang E', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nama' => 'Permintaan Barang F', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nama' => 'Permintaan Barang G', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nama' => 'Permintaan Barang H', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nama' => 'Permintaan Barang I', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nama' => 'Permintaan Barang J', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+            ['nomor_keluar' => 'GKP/OUT/0001', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nomor_keluar' => 'GKP/OUT/0002', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nomor_keluar' => 'GKP/OUT/0003', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nomor_keluar' => 'GKP/OUT/0004', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nomor_keluar' => 'GKP/OUT/0005', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nomor_keluar' => 'GKP/OUT/0006', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nomor_keluar' => 'GKP/OUT/0007', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nomor_keluar' => 'GKP/OUT/0008', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nomor_keluar' => 'GKP/OUT/0009', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nomor_keluar' => 'GKP/OUT/0010', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
         ];
         return view('dashtrans-jual', compact('b'));
     }
@@ -407,5 +407,29 @@ class AuthController extends Controller
         $berita = Berita::where('id_berita', $id_berita)->first();
         $news = Berita::orderBy('tanggal', 'desc')->limit(5)->get();
         return view('dashNews', compact('berita', 'news'));
+    }
+
+    public function formBeli(){
+        return view('formnews');
+    }
+
+    public function formBeliEdit(){
+        return view('formnews');
+    }
+
+    public function formJual(){
+        return view('formnews');
+    }
+
+    public function formJualEdit(){
+        return view('formnews');
+    }
+
+    public function vendor(){
+        return view('dashvendor');
+    }
+
+    public function customer(){
+        return view('dashcust');
     }
 }

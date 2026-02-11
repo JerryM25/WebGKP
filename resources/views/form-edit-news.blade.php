@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Form - Glory Karya Perkasa</title>
+    <title>Form News - Glory Karya Perkasa</title>
     <!-- Stylesheets -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">

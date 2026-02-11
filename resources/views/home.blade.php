@@ -8,7 +8,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home1.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home2.png)"></div>
                 <div class="auto-container ">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -24,7 +24,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home2.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home3.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -40,7 +40,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home3.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home1.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->

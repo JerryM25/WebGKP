@@ -25,6 +25,19 @@
                 <a class="template-btn price-one_button" href="{{ route('jual') }}">Jual Barang</a>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <a class="template-btn price-one_button" href="{{ route('vendor') }}">Vendor</a>
+            </div>
+            <div class="col-md-4">
+                <a class="template-btn price-one_button" href="{{ route('customer') }}">Customer</a>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
     </div>
     <br>
 </div>

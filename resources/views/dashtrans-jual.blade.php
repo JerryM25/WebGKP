@@ -37,7 +37,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>No Pengantaran</th>
                             <th>Deskripsi</th>
                             <th>Status</th>
                             <th>Tanggal</th>
@@ -49,7 +49,7 @@
                         @foreach($b as $a)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nama'] }}</td>
+                                <td>{{ $a['nomor_keluar'] }}</td>
                                 <td>{{ $a['deskripsi'] }}</td>
                                 <td>{{ $a['status'] }}</td>
                                 <td>{{ $a['tanggal'] }}</td>

@@ -1,5 +1,5 @@
 @extends('templates.nav-admin')
-@section('title', 'Dashboard Transaksi Permintaan Penjualan')
+@section('title', 'Dashboard Vendor')
 
 @section('content')
 {{-- Tambah Barang --}}
@@ -30,26 +30,24 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">VENDOR</div>
 			</div>
 			<div class="row clearfix">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>No Nota Jual</th>
-                            <th>Deskripsi</th>
-                            <th>Status</th>
-                            <th>Tanggal</th>
-                            <th>File</th>
-                            <th>action</th>
+                            <th>Nama Vendor</th>
+                            <th>Nomor Telepon</th>
+                            <th>Alamat</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {{-- <tbody>
                         @foreach($b as $a)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_notajual'] }}</td>
+                                <td>{{ $a['nomor_terima'] }}</td>
                                 <td>{{ $a['deskripsi'] }}</td>
                                 <td>{{ $a['status'] }}</td>
                                 <td>{{ $a['tanggal'] }}</td>
@@ -77,7 +75,7 @@
                             </tr>
                         @endforeach
 
-                    </tbody>
+                    </tbody> --}}
                 </table>
 
 			</div>

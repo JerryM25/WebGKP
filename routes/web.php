@@ -47,9 +47,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/tambahBarang', 'AuthController@tambahBarang')->name('tambahBarang');
     Route::get('/dashprod/{id}/edit', 'AuthController@editBarang')->name('barang.edit');
     Route::put('/dashprod/{id}', 'AuthController@updateBarang')->name('barang.update');
+
+
     Route::post('/logout', 'WebController@logout')->name('logout');
 
-    //porto
+    //Transaksi
+        //Jual
+    //
+        //Beli
+    //
+        //Vendor
+    Route::get('/dashvendor', 'AuthController@vendor')->name('vendor');
+        //Customer
+    Route::get('/dashcust', 'AuthController@customer')->name('customer');
 });
 
 
