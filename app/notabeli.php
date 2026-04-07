@@ -11,6 +11,7 @@ class notabeli extends Model
     protected $fillable =[
         'id_nota_beli',
         'id_vendor',
+        'no_notabeli',
         'tanggal'
     ];
 }

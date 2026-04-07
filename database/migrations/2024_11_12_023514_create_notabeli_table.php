@@ -20,7 +20,7 @@ class CreateNotabeliTable extends Migration
                 ->references('id_vendor')
                 ->on('vendor')
                 ->onDelete('set null');
-            $table->string('no_notabeli');
+            $table->string('no_notabeli')->unique();
             $table->date('tanggal');
             $table->timestamps();
         });

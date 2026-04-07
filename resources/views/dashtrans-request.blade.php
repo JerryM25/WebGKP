@@ -20,7 +20,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('reqBeli') }}">Tambah</a>
             </div>
         </div>
     </div>

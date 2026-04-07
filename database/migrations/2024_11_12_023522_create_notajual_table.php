@@ -20,7 +20,7 @@ class CreateNotajualTable extends Migration
                 ->references('id_customer')
                 ->on('customer')
                 ->onDelete('set null');
-            $table->string('no_notajual');
+            $table->string('no_notajual')->unique();
             $table->date('tanggal');
             $table->timestamps();
         });

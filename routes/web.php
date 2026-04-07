@@ -15,13 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => ['auth']], function () {
-    //transaksi
-    Route::get('/dashboardTransaksi', 'AuthController@dashboardTransaksi')->name('dashboardTransaksi');
-    Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
-    Route::get('/dashtranster', 'AuthController@dashtranster')->name('terima');
-    Route::get('/dashtransper', 'AuthController@dashtransper')->name('permintaan');
-    Route::get('/dashtransjual', 'AuthController@dashtransjual')->name('jual');
-
     //produk
     Route::get('/dashboard', 'AuthController@dashboard')->name('dashboard');
     Route::get('/dashprod', 'AuthController@dashboardProduct')->name('dashboardProduct');
@@ -52,14 +45,31 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', 'WebController@logout')->name('logout');
 
     //Transaksi
+    Route::get('/dashboardTransaksi', 'AuthController@dashboardTransaksi')->name('dashboardTransaksi');
+
         //Jual
-    //
+    Route::get('/dashtransper', 'AuthController@dashtransper')->name('permintaan');
+    Route::get('/dashtransjual', 'AuthController@dashtransjual')->name('jual');
+
         //Beli
-    //
+    Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
+    Route::get('/formtransreq', 'AuthController@reqBeli')->name('reqBeli');
+    Route::post('/tambahnotaBeli', 'AuthController@tambahnotaBeli')->name('notabeli.tambah');
+
+    Route::post('/tambahBeli', 'AuthController@tambahBeli')->name('beli.tambah');
+
+    Route::get('/dashtranster', 'AuthController@dashtranster')->name('terima');
+
         //Vendor
-    Route::get('/dashvendor', 'AuthController@vendor')->name('vendor');
+    Route::get('/dashvendor', 'AuthController@vendor')->name('vend.dash');
+    Route::get('/formvendor', 'AuthController@formVendor')->name('form.vendor');
+    Route::post('/tambahvendor', 'AuthController@tambahVendor')->name('vendor.tambah');
+    Route::get('/formvendor/{id}/edit', 'AuthController@editVendor')->name('vendor.edit');
+    Route::put('/updatevendor/{id}', 'AuthController@updateVendor')->name('vendor.update');
+    Route::delete('/deletevendor/{id}', 'AuthController@deleteVendor')->name('vendor.delete');
+
         //Customer
-    Route::get('/dashcust', 'AuthController@customer')->name('customer');
+    Route::get('/dashcust', 'AuthController@customer')->name('cust.dash');
 });
 
 

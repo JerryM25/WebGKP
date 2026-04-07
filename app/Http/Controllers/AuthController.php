@@ -73,16 +73,16 @@ class AuthController extends Controller
     public function dashtransreq(Request $request)
     {
         $b = [
-            ['nomor_notabeli' => '001/GKP/SP/X/25', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nomor_notabeli' => '002/GKP/SP/X/25', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nomor_notabeli' => '003/GKP/SP/X/25', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nomor_notabeli' => '004/GKP/SP/X/25', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nomor_notabeli' => '005/GKP/SP/X/25', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nomor_notabeli' => '006/GKP/SP/X/25', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nomor_notabeli' => '007/GKP/SP/X/25', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nomor_notabeli' => '008/GKP/SP/X/25', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nomor_notabeli' => '009/GKP/SP/X/25', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nomor_notabeli' => '010/GKP/SP/X/25', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
+            ['nomor_notabeli' => '001/GKP/PO/X/25', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
+            ['nomor_notabeli' => '002/GKP/PO/X/25', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
+            ['nomor_notabeli' => '003/GKP/PO/X/25', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
+            ['nomor_notabeli' => '004/GKP/PO/X/25', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
+            ['nomor_notabeli' => '005/GKP/PO/X/25', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
+            ['nomor_notabeli' => '006/GKP/PO/X/25', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
+            ['nomor_notabeli' => '007/GKP/PO/X/25', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
+            ['nomor_notabeli' => '008/GKP/PO/X/25', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
+            ['nomor_notabeli' => '009/GKP/PO/X/25', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
+            ['nomor_notabeli' => '010/GKP/PO/X/25', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
         ];
         return view('dashtrans-request', compact('b'));
     }
@@ -409,8 +409,69 @@ class AuthController extends Controller
         return view('dashNews', compact('berita', 'news'));
     }
 
-    public function formBeli(){
-        return view('formnews');
+    public function reqBeli(){
+        $vendor = Vendor::all();
+        return view('formbeli', compact('vendor'));
+    }
+
+    public function tambahnotaBeli($request){
+        return DB::transaction(function () use ($request) {
+            $now = Carbon::now();
+            $tahun = $now->format('y');
+            $bulan = $now->format('m');
+            $tahunPenuh = $now->year;
+
+            $lastRecord = Notabeli::whereYear('created_at', $tahunPenuh)
+                                    ->lockForUpdate()
+                                    ->latest('id')
+                                    ->first();
+
+            if ($lastRecord) {
+                $lastNumber = intval(substr($lastRecord->nomor_nota, -4));
+                $newNumber = $lastNumber + 1;
+            } else {
+                $newNumber = 1;
+            }
+
+            $nomorNota = "PO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+
+            $notabeli = Pembelian::create([
+                'id_nota_beli' => $request->id_nota_beli,
+                'tanggal' => $request->tanggal,
+                'id_vendor' => $request->id_vendor,
+                'no_notabeli' => $no_notabeli,
+            ]);
+
+            return back()->with([
+                'success_step1' => true,
+                'id_nota_beli' => $notabeli->id_nota_beli,
+                'nota_beli' => $notabeli->id_nota_beli,
+                'nomor_nota_terakhir' => $nomorNota
+            ]);
+        });
+    }
+
+    public function tambahBeli($request){
+        $request->validate([
+            'id_req_beli' => 'required',
+            'id_nota_beli' => 'required',
+            'id_barang' => 'required',
+            'quantity' => 'required',
+            'harga_beli' => 'required',
+            'total' => 'required'
+        ]);
+
+        $total = $request->harga_beli + $request->quantity;
+
+        Reqbeli::create([
+            'id_req_beli' => $request->id_req_beli,
+            'id_nota_beli' => $request->id_nota_beli,
+            'id_barang' => $request->id_barang,
+            'quantity' => $request->quantity,
+            'harga_beli' => $request->harga_beli,
+            'total' => $total
+        ]);
+        return redirect('dashtrans-request');
     }
 
     public function formBeliEdit(){
@@ -426,10 +487,62 @@ class AuthController extends Controller
     }
 
     public function vendor(){
-        return view('dashvendor');
+        $vendor = Vendor::all();
+        return view('dashvendor', compact('vendor'));
+    }
+
+    public function formVendor(){
+        return view('formvendor');
+    }
+
+    public function tambahVendor(Request $request){
+        $request->validate([
+            'nama_vendor' => 'required',
+            'no_vendor',
+            'alamat_vendor'
+        ]);
+
+        Vendor::create([
+            'nama_vendor' => $request->nama_vendor,
+            'no_vendor' => $request->no_vendor,
+            'alamat_vendor' => $request->alamat_vendor
+        ]);
+        return redirect('dashvendor');
+    }
+
+    public function editVendor($id_vendor){
+        $vendor = Vendor::where('id_vendor', $id_vendor)->first();
+        return view('formvendor-edit', compact('vendor'));
+    }
+
+    public function updateVendor(Request $request, $id_vendor)
+    {
+        $vendor = Vendor::where('id_vendor', $id_vendor)->first();
+
+        $request->validate([
+            'nama_vendor' => 'required',
+            'no_vendor' => 'required',
+            'alamat_vendor' => 'required'
+        ]);
+
+        $barang->update([
+            'nama_vendor' => $vendor->nama_vendor,
+            'no_vendor' => $vendor->no_vendor,
+            'alamat_vendor' => $vendor->alamat_vendor
+        ]);
+
+        return redirect()->route('vend.dash', ['id' => $vendor->id_vendor])->with('success', 'Berita Berhasil Terupdate');
+    }
+
+    public function deleteVendor($id_vendor){
+        $vendor = Vendor::where('id_vendor', $id_vendor)->first();
+        $vendor->delete();
+
+        return redirect('dashvendor');
     }
 
     public function customer(){
+        $customer = Customer::where('id_customer', $id_customer)->first();
         return view('dashcust');
     }
 }

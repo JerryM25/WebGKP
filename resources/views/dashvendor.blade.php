@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('form.vendor') }}">Tambah</a>
             </div>
         </div>
     </div>
@@ -43,39 +43,33 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    {{-- <tbody>
-                        @foreach($b as $a)
+                    <tbody>
+                        @foreach($vendor as $vendor)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_terima'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
-                                <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
-                                        </button>
-                                    </a>
-                                </td>
+                                <td>{{ $vendor['nama_vendor'] }}</td>
+                                <td>{{ $vendor['nomor_vendor'] }}</td>
+                                <td>{{ $vendor['alamat_vendor'] }}</td>
                                 <td>
                                     <div class="d-flex gap-2 justify-content-center">
-                                        <a href="">
+                                        <form action="{{ route('vendor.delete', $vendor->id_vendor) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
                                             <button class="trans-block_one-icon">
                                                 <i class="bi bi-trash"></i>
                                             </button>
-                                        </a>
-                                        <a href="">
+                                        </form>
+                                        <form action="{{ route('vendor.edit', $vendor->id_vendor) }}">
                                             <button class="trans-block_one-icon">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                        </a>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
 
-                    </tbody> --}}
+                    </tbody>
                 </table>
 
 			</div>

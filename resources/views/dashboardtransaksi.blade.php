@@ -30,10 +30,10 @@
             <div class="col-md-2">
             </div>
             <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('vendor') }}">Vendor</a>
+                <a class="template-btn price-one_button" href="{{ route('vend.dash') }}">Vendor</a>
             </div>
             <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('customer') }}">Customer</a>
+                <a class="template-btn price-one_button" href="{{ route('cust.dash') }}">Customer</a>
             </div>
             <div class="col-md-2">
             </div>

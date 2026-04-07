@@ -60,9 +60,9 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('request') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -70,33 +70,108 @@
                 </a>
             </div>
 
+            @endif
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
+                    <h3 class="text-center">Pembelian</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahPorto') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('notabeli.tambah') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Nama Portofolio</label>
-                                <input type="text" id="nama_porto" name="nama_porto" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                            <div class="countainer-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tanggal</label>
+                                            <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Vendor</label>
+                                            <input type="dropdown" id="id_vendor" name="id_vendor" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Nomor Nota</label>
+                                            <input type="text" id="no_notabeli" name="no_notabeli" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <button type="submit" class="submit-btn btn-style-one">
+                                                <span class="btn-wrap">
+                                                    <span class="text-one">Tambah</span>
+                                                    <span class="text-two">Tambah</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
+
+
+                        @if (session('nota_beli'))
+                            <form method="post" action="{{ route('beli.tambah') }}" enctype="multipart/form-data">
+                                @csrf
+
+                                <input type="hidden" name="nota_beli" value="{{ session('nota_beli') }}">
+
+                                <div class="countainer-fluid">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Nama Barang</label>
+                                                <input type="dropdown" id="nama_barang" name="nama_barang" placeholder="" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Quantity</label>
+                                                <input type="number" id="quantity" name="quantity" placeholder="" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Harga Beli</label>
+                                                <input type="number" id="harga_beli" name="harga_beli" placeholder="" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Total</label>
+                                                <input type="text" id="total" name="total" placeholder="" required="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Button Box -->
+                                    <button type="submit" class="submit-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Tambah</span>
+                                            <span class="text-two">Tambah</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+
+                        @else
+                            <h4 class="text-center">Belum Terdapat Nota</h4>
+                        @endif
+
+
                     </div>
                     <!-- End Default Form -->
                 </div>

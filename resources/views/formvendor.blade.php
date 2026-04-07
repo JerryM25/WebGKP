@@ -62,7 +62,7 @@
         <!-- Register One -->
         <section class="register-one">
             <div class="team-detail_button">
-                <a href="{{ route('vendor') }}" class="template-btn btn-style-one">
+                <a href="{{ route('vend.dash') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -72,10 +72,10 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
+                    <h3 class="text-center">Tambah Vendor</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahVendor') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('vendor.tambah') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Vendor</label>
@@ -84,12 +84,12 @@
 
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="text" id="alamat_vendor" name="alamat_vendor" placeholder="" required="">
+                                <input type="text" id="alamat_vendor" name="alamat_vendor" placeholder="">
                             </div>
 
                             <div class="form-group">
                                 <label>No Telpon</label>
-                                <input type="text" id="nomor_vendor" name="nomor_vendor" placeholder="" required="">
+                                <input type="text" id="nomor_vendor" name="nomor_vendor" placeholder="">
                             </div>
 
                             <div class="form-group">

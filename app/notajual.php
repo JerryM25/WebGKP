@@ -11,6 +11,7 @@ class notajual extends Model
     protected $fillable =[
         'id_nota_jual',
         'id_customer',
+        'no_notajual',
         'tanggal'
     ];
 }
