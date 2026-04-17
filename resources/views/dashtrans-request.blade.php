@@ -39,25 +39,25 @@
                         <tr>
                             <th>No</th>
                             <th>No Nota Beli</th>
-                            <th>Deskripsi</th>
-                            <th>Status</th>
                             <th>Tanggal</th>
+                            <th>Vendor</th>
+                            <th>Total</th>
                             <th>File</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($b as $a)
+                        @foreach($data as $key => $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_notabeli'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $item->no_notabeli }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nama_vendor }}</td>
+                                <td>{{ number_format($item->total) }}</td>
                                 <td>
                                     <a href="">
                                         <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
+                                            <i>Detail</i>
                                         </button>
                                     </a>
                                 </td>

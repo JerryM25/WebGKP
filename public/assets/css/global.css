@@ -281,6 +281,10 @@ body {
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before { animation-delay: 1s;}
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before { animation-delay: 1.2s;}
 .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before { animation-delay: 1.4s;}
+.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(9):before { animation-delay: 1.6s;}
+.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(10):before { animation-delay: 1.8s;}
+.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(11):before { animation-delay: 2s;}
+.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(12):before { animation-delay: 2.2s;}
 .handle-preloader .loader-section {
   background-color: #fff;
   height: 100%;

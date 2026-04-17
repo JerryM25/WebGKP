@@ -8,6 +8,8 @@ class notajual extends Model
 {
     protected $table = 'notajual';
 
+    protected $primaryKey = 'id_nota_jual';
+
     protected $fillable =[
         'id_nota_jual',
         'id_customer',

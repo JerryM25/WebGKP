@@ -62,7 +62,7 @@
         <!-- Register One -->
         <section class="register-one">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('cust.dash') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -75,7 +75,7 @@
                     <h3 class="text-center">Tambah Customer</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahCust') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('cust.tambah') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Customer</label>
@@ -84,12 +84,12 @@
 
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="text" id="alamat_customer" name="alamat_customer" placeholder="" required="">
+                                <input type="text" id="alamat_customer" name="alamat_customer" placeholder="">
                             </div>
 
                             <div class="form-group">
                                 <label>No Telpon</label>
-                                <input type="text" id="nomor_customer" name="nomor_customer" placeholder="" required="">
+                                <input type="text" id="nomor_customer" name="nomor_customer" placeholder="">
                             </div>
 
                             <div class="form-group">

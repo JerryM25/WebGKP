@@ -37,13 +37,21 @@
 			<div id="handle-preloader" class="handle-preloader">
 				<div class="animation-preloader">
 					<div class="txt-loading">
+                        <span data-text-preloader="G" class="letters-loading">G</span>
+                        <span data-text-preloader="K" class="letters-loading">K</span>
+                        <span data-text-preloader="P" class="letters-loading">P</span>
+
+						{{-- <span data-text-preloader="G" class="letters-loading">G</span>
 						<span data-text-preloader="L" class="letters-loading">L</span>
 						<span data-text-preloader="O" class="letters-loading">O</span>
+						<span data-text-preloader="R" class="letters-loading">R</span>
+						<span data-text-preloader="Y" class="letters-loading">Y</span>
+
+						<span data-text-preloader="K" class="letters-loading">K</span>
 						<span data-text-preloader="A" class="letters-loading">A</span>
-						<span data-text-preloader="D" class="letters-loading">D</span>
-						<span data-text-preloader="I" class="letters-loading">I</span>
-						<span data-text-preloader="N" class="letters-loading">N</span>
-						<span data-text-preloader="G" class="letters-loading">G</span>
+                        <span data-text-preloader="R" class="letters-loading">R</span>
+						<span data-text-preloader="Y" class="letters-loading">Y</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span> --}}
 					</div>
 				</div>
 			</div>
@@ -81,20 +89,20 @@
 										<li class="{{ Route::currentRouteName() == 'home' ? 'active current' : '' }}">
                                             <a href="{{ route('home') }}">Home</a>
                                         </li>
+                                        <li class="{{ Route::currentRouteName() == 'portofolio' ? 'active current' : '' }}">
+                                            <a href="{{ route('portofolio') }}">Portofolio</a>
+                                        </li>
+                                        <li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
+                                            <a href="{{ route('about') }}">About Us</a>
+                                        </li>
                                         <li class="{{ Route::currentRouteName() == 'service' ? 'active current' : '' }}">
                                             <a href="{{ route('service') }}">Service</a>
                                         </li>
                                         <li class="{{ Route::currentRouteName() == 'product' ? 'active current' : '' }}">
                                             <a href="{{ route('product') }}">Product</a>
                                         </li>
-                                        <li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
-                                            <a href="{{ route('about') }}">About Us</a>
-                                        </li>
                                         <li class="{{ Route::currentRouteName() == 'news' ? 'active current' : '' }}">
                                             <a href="{{ route('news') }}">News</a>
-                                        </li>
-                                        <li class="{{ Route::currentRouteName() == 'portofolio' ? 'active current' : '' }}">
-                                            <a href="{{ route('portofolio') }}">Portofolio</a>
                                         </li>
 									</ul>
 								</div>

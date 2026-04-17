@@ -8,6 +8,8 @@ class reqjual extends Model
 {
     protected $table = 'notajual';
 
+    protected $primaryKey = 'id_req_beli';
+
     protected $fillable =[
         'id_req_jual',
         'id_nota_jual',

@@ -70,6 +70,11 @@ Route::group(['middleware' => ['auth']], function () {
 
         //Customer
     Route::get('/dashcust', 'AuthController@customer')->name('cust.dash');
+    Route::get('/formcust', 'AuthController@formCustomer')->name('form.cust');
+    Route::post('/tambahcust', 'AuthController@tambahCustomer')->name('cust.tambah');
+    Route::get('/formcust/{id}/edit', 'AuthController@editCustomer')->name('cust.edit');
+    Route::put('/updatecust/{id}', 'AuthController@updateCustomer')->name('cust.update');
+    Route::delete('/deletecust/{id}', 'AuthController@deleteCustomer')->name('cust.delete');
 });
 
 

@@ -8,6 +8,8 @@ class keluar extends Model
 {
     protected $table = 'keluar';
 
+    protected $primaryKey = 'id_penjualan';
+
     protected $fillable =[
         'id_penjualan',
         'id_req_jual',

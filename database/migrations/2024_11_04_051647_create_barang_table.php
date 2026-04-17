@@ -23,6 +23,7 @@ class CreateBarangTable extends Migration
             $table->text('keterangan')->nullable();
             $table->integer('stok')->default(0);
             $table->string('satuan')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

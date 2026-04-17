@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('form.cust') }}">Tambah</a>
             </div>
         </div>
     </div>
@@ -42,39 +42,33 @@
                             <th>Alamat</th>
                             <th>Action</th>
                     </thead>
-                    {{-- <tbody>
-                        @foreach($b as $a)
+                    <tbody>
+                        @foreach($customer as $customer)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_terima'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
-                                <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
-                                        </button>
-                                    </a>
-                                </td>
+                                <td>{{ $customer['nama_customer'] }}</td>
+                                <td>{{ $customer['nomor_customer'] }}</td>
+                                <td>{{ $customer['alamat_customer'] }}</td>
                                 <td>
                                     <div class="d-flex gap-2 justify-content-center">
-                                        <a href="">
+                                        <form action="{{ route('cust.delete', $customer->id_customer) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
                                             <button class="trans-block_one-icon">
                                                 <i class="bi bi-trash"></i>
                                             </button>
-                                        </a>
-                                        <a href="">
+                                        </form>
+                                        <form action="{{ route('cust.edit', $customer->id_customer) }}">
                                             <button class="trans-block_one-icon">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                        </a>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
 
-                    </tbody> --}}
+                    </tbody>
                 </table>
 
 			</div>

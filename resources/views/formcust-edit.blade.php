@@ -62,7 +62,7 @@
         <!-- Register One -->
         <section class="register-one">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('cust.dash') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -75,21 +75,23 @@
                     <h3 class="text-center">Update Customer</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('updateCust') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('cust.update', $customer->id_customer) }}" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
+
                             <div class="form-group">
                                 <label>Nama Customer</label>
-                                <input type="text" id="nama_customer" name="nama_customer" placeholder="" required="">
+                                <input type="text" id="nama_customer" name="nama_customer" placeholder="" required="" value="{{ $customer->nama_customer }}">
                             </div>
 
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="text" id="alamat_customer" name="alamat_customer" placeholder="" required="">
+                                <input type="text" id="alamat_customer" name="alamat_customer" placeholder="" value="{{ $customer->alamat_customer }}">
                             </div>
 
                             <div class="form-group">
                                 <label>No Telpon</label>
-                                <input type="text" id="nomor_customer" name="nomor_customer" placeholder="" required="">
+                                <input type="text" id="nomor_customer" name="nomor_customer" placeholder="" value="{{ $customer->nomor_customer }}">
                             </div>
 
                             <div class="form-group">

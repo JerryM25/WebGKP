@@ -70,7 +70,6 @@
                 </a>
             </div>
 
-            @endif
             <div class="auto-container">
                 <div class="inner-container">
                     <h3 class="text-center">Pembelian</h3>
@@ -89,13 +88,23 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Vendor</label>
-                                            <input type="dropdown" id="id_vendor" name="id_vendor" placeholder="" required="">
+                                            <select class="dropdown" id="id_vendor" name="id_vendor" required>
+                                                <option value="">-- Pilih Vendor --</option>
+                                                @if($vendor->count() > 0)
+                                                    @foreach($vendor as $v)
+                                                        <option value="{{ $v->id_vendor }}">{{ $v->nama_vendor }}</option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="">Data Vendor Tidak Ada</option>
+                                                @endif
+
+                                                </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Nomor Nota</label>
-                                            <input type="text" id="no_notabeli" name="no_notabeli" placeholder="" required="">
+                                            <input type="text" id="no_notabeli" name="no_notabeli" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -116,60 +125,127 @@
                             </div>
                         </form>
 
+                        @if(session('success_step1'))
+                            <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
+                                <h5 style="color: orange;">Tambah Barang untuk Nota: {{ session('no_nota') }}</h5>
+                                <p>Vendor: {{ session('nama_vendor') }}</p>
 
-                        @if (session('nota_beli'))
-                            <form method="post" action="{{ route('beli.tambah') }}" enctype="multipart/form-data">
-                                @csrf
+                                <form action="/simpanItem" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_nota_beli" value="{{ session('id_nota_beli') }}">
+                                    <input type="hidden" name="no_nota_hidden" value="{{ session('no_nota') }}">
+                                    <input type="hidden" name="nama_vendor_hidden" value="{{ session('nama_vendor') }}">
 
-                                <input type="hidden" name="nota_beli" value="{{ session('nota_beli') }}">
-
-                                <div class="countainer-fluid">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Nama Barang</label>
-                                                <input type="dropdown" id="nama_barang" name="nama_barang" placeholder="" required="">
+                                            <label>Nama Barang</label>
+                                            <select name="nama_barang" class="form-control">
+                                                @foreach(session('data_barang') as $b)
+                                                    <option value="{{ $b->nama_barang }}">{{ $b->nama_barang }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Qty</label>
+                                            <input type="number" name="qty" id="qty" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Harga</label>
+                                            <input type="number" name="harga" id="harga" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>&nbsp;</label>
+                                            <button type="submit" class="btn btn-warning btn-block">TAMBAH ITEM</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <table class="table table-dark mt-4">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Req</th>
+                                            <th>Barang</th>
+                                            <th>Qty</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if(session('list_barang'))
+                                            @foreach(session('list_barang') as $item)
+                                            <tr>
+                                                <td>{{ $item->id_req_beli }}</td> <td>{{ $item->nama_barang }}</td>
+                                                <td>{{ $item->qty }}</td>
+                                                <td>{{ number_format($item->total) }}</td>
+                                            </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+
+                                <a href="/dashtransreq" class="btn btn-success">Selesai & Simpan Semua</a>
+                            </div>
+                            @endif
+
+                        {{-- @if(session('success_step1'))
+                            <div class="card-detail">
+                                <p>Nota: {{ session('nomor_nota_terakhir') }}</p>
+                                <p>Vendor: {{ session('nama_vendor_terpilih') }}</p>
+
+                                <form action="{{ route('beli.tambah') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_nota_beli" value="{{ session('id_nota_beli') }}">
+                                    <div class="countainer-fluid">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nama Barang</label>
+                                                    <select name="id_barang">
+                                                        @foreach($barang as $b)
+                                                            <option value="{{ $b->id_barang }}">{{ $b->nama_barang }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Quantity</label>
+                                                    <input type="number" id="quantity" name="quantity" placeholder="" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Harga Beli</label>
+                                                    <input type="number" id="harga_beli" name="harga_beli" placeholder="" required="">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Quantity</label>
-                                                <input type="number" id="quantity" name="quantity" placeholder="" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Harga Beli</label>
-                                                <input type="number" id="harga_beli" name="harga_beli" placeholder="" required="">
+                                        <div class="row">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Total</label>
+                                                    <input type="text" id="total" name="total" placeholder="" required="" readonly>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Total</label>
-                                                <input type="text" id="total" name="total" placeholder="" required="" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <!-- Button Box -->
-                                    <button type="submit" class="submit-btn btn-style-one">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Tambah</span>
-                                            <span class="text-two">Tambah</span>
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <!-- Button Box -->
+                                        <button type="submit" class="submit-btn btn-style-one">
+                                            <span class="btn-wrap">
+                                                <span class="text-one">Tambah</span>
+                                                <span class="text-two">Tambah</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
 
                         @else
-                            <h4 class="text-center">Belum Terdapat Nota</h4>
-                        @endif
+                            <h4 class="text-center text-white">Belum Terdapat Nota</h4>
+                        @endif --}}
 
 
                     </div>

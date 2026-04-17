@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\User;
 use App\akun;
 use App\barang as Barang;
@@ -70,21 +72,19 @@ class AuthController extends Controller
         return view('dashboardtransaksi');
     }
 
-    public function dashtransreq(Request $request)
+    public function dashtransreq()
     {
-        $b = [
-            ['nomor_notabeli' => '001/GKP/PO/X/25', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nomor_notabeli' => '002/GKP/PO/X/25', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nomor_notabeli' => '003/GKP/PO/X/25', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nomor_notabeli' => '004/GKP/PO/X/25', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nomor_notabeli' => '005/GKP/PO/X/25', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nomor_notabeli' => '006/GKP/PO/X/25', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nomor_notabeli' => '007/GKP/PO/X/25', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nomor_notabeli' => '008/GKP/PO/X/25', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nomor_notabeli' => '009/GKP/PO/X/25', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nomor_notabeli' => '010/GKP/PO/X/25', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
-        ];
-        return view('dashtrans-request', compact('b'));
+        $data = DB::table('reqbeli')
+        ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
+        ->join('vendor', 'notabeli.id_vendor', '=', 'vendor.id_vendor')
+        ->select(
+            'reqbeli.*',
+            'notabeli.no_notabeli',
+            'notabeli.tanggal',
+            'vendor.nama_vendor'
+        )
+        ->get();
+        return view('dashtrans-request', compact('data'));
     }
 
     public function dashtranster(Request $request)
@@ -411,10 +411,11 @@ class AuthController extends Controller
 
     public function reqBeli(){
         $vendor = Vendor::all();
-        return view('formbeli', compact('vendor'));
+        $barang = Barang::all();
+        return view('formbeli', compact('vendor', 'barang'));
     }
 
-    public function tambahnotaBeli($request){
+    public function tambahnotaBeli(Request $request){
         return DB::transaction(function () use ($request) {
             $now = Carbon::now();
             $tahun = $now->format('y');
@@ -423,11 +424,11 @@ class AuthController extends Controller
 
             $lastRecord = Notabeli::whereYear('created_at', $tahunPenuh)
                                     ->lockForUpdate()
-                                    ->latest('id')
+                                    ->latest('id_nota_beli')
                                     ->first();
 
             if ($lastRecord) {
-                $lastNumber = intval(substr($lastRecord->nomor_nota, -4));
+                $lastNumber = intval(substr($lastRecord->no_notabeli, -4));
                 $newNumber = $lastNumber + 1;
             } else {
                 $newNumber = 1;
@@ -435,23 +436,27 @@ class AuthController extends Controller
 
             $nomorNota = "PO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
 
-            $notabeli = Pembelian::create([
+            $notabeli = Notabeli::create([
                 'id_nota_beli' => $request->id_nota_beli,
                 'tanggal' => $request->tanggal,
                 'id_vendor' => $request->id_vendor,
-                'no_notabeli' => $no_notabeli,
+                'no_notabeli' => $nomorNota,
             ]);
+
+            $vendor = Vendor::where('id_vendor', $request->id_vendor)->first();
+            $barang = Barang::all();
 
             return back()->with([
                 'success_step1' => true,
                 'id_nota_beli' => $notabeli->id_nota_beli,
-                'nota_beli' => $notabeli->id_nota_beli,
-                'nomor_nota_terakhir' => $nomorNota
+                'nama_vendor' => $vendor->nama_vendor,
+                'no_notabeli' => $nomorNota,
+                'barang' => $barang
             ]);
         });
     }
 
-    public function tambahBeli($request){
+    public function tambahBeli(Request $request){
         $request->validate([
             'id_req_beli' => 'required',
             'id_nota_beli' => 'required',
@@ -498,13 +503,13 @@ class AuthController extends Controller
     public function tambahVendor(Request $request){
         $request->validate([
             'nama_vendor' => 'required',
-            'no_vendor',
+            'nomor_vendor',
             'alamat_vendor'
         ]);
 
         Vendor::create([
             'nama_vendor' => $request->nama_vendor,
-            'no_vendor' => $request->no_vendor,
+            'nomor_vendor' => $request->nomor_vendor,
             'alamat_vendor' => $request->alamat_vendor
         ]);
         return redirect('dashvendor');
@@ -521,17 +526,17 @@ class AuthController extends Controller
 
         $request->validate([
             'nama_vendor' => 'required',
-            'no_vendor' => 'required',
-            'alamat_vendor' => 'required'
+            'nomor_vendor',
+            'alamat_vendor'
         ]);
 
-        $barang->update([
-            'nama_vendor' => $vendor->nama_vendor,
-            'no_vendor' => $vendor->no_vendor,
-            'alamat_vendor' => $vendor->alamat_vendor
+        $vendor->update([
+            'nama_vendor' => $request->nama_vendor,
+            'nomor_vendor' => $request->nomor_vendor,
+            'alamat_vendor' => $request->alamat_vendor
         ]);
 
-        return redirect()->route('vend.dash', ['id' => $vendor->id_vendor])->with('success', 'Berita Berhasil Terupdate');
+        return redirect()->route('vend.dash')->with('success', 'Berita Berhasil Terupdate');
     }
 
     public function deleteVendor($id_vendor){
@@ -542,7 +547,57 @@ class AuthController extends Controller
     }
 
     public function customer(){
+        $customer = Customer::all();
+        return view('dashcust', compact('customer'));
+    }
+
+    public function formCustomer(){
+        return view('formcust');
+    }
+
+    public function tambahCustomer(Request $request){
+        $request->validate([
+            'nama_customer' => 'required',
+            'nomor_customer',
+            'alamat_customer'
+        ]);
+
+        Customer::create([
+            'nama_customer' => $request->nama_customer,
+            'nomor_customer' => $request->nomor_customer,
+            'alamat_customer' => $request->alamat_customer
+        ]);
+        return redirect('dashcust');
+    }
+
+    public function editCustomer($id_customer){
         $customer = Customer::where('id_customer', $id_customer)->first();
-        return view('dashcust');
+        return view('formcust-edit', compact('customer'));
+    }
+
+    public function updateCustomer(Request $request, $id_customer)
+    {
+        $customer = Customer::where('id_customer', $id_customer)->first();
+
+        $request->validate([
+            'nama_customer' => 'required',
+            'nomor_customer',
+            'alamat_customer'
+        ]);
+
+        $customer->update([
+            'nama_customer' => $request->nama_customer,
+            'nomor_customer' => $request->nomor_customer,
+            'alamat_customer' => $request->alamat_customer
+        ]);
+
+        return redirect()->route('cust.dash', ['id' => $customer->id_customer])->with('success', 'Berita Berhasil Terupdate');
+    }
+
+    public function deleteCustomer($id_customer){
+        $customer = Customer::where('id_customer', $id_customer)->first();
+        $customer->delete();
+
+        return redirect('dashcust');
     }
 }

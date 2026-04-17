@@ -72,24 +72,25 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Update Portofolio</h3>
+                    <h3 class="text-center">Update Vendor</h3>
                     <!-- Register Form -->
                     <div class="register-form">
                         <form method="post" action="{{ route('vendor.update', $vendor->id_vendor) }}" enctype="multipart/form-data">
                             @csrf
+                            @METHOD('PUT')
                             <div class="form-group">
                                 <label>Nama Vendor</label>
-                                <input type="text" id="nama_vendor" name="nama_vendor" placeholder="" required="" value="{{ $vendor->nama_vendor }}">
+                                <input type="text" id="nama_vendor" name="nama_vendor" required="" value="{{ $vendor->nama_vendor }}">
                             </div>
 
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="text" id="alamat_vendor" name="alamat_vendor" placeholder="" value="{{ $vendor->alamat_vendor }}">
+                                <input type="text" id="alamat_vendor" name="alamat_vendor" value="{{ $vendor->alamat_vendor }}">
                             </div>
 
                             <div class="form-group">
                                 <label>No Telpon</label>
-                                <input type="text" id="nomor_vendor" name="nomor_vendor" placeholder="" value="{{ $vendor->nomor_vendor }}">
+                                <input type="text" id="nomor_vendor" name="nomor_vendor" value="{{ $vendor->nomor_vendor }}">
                             </div>
 
                             <div class="form-group">
