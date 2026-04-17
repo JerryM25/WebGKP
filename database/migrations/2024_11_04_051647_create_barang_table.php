@@ -24,6 +24,7 @@ class CreateBarangTable extends Migration
             $table->integer('stok')->default(0);
             $table->string('satuan')->nullable();
             $table->string('link')->nullable();
+            $table->boolean('tayang');
             $table->timestamps();
         });
     }

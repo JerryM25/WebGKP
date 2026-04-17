@@ -17,7 +17,9 @@ class barang extends Model
         'foto',
         'keterangan',
         'stok',
-        'satuan'
+        'satuan',
+        'link',
+        'tayang'
     ];
 
     protected $primaryKey = 'id_barang';
