@@ -8,7 +8,7 @@
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home2.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/bg1.png)"></div>
                 <div class="auto-container ">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -18,13 +18,18 @@
                                 <div class="slider-one_text">To Be With You</div>
                             </div>
                         </div>
+                        <div class="slider-one_content col-lg-4 col-md-12 col-sm-12">
+                            <div class="slider-one_content-inner">
+                                <img class="slider-one_image" src="assets/images/logo-gkp.png" alt="GKP">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home3.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/bg2.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -34,13 +39,18 @@
                                 <div class="slider-one_text">To Be With You</div>
                             </div>
                         </div>
+                        <div class="slider-one_content col-lg-4 col-md-12 col-sm-12">
+                            <div class="slider-one_content-inner">
+                                <img class="slider-one_image" src="assets/images/logo-gkp.png" alt="GKP">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Slide -->
             <div class="swiper-slide">
-                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/home1.png)"></div>
+                <div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/bg3.png)"></div>
                 <div class="auto-container">
                     <div class="row clearfix">
                         <!-- Content Column -->
@@ -48,6 +58,11 @@
                             <div class="slider-one_content-inner">
                                 <h1 class="slider-one_heading"><span>CV Glory Karya Perkasa</span></h1>
                                 <div class="slider-one_text">To Be With You</div>
+                            </div>
+                        </div>
+                        <div class="slider-one_content col-lg-4 col-md-12 col-sm-12">
+                            <div class="slider-one_content-inner">
+                                <img class="slider-one_image" src="assets/images/logo-gkp.png" alt="GKP">
                             </div>
                         </div>
                     </div>
@@ -120,7 +135,6 @@
 
 <!-- About One -->
 <section class="about-one">
-    <div class="about-one_pattern" style="background-image:url(assets/images/gallery/dark_gradient_circle.png)"></div>
     <div class="auto-container">
         <div class="row clearfix">
 

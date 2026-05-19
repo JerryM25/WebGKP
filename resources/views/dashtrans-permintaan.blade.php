@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('reqJual') }}">Tambah</a>
             </div>
         </div>
     </div>
@@ -38,41 +38,26 @@
                         <tr>
                             <th>No</th>
                             <th>No Nota Jual</th>
-                            <th>Deskripsi</th>
-                            <th>Status</th>
                             <th>Tanggal</th>
-                            <th>File</th>
-                            <th>action</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($b as $a)
+                        @foreach($data as $key => $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_notajual'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $item->no_notajual }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nama_customer }}</td>
+                                <td>{{ number_format($item->grandtotal) }}</td>
                                 <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
+                                    <a href="{{ route('detail.per', $item->id_nota_jual) }}">
+                                        <button class="price-one_button" style="color: black">
+                                            <i>Detail</i>
                                         </button>
                                     </a>
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                        </a>
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -83,7 +68,7 @@
 			</div>
 		</div>
         <br>
-	</section>
+</section>
 
 <div class="progress-wrap">
 	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">

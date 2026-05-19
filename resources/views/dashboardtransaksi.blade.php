@@ -22,7 +22,7 @@
                 <a class="template-btn price-one_button" href="{{ route('permintaan') }}">Permintaan Barang</a>
             </div>
             <div class="col-md-3">
-                <a class="template-btn price-one_button" href="{{ route('jual') }}">Jual Barang</a>
+                <a class="template-btn price-one_button" href="{{ route('keluar') }}">Keluar Barang</a>
             </div>
         </div>
         <br>

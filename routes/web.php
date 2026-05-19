@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,16 +50,36 @@ Route::group(['middleware' => ['auth']], function () {
 
         //Jual
     Route::get('/dashtransper', 'AuthController@dashtransper')->name('permintaan');
-    Route::get('/dashtransjual', 'AuthController@dashtransjual')->name('jual');
+    Route::get('/detailtransper/{id}', 'AuthController@detailtransper')->name('detail.per');
+
+    Route::get('/formtransper', 'AuthController@reqJual')->name('reqJual');
+    Route::post('/tambahnotaJual', 'AuthController@tambahnotaJual')->name('notajual.tambah');
+    Route::post('/tambahItem', 'AuthController@tambahItem')->name('item.tambah');
+    Route::post('/tambahJual', 'AuthController@tambahReqJual')->name('reqjual.tambah');
+    Route::delete('/deletereqjual/{id}', 'AuthController@deleteReqJual')->name('delete.reqjual');
+    Route::get('/editJual/{id}', 'AuthController@formJualEdit')->name('edit.reqjual');
+    Route::put('/updateJual/{id}', 'AuthController@updateJual')->name('update.reqjual');
+
+    Route::get('/dashkeluar', 'AuthController@dashtranskeluar')->name('keluar');
 
         //Beli
     Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
+    Route::get('/detailtransreq/{id}', 'AuthController@detailtransreq')->name('detail.req');
+
     Route::get('/formtransreq', 'AuthController@reqBeli')->name('reqBeli');
     Route::post('/tambahnotaBeli', 'AuthController@tambahnotaBeli')->name('notabeli.tambah');
+    Route::post('/simpanItem', 'AuthController@simpanItem')->name('item.simpan');
+    Route::post('/tambahBeli', 'AuthController@tambahReqBeli')->name('reqbeli.tambah');
+    Route::delete('/deletereqbeli/{id}', 'AuthController@deleteReqBeli')->name('delete.reqbeli');
+    Route::get('/editBeli/{id}', 'AuthController@formBeliEdit')->name('edit.reqbeli');
+    Route::put('/updateBeli/{id}', 'AuthController@updateBeli')->name('update.reqbeli');
 
-    Route::post('/tambahBeli', 'AuthController@tambahBeli')->name('beli.tambah');
+    Route::get('/dashterima', 'AuthController@dashtranster')->name('terima');
 
-    Route::get('/dashtranster', 'AuthController@dashtranster')->name('terima');
+    Route::get('/formterima', 'AuthController@formTerima')->name('formTerima');
+    Route::post('/tambahnoterima', 'AuthController@tambahNoTerima')->name('noterima.tambah');
+    Route::post('/simpanTerima', 'AuthController@simpanTerima')->name('terima.simpan');
+    Route::post('/tambahTerima', 'AuthController@tambahTerima')->name('terima.tambah');
 
         //Vendor
     Route::get('/dashvendor', 'AuthController@vendor')->name('vend.dash');

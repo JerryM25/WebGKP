@@ -8,13 +8,12 @@ class terima extends Model
 {
     protected $table = 'terima';
 
-    protected $primaryKey = 'id_pembelian';
+    protected $primaryKey = 'id_terima';
 
     protected $fillable =[
-        'id_pembelian',
+        'id_terima',
+        'id_no_terima',
         'id_req_beli',
-        'tanggal',
-        'quantity',
-        'status'
+        'quantity'
     ];
 }

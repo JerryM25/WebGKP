@@ -44,13 +44,9 @@
                 <div id="handle-preloader" class="handle-preloader">
                     <div class="animation-preloader">
                         <div class="txt-loading">
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="I" class="letters-loading">I</span>
-                            <span data-text-preloader="N" class="letters-loading">N</span>
                             <span data-text-preloader="G" class="letters-loading">G</span>
+                            <span data-text-preloader="K" class="letters-loading">K</span>
+                            <span data-text-preloader="P" class="letters-loading">P</span>
                         </div>
                     </div>
                 </div>
@@ -60,9 +56,9 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('permintaan') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -72,31 +68,137 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
+                    <h3 class="text-center">Penjualan</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahPorto') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('notajual.tambah') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Nama Portofolio</label>
-                                <input type="text" id="nama_porto" name="nama_porto" placeholder="" required="">
-                            </div>
+                            <div class="countainer-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tanggal</label>
+                                            <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Customer</label>
+                                            <select class="dropdown" id="id_customer" name="id_customer" required>
+                                                <option value="">-- Pilih customer --</option>
+                                                @if($customer->count() > 0)
+                                                    @foreach($customer as $c)
+                                                        <option value="{{ $c->id_customer }}">{{ $c->nama_customer }}</option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="">Data Customer Tidak Ada</option>
+                                                @endif
 
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <button type="submit" class="submit-btn btn-style-one">
+                                                <span class="btn-wrap">
+                                                    <span class="text-one">Tambah</span>
+                                                    <span class="text-two">Tambah</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
+
+                        <br>
+
+                        @if(session('success_step1'))
+                            <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
+                                <h5 style="color: orange;">Tambah Barang untuk Nota: {{ session('no_notajual') }}</h5>
+                                <p style="color: azure">Customer: {{ session('nama_customer') }}</p>
+
+                                <form action="{{ route('item.tambah') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_nota_jual" value="{{ session('id_nota_jual') }}">
+                                    <input type="hidden" name="no_notajual" value="{{ session('no_notajual') }}">
+                                    <input type="hidden" name="nama_customer" value="{{ session('nama_customer') }}">
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Nama Barang</label>
+                                            <select name="id_barang" id="id_barang" class="form-control">
+                                                <option value="">-- Pilih Barang --</option>
+                                                @foreach(session('barang') as $barang)
+                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" id="quantity" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Harga</label>
+                                            <input type="number" name="harga" id="harga" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>&nbsp;</label>
+                                            <button type="submit" class="btn btn-warning btn-block">TAMBAH ITEM</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form action="{{ route('reqjual.tambah') }}" method="POST">
+                                    @csrf
+                                    <table class="table table-dark mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Barang</th>
+                                                <th>Qty</th>
+                                                <th>Harga</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php $grandtotal = 0; @endphp
+
+                                            @if(session('list_barang'))
+                                                @foreach(session('list_barang', []) as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item['nama_barang'] }}</td>
+                                                    <td>{{ $item['quantity'] }}</td>
+                                                    <td>{{ number_format($item['harga'], 0, ',', '.') }}</td>
+                                                    <td>{{ number_format($item['total'], 0, ',', '.') }}</td>
+                                                </tr>
+
+                                                @php $grandtotal += $item['total']; @endphp
+
+                                                @endforeach
+                                            @endif
+                                            <tr style="border-top: 2px solid orange; font-weight: bold;">
+                                                <td colspan="4" class="text-right">Total Seluruh</td>
+                                                <td style="color: orange;">{{ number_format($grandtotal, 0, ',', '.') }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="col-md-5">
+                                        <label>&nbsp;</label>
+                                        <button type="submit" class="btn btn-success">Selesai & Simpan Semua</button>
+                                    </div>
+
+                                    {{-- <a href="{{ route('reqbeli.tambah') }}" class="btn btn-success">Selesai & Simpan Semua</a> --}}
+                                </form>
+                            </div>
+
+                            @else
+                                <h4 class="text-center text-white">Belum Terdapat Nota</h4>
+
+                            @endif
+
                     </div>
                     <!-- End Default Form -->
                 </div>

@@ -44,13 +44,9 @@
                 <div id="handle-preloader" class="handle-preloader">
                     <div class="animation-preloader">
                         <div class="txt-loading">
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="I" class="letters-loading">I</span>
-                            <span data-text-preloader="N" class="letters-loading">N</span>
                             <span data-text-preloader="G" class="letters-loading">G</span>
+                            <span data-text-preloader="K" class="letters-loading">K</span>
+                            <span data-text-preloader="P" class="letters-loading">P</span>
                         </div>
                     </div>
                 </div>
@@ -103,16 +99,6 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Nomor Nota</label>
-                                            <input type="text" id="no_notabeli" name="no_notabeli" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
                                             <button type="submit" class="submit-btn btn-style-one">
                                                 <span class="btn-wrap">
                                                     <span class="text-one">Tambah</span>
@@ -125,29 +111,32 @@
                             </div>
                         </form>
 
+                        <br>
+
                         @if(session('success_step1'))
                             <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
-                                <h5 style="color: orange;">Tambah Barang untuk Nota: {{ session('no_nota') }}</h5>
-                                <p>Vendor: {{ session('nama_vendor') }}</p>
+                                <h5 style="color: orange;">Tambah Barang untuk Nota: {{ session('no_notabeli') }}</h5>
+                                <p style="color: azure">Vendor: {{ session('nama_vendor') }}</p>
 
-                                <form action="/simpanItem" method="POST">
+                                <form action="{{ route('item.simpan') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id_nota_beli" value="{{ session('id_nota_beli') }}">
-                                    <input type="hidden" name="no_nota_hidden" value="{{ session('no_nota') }}">
-                                    <input type="hidden" name="nama_vendor_hidden" value="{{ session('nama_vendor') }}">
+                                    <input type="hidden" name="no_notabeli" value="{{ session('no_notabeli') }}">
+                                    <input type="hidden" name="nama_vendor" value="{{ session('nama_vendor') }}">
 
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label>Nama Barang</label>
-                                            <select name="nama_barang" class="form-control">
-                                                @foreach(session('data_barang') as $b)
-                                                    <option value="{{ $b->nama_barang }}">{{ $b->nama_barang }}</option>
+                                            <select name="id_barang" id="id_barang" class="form-control">
+                                                <option value="">-- Pilih Barang --</option>
+                                                @foreach(session('barang') as $barang)
+                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <label>Qty</label>
-                                            <input type="number" name="qty" id="qty" class="form-control">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" id="quantity" class="form-control">
                                         </div>
                                         <div class="col-md-3">
                                             <label>Harga</label>
@@ -160,93 +149,55 @@
                                     </div>
                                 </form>
 
-                                <table class="table table-dark mt-4">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Req</th>
-                                            <th>Barang</th>
-                                            <th>Qty</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if(session('list_barang'))
-                                            @foreach(session('list_barang') as $item)
-                                            <tr>
-                                                <td>{{ $item->id_req_beli }}</td> <td>{{ $item->nama_barang }}</td>
-                                                <td>{{ $item->qty }}</td>
-                                                <td>{{ number_format($item->total) }}</td>
-                                            </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-
-                                <a href="/dashtransreq" class="btn btn-success">Selesai & Simpan Semua</a>
-                            </div>
-                            @endif
-
-                        {{-- @if(session('success_step1'))
-                            <div class="card-detail">
-                                <p>Nota: {{ session('nomor_nota_terakhir') }}</p>
-                                <p>Vendor: {{ session('nama_vendor_terpilih') }}</p>
-
-                                <form action="{{ route('beli.tambah') }}" method="POST">
+                                <form action="{{ route('reqbeli.tambah') }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="id_nota_beli" value="{{ session('id_nota_beli') }}">
-                                    <div class="countainer-fluid">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Nama Barang</label>
-                                                    <select name="id_barang">
-                                                        @foreach($barang as $b)
-                                                            <option value="{{ $b->id_barang }}">{{ $b->nama_barang }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Quantity</label>
-                                                    <input type="number" id="quantity" name="quantity" placeholder="" required="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Harga Beli</label>
-                                                    <input type="number" id="harga_beli" name="harga_beli" placeholder="" required="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4"></div>
-                                            <div class="col-md-4"></div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Total</label>
-                                                    <input type="text" id="total" name="total" placeholder="" required="" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <table class="table table-dark mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Barang</th>
+                                                <th>Qty</th>
+                                                <th>Harga</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php $grandtotal = 0; @endphp
+
+                                            @if(session('list_barang'))
+                                                @foreach(session('list_barang', []) as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item['nama_barang'] }}</td>
+                                                    <td>{{ $item['quantity'] }}</td>
+                                                    <td>{{ number_format($item['harga'], 0, ',', '.') }}</td>
+                                                    <td>{{ number_format($item['total'], 0, ',', '.') }}</td>
+                                                </tr>
+
+                                                @php $grandtotal += $item['total']; @endphp
+
+                                                @endforeach
+                                            @endif
+                                            <tr style="border-top: 2px solid orange; font-weight: bold;">
+                                                <td colspan="4" class="text-right">Total Seluruh</td>
+                                                <td style="color: orange;">{{ number_format($grandtotal, 0, ',', '.') }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="col-md-5">
+                                        <label>&nbsp;</label>
+                                        <button type="submit" class="btn btn-success">Selesai & Simpan Semua</button>
                                     </div>
 
-                                    <div class="form-group">
-                                        <!-- Button Box -->
-                                        <button type="submit" class="submit-btn btn-style-one">
-                                            <span class="btn-wrap">
-                                                <span class="text-one">Tambah</span>
-                                                <span class="text-two">Tambah</span>
-                                            </span>
-                                        </button>
-                                    </div>
+                                    {{-- <a href="{{ route('reqbeli.tambah') }}" class="btn btn-success">Selesai & Simpan Semua</a> --}}
                                 </form>
                             </div>
 
-                        @else
-                            <h4 class="text-center text-white">Belum Terdapat Nota</h4>
-                        @endif --}}
+                            @else
+                                <h4 class="text-center text-white">Belum Terdapat Nota</h4>
 
+                            @endif
 
                     </div>
                     <!-- End Default Form -->

@@ -14,15 +14,18 @@ class CreateTerimaTable extends Migration
     public function up()
     {
         Schema::create('terima', function (Blueprint $table) {
-            $table->bigIncrements('id_pembelian');
+            $table->bigIncrements('id_terima');
+            $table->unsignedBigInteger('id_no_terima')->nullable();
+            $table->foreign('id_no_terima')
+                ->references('id_no_terima')
+                ->on('noterima')
+                ->onDelete('set null');
             $table->unsignedBigInteger('id_req_beli')->nullable();
             $table->foreign('id_req_beli')
                 ->references('id_req_beli')
                 ->on('reqbeli')
                 ->onDelete('set null');
-            $table->date('tanggal');
             $table->integer('quantity');
-            $table->string('status');
             $table->timestamps();
         });
     }

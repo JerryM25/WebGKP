@@ -19,13 +19,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Glorykaryaperkasa_53'),
             'id' => '1',
         ]);
-
-        // Buat user biasa
-        // akun::create([
-        //     'username' => 'user1',
-        //     'email' => 'user1@example.com',
-        //     'password' => Hash::make('password'),
-        //     'id' => '2',
-        // ]);
     }
 }

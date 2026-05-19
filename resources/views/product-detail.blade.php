@@ -55,6 +55,19 @@
                         <div class="row clearfix">
                             <div class="column col-lg-6 col-md-12 col-sm-12">
                                 <div class="team-detail_button">
+                                    <a href="{{ $barang->link }}" target="_blank" class="template-btn btn-style-one">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">LINK</span>
+                                            <span class="text-two">LINK</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                <div class="team-detail_button">
                                     <a href="https://wa.me/+62811292554" target="_blank" class="template-btn btn-style-one">
                                         <span class="btn-wrap">
                                             <span class="text-one">Tanyakan</span>

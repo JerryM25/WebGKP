@@ -25,11 +25,6 @@
 
 <div class="page-wrapper">
 
-	<!-- Cursor -->
-	<div class="cursor"></div>
-	<div class="cursor-follower"></div>
-	<!-- Cursor End -->
-
 	<!-- Preloader -->
 	<div class="loader-wrap">
 		<div class="preloader">
@@ -40,18 +35,6 @@
                         <span data-text-preloader="G" class="letters-loading">G</span>
                         <span data-text-preloader="K" class="letters-loading">K</span>
                         <span data-text-preloader="P" class="letters-loading">P</span>
-
-						{{-- <span data-text-preloader="G" class="letters-loading">G</span>
-						<span data-text-preloader="L" class="letters-loading">L</span>
-						<span data-text-preloader="O" class="letters-loading">O</span>
-						<span data-text-preloader="R" class="letters-loading">R</span>
-						<span data-text-preloader="Y" class="letters-loading">Y</span>
-
-						<span data-text-preloader="K" class="letters-loading">K</span>
-						<span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="R" class="letters-loading">R</span>
-						<span data-text-preloader="Y" class="letters-loading">Y</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span> --}}
 					</div>
 				</div>
 			</div>

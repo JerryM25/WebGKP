@@ -29,13 +29,12 @@ class WebController extends Controller
 
     public function tampil(Request $request) {
         $kategori = $request->query('kategori', 'Semua Kategori');
-
-        if ($kategori == 'Semua Kategori') {
-            $barang = Barang::all();
-        } else {
-            $barang = Barang::where('kategori', $kategori)->get();
-        }
-        $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
+        // $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
+        $barang = ($kategori == 'Semua Kategori')
+        ? Barang::where('tayang', 1)->get()
+        : Barang::where('kategori', $kategori)
+                ->where('tayang', 1)
+                ->get();
         return view('product', compact('barang', 'kategori'));
     }
 

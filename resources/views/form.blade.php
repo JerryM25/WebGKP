@@ -44,13 +44,9 @@
                 <div id="handle-preloader" class="handle-preloader">
                     <div class="animation-preloader">
                         <div class="txt-loading">
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="I" class="letters-loading">I</span>
-                            <span data-text-preloader="N" class="letters-loading">N</span>
                             <span data-text-preloader="G" class="letters-loading">G</span>
+                            <span data-text-preloader="K" class="letters-loading">K</span>
+                            <span data-text-preloader="P" class="letters-loading">P</span>
                         </div>
                     </div>
                 </div>
@@ -83,7 +79,6 @@
                                 <br>
                                 <img id="preview" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
                                 <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
-                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
                             </div>
 
                             <div class="form-group">
@@ -97,8 +92,6 @@
                             </div>
 
                             <div class="form-group">
-                                {{-- <label>Kategori</label>
-                                <input type="text" id="kategori" name="kategori" placeholder="" required=""> --}}
                                 <label for="Kategori">Kategori</label>
                                 <select class="dropdown" id="kategori" name="kategori">
                                     <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
@@ -134,8 +127,6 @@
                             </div>
 
                             <div class="form-group">
-                                {{-- <label>Satuan</label>
-                                <input type="text" id="satuan" name="satuan" placeholder="" required=""> --}}
                                 <label for="satuan">Satuan</label>
                                 <select class="dropdown" id="satuan" name="satuan">
                                     <option value="Paket">Paket</option>
@@ -151,6 +142,19 @@
                                     <option value="Gelas">Gelas</option>
                                     <option value="Meter">Meter</option>
                                     <option value="Porsi">Porsi</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" id="link" name="link" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tayang</label>
+                                <select class="dropdown" id="tayang" name="tayang">
+                                    <option value="1">Tayang</option>
+                                    <option value="0">Tidak Tayang</option>
                                 </select>
                             </div>
 

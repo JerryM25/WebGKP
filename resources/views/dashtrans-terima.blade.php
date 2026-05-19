@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('formTerima') }}">Tambah</a>
             </div>
         </div>
     </div>
@@ -38,15 +38,14 @@
                         <tr>
                             <th>No</th>
                             <th>No Penerimaan</th>
-                            <th>Deskripsi</th>
-                            <th>Status</th>
+                            <th>Referensi</th>
                             <th>Tanggal</th>
                             <th>File</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($b as $a)
+                        {{-- @foreach($b as $a)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $a['nomor_terima'] }}</td>
@@ -75,7 +74,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>

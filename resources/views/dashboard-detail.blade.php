@@ -24,6 +24,7 @@
                         </div>
                     </nav>
                 </div>
+                <br>
                 <div class="team-detail_image-outer">
                     <div class="team-detail_image">
                         <img class="team-detail_image" src="{{ asset('storage/' . $barang->foto) }}" alt="{{ $barang->nama_barang }}" />
@@ -68,8 +69,34 @@
                                         <span>{{ $barang->satuan }}</span>
                                     </div>
                                 </div>
+
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="team-detail_info">
+                                        Tayang
+                                        @if($barang->tayang)
+                                            <span>Ya</span>
+                                        @else
+                                            <span>Tidak</span>
+                                        @endif
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
+                        <div class="row clearfix">
+                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                <div class="team-detail_button">
+                                    <a href="{{ $barang->link }}" class="template-btn btn-style-one" target="_blank">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Link</span>
+                                            <span class="text-two">Link</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
 
                     <div class="row clearfix">
                         <div class="column col-lg-6 col-md-12 col-sm-12">

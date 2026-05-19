@@ -44,13 +44,9 @@
                 <div id="handle-preloader" class="handle-preloader">
                     <div class="animation-preloader">
                         <div class="txt-loading">
-                            <span data-text-preloader="L" class="letters-loading">L</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                            <span data-text-preloader="D" class="letters-loading">D</span>
-                            <span data-text-preloader="I" class="letters-loading">I</span>
-                            <span data-text-preloader="N" class="letters-loading">N</span>
                             <span data-text-preloader="G" class="letters-loading">G</span>
+                            <span data-text-preloader="K" class="letters-loading">K</span>
+                            <span data-text-preloader="P" class="letters-loading">P</span>
                         </div>
                     </div>
                 </div>
@@ -60,9 +56,9 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('detail.req') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -72,29 +68,47 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
-                    <!-- Register Form -->
+                    <h3 class="text-center">Edit Beli</h3>
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahPorto') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('update.reqbeli', ['id' => $reqbeli->id_req_beli]) }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Nama Portofolio</label>
-                                <input type="text" id="nama_porto" name="nama_porto" placeholder="" required="">
-                            </div>
+                            @method('PUT')
+                            <input type="hidden" name="id_nota_beli" value="{{ $reqbeli->id_req_beli }}">
 
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                            </div>
+                            <div class="countainer-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                                <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Nama Barang</label>
+                                            <select name="id_barang" id="id_barang" class="form-control">
+                                                <option value="{{ $reqbeli->id_barang }}">{{ $reqbeli->nama_barang }}</option>
+                                                @foreach($barang as $barang)
+                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" id="quantity" value="{{ $reqbeli->quantity }}" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Harga</label>
+                                            <input type="number" name="harga_beli" id="harga_beli" value="{{ $reqbeli->harga_beli }}" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>&nbsp;</label>
+                                                <button type="submit" class="btn btn-warning btn-block">UPDATE ITEM</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

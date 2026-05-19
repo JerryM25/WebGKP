@@ -449,6 +449,7 @@
 }
 
 .slider-one_image{
+    top: -150px;
 	position: relative;
 	transition:all 900ms ease;
 	-moz-transition:all 900ms ease;
@@ -845,10 +846,12 @@
 .about-one_pattern{
 	position: absolute;
 	right: 0px;
-	top: -350px;
-	width: 709px;
-	height: 1152px;
+	top: 0px;
+	width: auto;
+	height: auto;
     margin-right: -150px;
+    max-width: 1000px;
+    max-height: 500px;
 	background-position: right center;
 	background-repeat: no-repeat;
 }
@@ -7737,6 +7740,20 @@
 
 .trans-info .sec-title_title{
 	color: #ff973c;
+	padding: 0px;
+	background: none;
+    font-family: 'Graphie';
+}
+
+.trans-info .sec-title_title1{
+	color: #ffffff;
+	padding: 0px;
+	background: none;
+    font-family: 'Graphie';
+}
+
+.trans-info .sec-title_title2{
+	color: #fdb87c;
 	padding: 0px;
 	background: none;
     font-family: 'Graphie';
