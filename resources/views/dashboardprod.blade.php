@@ -10,7 +10,11 @@
     <br>
 
     <div class="container-fluid">
-        <a class="template-btn price-one_button" href="/formbarang">Tambah Barang</a><br>
+        <div class="row">
+            <div class="col">
+                <a class="template-btn price-one_button" href="/formbarang">Tambah Barang</a><br>
+            </div>
+        </div>
     </div>
     <br>
 </div>

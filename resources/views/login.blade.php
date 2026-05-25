@@ -92,7 +92,7 @@
 				<h3 class="text-center">Login</h3>
 				<!-- Register Form -->
 				<div class="register-form">
-					<form action="/ceklogin" method="post">
+					<form action="{{ route('ceklogin') }}" method="post">
                         @csrf
 						<div class="form-group">
 							<label>Email</label>

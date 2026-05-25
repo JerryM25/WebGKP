@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="">Tambah</a>
+                <a class="template-btn price-one_button" href="{{ route('formKeluar') }}">Tambah</a>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">BARANG KELUAR</div>
 			</div>
 			<div class="row clearfix">
                 <table class="table table-bordered">
@@ -46,13 +46,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($b as $a)
+                        @foreach($data as $key => $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_keluar'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
+                                <td>{{ (int) $key + 1 }}</td>
+                                <td>{{ $item->no_keluar }}</td>
+                                <td>{{ $item->no_notajual }}</td>
+                                <td>{{ $item->tanggal }}</td>
                                 <td>
                                     <a href="">
                                         <button class="trans-block_one-icon">

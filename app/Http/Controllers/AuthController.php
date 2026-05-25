@@ -64,14 +64,30 @@ class AuthController extends Controller
         ]);
     }
 
-    public function dashboard(Request $request)
+    public function dashboard()
     {
         return view('dashboard');
     }
 
-    public function dashboardTransaksi(Request $request)
+    public function dashboardTransaksi()
     {
         return view('dashboardtransaksi');
+    }
+
+    public function dashPembelian()
+    {
+        return view('dashpembelian');
+    }
+
+    public function dashPenjualan()
+    {
+        return view('dashpenjualan');
+    }
+
+    public function dashStok()
+    {
+        $stok = Barang::all();
+        return view('dashstok', compact('stok'));
     }
 
     public function dashtransreq()
@@ -116,9 +132,26 @@ class AuthController extends Controller
         return view('detailtrans-req', compact('data'));
     }
 
-    public function dashtranster(Request $request)
+    public function dashtranster()
     {
-        return view('dashtrans-terima');
+        $data = DB::table('terima')
+        ->join('noterima', 'terima.id_no_terima', '=', 'noterima.id_no_terima')
+        ->join('reqbeli', 'terima.id_req_beli', '=', 'reqbeli.id_req_beli')
+        ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
+        ->select(
+            'terima.id_terima',
+            'noterima.no_terima',
+            'noterima.tanggal',
+            'notabeli.no_notabeli'
+        )
+        ->groupBy(
+            'terima.id_terima',
+            'noterima.no_terima',
+            'noterima.tanggal',
+            'notabeli.no_notabeli'
+        )
+        ->get();
+        return view('dashtrans-terima', compact('data'));
     }
 
     public function dashtransper(Request $request)
@@ -163,31 +196,34 @@ class AuthController extends Controller
         return view('detailtrans-per', compact('data'));
     }
 
-    public function dashtransjual(Request $request)
+    public function dashtranskeluar(Request $request)
     {
-        $b = [
-            ['nomor_keluar' => 'GKP/OUT/0001', 'deskripsi' => 'Permintaan 10 unit alat tulis', 'status' => 'Menunggu', 'tanggal' => '2025-10-10'],
-            ['nomor_keluar' => 'GKP/OUT/0002', 'deskripsi' => 'Permintaan 5 unit printer', 'status' => 'Disetujui', 'tanggal' => '2025-10-09'],
-            ['nomor_keluar' => 'GKP/OUT/0003', 'deskripsi' => 'Permintaan 20 rim kertas A4', 'status' => 'Diproses', 'tanggal' => '2025-10-08'],
-            ['nomor_keluar' => 'GKP/OUT/0004', 'deskripsi' => 'Permintaan 3 unit laptop', 'status' => 'Menunggu', 'tanggal' => '2025-10-07'],
-            ['nomor_keluar' => 'GKP/OUT/0005', 'deskripsi' => 'Permintaan 2 unit proyektor', 'status' => 'Disetujui', 'tanggal' => '2025-10-06'],
-            ['nomor_keluar' => 'GKP/OUT/0006', 'deskripsi' => 'Permintaan 50 buku catatan', 'status' => 'Diproses', 'tanggal' => '2025-10-05'],
-            ['nomor_keluar' => 'GKP/OUT/0007', 'deskripsi' => 'Permintaan 4 unit monitor', 'status' => 'Ditolak', 'tanggal' => '2025-10-04'],
-            ['nomor_keluar' => 'GKP/OUT/0008', 'deskripsi' => 'Permintaan 10 unit mouse', 'status' => 'Menunggu', 'tanggal' => '2025-10-03'],
-            ['nomor_keluar' => 'GKP/OUT/0009', 'deskripsi' => 'Permintaan 15 unit keyboard', 'status' => 'Disetujui', 'tanggal' => '2025-10-02'],
-            ['nomor_keluar' => 'GKP/OUT/0010', 'deskripsi' => 'Permintaan 1 unit server', 'status' => 'Diproses', 'tanggal' => '2025-10-01'],
-        ];
-        return view('dashtrans-jual', compact('b'));
+        $data = DB::table('keluar')
+        ->join('nokeluar', 'keluar.id_no_keluar', '=', 'nokeluar.id_no_keluar')
+        ->join('reqjual', 'keluar.id_req_jual', '=', 'reqjual.id_req_jual')
+        ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+        ->select(
+            'keluar.id_keluar',
+            'nokeluar.no_keluar',
+            'nokeluar.tanggal',
+            'notajual.no_notajual'
+        )
+        ->groupBy(
+            'keluar.id_keluar',
+            'nokeluar.no_keluar',
+            'nokeluar.tanggal',
+            'notajual.no_notajual'
+        )
+        ->get();
+        return view('dashtrans-keluar', compact('data'));
     }
 
     public function dashboardProduct(Request $request)
     {
         $kategori = $request->query('kategori', 'Semua Kategori');
-        // $barang = ($kategori == 'Semua Kategori') ? Barang::all() : Barang::where('kategori', $kategori)->get();
         $barang = ($kategori == 'Semua Kategori')
-        ? Barang::where('tayang', 1)->get()
+        ? Barang::all()
         : Barang::where('kategori', $kategori)
-                ->where('tayang', 1)
                 ->get();
         return view('dashboardprod', compact('barang', 'kategori'));
     }
@@ -479,13 +515,13 @@ class AuthController extends Controller
                                     ->first();
 
             if ($lastRecord) {
-                $lastNumber = intval(substr($lastRecord->no_notabeli, -4));
+                $lastNumber = intval(substr($lastRecord->no_notabeli, -5));
                 $newNumber = $lastNumber + 1;
             } else {
                 $newNumber = 1;
             }
 
-            $nomorNota = "PO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+            $nomorNota = "PO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 5, '0', STR_PAD_LEFT);
 
             $notabeli = Notabeli::create([
                 'id_nota_beli' => $request->id_nota_beli,
@@ -619,21 +655,26 @@ class AuthController extends Controller
                                     ->latest('id_no_terima')
                                     ->first();
             if ($lastRecord) {
-                $lastNumber = intval(substr($lastRecord->no_terima, -4));
+                $lastNumber = intval(substr($lastRecord->no_terima, -5));
                 $newNumber = $lastNumber + 1;
             } else {
                 $newNumber = 1;
             }
-            $nomorTerima = "IN/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+            $nomorTerima = "IN/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 5, '0', STR_PAD_LEFT);
             $noterima = Noterima::create([
                 'id_no_terima' => $request->id_no_terima,
                 'tanggal' => $request->tanggal,
                 'no_terima' => $nomorTerima
             ]);
-            $barang = Barang::all();
+
             $reqbeli = Reqbeli::where('reqbeli.id_nota_beli', $request->id_nota_beli)
             ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
             ->select('reqbeli.*', 'notabeli.no_notabeli')->first();
+
+            $barang = Barang::join('reqbeli', 'barang.id_barang', '=', 'reqbeli.id_barang')
+            ->where('reqbeli.id_nota_beli', $request->id_nota_beli)
+            ->select('barang.*')
+            ->get();
 
             return back()->with([
                 'success_step1' => true,
@@ -722,13 +763,13 @@ class AuthController extends Controller
                                     ->first();
 
             if ($lastRecord) {
-                $lastNumber = intval(substr($lastRecord->no_notabeli, -4));
+                $lastNumber = intval(substr($lastRecord->no_notajual, -5));
                 $newNumber = $lastNumber + 1;
             } else {
                 $newNumber = 1;
             }
 
-            $nomorNota = "SO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+            $nomorNota = "SO/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 5, '0', STR_PAD_LEFT);
 
             $notajual = Notajual::create([
                 'id_nota_jual' => $request->id_nota_jual,
@@ -836,6 +877,112 @@ class AuthController extends Controller
         ]);
 
         return redirect()->route('detail.per')->with('success', 'Berita Berhasil Terupdate');
+    }
+
+    public function formKeluar(){
+        $reqjual = Reqjual::join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+        ->select('reqjual.*', 'notajual.no_notajual')
+        ->get();
+        return view('formout', compact('reqjual'));
+    }
+
+    public function tambahNoKeluar(Request $request){
+        return DB::transaction(function () use ($request) {
+            $tanggal = Carbon::parse($request->tanggal);
+            $tahun = $tanggal->format('y');
+            $bulan = $tanggal->format('m');
+            $tahunPenuh = $tanggal->year;
+            $lastRecord = Nokeluar::whereYear('created_at', $tahunPenuh)
+                                    ->lockForUpdate()
+                                    ->latest('id_no_keluar')
+                                    ->first();
+            if ($lastRecord) {
+                $lastNumber = intval(substr($lastRecord->no_keluar, -5));
+                $newNumber = $lastNumber + 1;
+            } else {
+                $newNumber = 1;
+            }
+            $nomorKeluar = "OT/GKP/" . $tahun . $bulan . "/" . str_pad($newNumber, 5, '0', STR_PAD_LEFT);
+            $nokeluar = Nokeluar::create([
+                'id_no_keluar' => $request->id_no_keluar,
+                'tanggal' => $request->tanggal,
+                'no_keluar' => $nomorKeluar
+            ]);
+            $reqjual = Reqjual::where('reqjual.id_nota_jual', $request->id_nota_jual)
+            ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+            ->select('reqjual.*', 'notajual.no_notajual')->first();
+
+            $barang = Barang::join('reqjual', 'barang.id_barang', '=', 'reqjual.id_barang')
+            ->where('reqjual.id_nota_jual', $request->id_nota_jual)
+            ->select('barang.*')
+            ->distinct()
+            ->get();
+
+            return back()->with([
+                'success_step1' => true,
+                'list_barang'   => false,
+                'id_no_keluar'  => $nokeluar->id_no_keluar,
+                'no_keluar'     => $nomorKeluar,
+                'barang'        => $barang,
+                'no_notajual'   => $reqjual->no_notajual,
+                'id_nota_jual'  => $reqjual->id_nota_jual,
+                'id_req_jual'   => $reqjual->id_req_jual
+            ]);
+        });
+    }
+
+    public function tambahKeluar(Request $request){
+        $list_keluar = session()->get('list_keluar', []);
+
+        if (!$list_keluar) return back();
+
+        foreach ($list_keluar as $item) {
+            Keluar::create([
+                'id_no_keluar' => $item['id_no_keluar'],
+                'id_req_jual'  => $item['id_req_jual'],
+                'quantity'     => $item['dikeluar']
+            ]);
+
+            Barang::where('id_barang', $item['id_barang'])
+            ->decrement('stok', (int) $item['dikeluar']);
+        }
+
+        session()->forget(['list_keluar', 'success_step1']);
+
+        return redirect('/dashkeluar')->with('success', 'Data Berhasil Disimpan!');
+    }
+
+    public function simpanKeluar(Request $request){
+        $list_keluar = session()->get('list_keluar', []);
+
+        $dataBarang = Barang::find($request->id_barang);
+
+        $kekurangan = $request->quantity - $request->dikeluar;
+
+        $list_keluar[] = [
+            'id_no_keluar' => $request->id_no_keluar,
+            'id_req_jual'  => $request->id_req_jual,
+            'id_barang'    => $request->id_barang,
+            'nama_barang'  => $dataBarang->nama_barang,
+            'quantity'     => $request->quantity,
+            'dikeluar'     => $request->dikeluar,
+            'kekurangan'   => $kekurangan
+        ];
+
+        $reqjual = Reqjual::where('reqjual.id_nota_jual', $request->id_nota_jual)
+        ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+        ->select('reqjual.*', 'notajual.no_notajual')->first();
+        $barang = Barang::all();
+
+        session()->put('list_keluar', $list_keluar);
+        return back()->with([
+                'success_step1' => true,
+                'id_nota_jual'  => $request->id_nota_jual,
+                'no_notajual'   => $reqjual->no_notajual,
+                'nama_vendor'   => $request->nama_vendor,
+                'no_nota'       => $request->no_nota,
+                'barang'        => $barang
+            ]);
     }
 
     public function vendor(){

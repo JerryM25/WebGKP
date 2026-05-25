@@ -12,40 +12,28 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-1">
+                <a class="template-btn price-one_button" href="{{ route('dashboardTransaksi') }}">Back</a>
             </div>
-            <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('dashPembelian') }}">Pembelian</a>
-            </div>
-            <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('dashPenjualan') }}">Penjualan</a>
-            </div>
-            <div class="col-md-2">
+            <div class="col-md-11">
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
+                <a class="template-btn price-one_button" href="{{ route('request') }}">Request Barang</a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <a class="template-btn price-one_button" href="{{ route('terima') }}">Terima Barang</a>
+            </div>
+            <div class="col-md-3">
                 <a class="template-btn price-one_button" href="{{ route('vend.dash') }}">Vendor</a>
             </div>
-            <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('cust.dash') }}">Customer</a>
-            </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
+                <a class="template-btn price-one_button" href="{{ route('stok.dash') }}">Stok</a>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-                <a class="template-btn price-one_button" href="{{ route('stok.dash') }}">Stok</a>
-            </div>
-            <div class="col-md-4">
-            </div>
-        </div>
     </div>
     <br>
 </div>

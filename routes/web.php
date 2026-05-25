@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/deleteporto/{id}', 'AuthController@deletePorto')->name('porto.delete');
     Route::put('/updateporto/{id}', 'AuthController@updatePorto')->name('porto.update');
 
+    Route::get('/dashstok', 'AuthController@dashStok')->name('stok.dash');
+
     //berita
     Route::delete('/deletenews/{id}', 'AuthController@deleteBerita')->name('berita.delete');
     Route::get('/dashnews/{id}/edit', 'AuthController@editBerita')->name('berita.edit');
@@ -47,6 +49,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Transaksi
     Route::get('/dashboardTransaksi', 'AuthController@dashboardTransaksi')->name('dashboardTransaksi');
+    Route::get('/dashPembelian', 'AuthController@dashPembelian')->name('dashPembelian');
+    Route::get('/dashPenjualan', 'AuthController@dashPenjualan')->name('dashPenjualan');
 
         //Jual
     Route::get('/dashtransper', 'AuthController@dashtransper')->name('permintaan');
@@ -61,6 +65,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/updateJual/{id}', 'AuthController@updateJual')->name('update.reqjual');
 
     Route::get('/dashkeluar', 'AuthController@dashtranskeluar')->name('keluar');
+
+    Route::get('/formkeluar', 'AuthController@formKeluar')->name('formKeluar');
+    Route::post('/tambahnokeluar', 'AuthController@tambahNoKeluar')->name('nokeluar.tambah');
+    Route::post('/simpanKeluar', 'AuthController@simpanKeluar')->name('keluar.simpan');
+    Route::post('/tambahKeluar', 'AuthController@tambahKeluar')->name('keluar.tambah');
 
         //Beli
     Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
@@ -111,5 +120,5 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/portofolio', 'WebController@portofolio')->name('portofolio');
     Route::get('/admin', 'WebController@admin')->name('login');
     Route::get('/login', 'WebController@login')->name('login');
-    Route::post('/ceklogin', 'AuthController@cekLogin');
+    Route::post('/ceklogin', 'AuthController@cekLogin')->name('ceklogin');
 });

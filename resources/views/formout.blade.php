@@ -56,9 +56,9 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('keluar') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -68,31 +68,130 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
+                    <h3 class="text-center">Keluar Barang</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahPorto') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('nokeluar.tambah') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Nama Portofolio</label>
-                                <input type="text" id="nama_porto" name="nama_porto" placeholder="" required="">
-                            </div>
+                            <input type="hidden" name="id_req_jual" value="{{ session('id_req_jual') }}">
 
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                            </div>
+                            <div class="countainer-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tanggal</label>
+                                            <input type="date" id="tanggal" name="tanggal" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Nomor Nota Jual</label>
+                                            <select class="dropdown" id="id_nota_jual" name="id_nota_jual" required>
+                                                <option value="">-- Pilih Nota --</option>
+                                                @if($reqjual->count() > 0)
+                                                    @foreach($reqjual as $n)
+                                                        <option value="{{ $n->id_nota_jual }}">{{ $n->no_notajual }}</option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="">Data Nota Jual Tidak Ada</option>
+                                                @endif
 
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <button type="submit" class="submit-btn btn-style-one">
+                                                <span class="btn-wrap">
+                                                    <span class="text-one">Tambah</span>
+                                                    <span class="text-two">Tambah</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
+
+                        <br>
+
+                        @if(session('success_step1'))
+                            <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
+                                <h5 style="color: orange;">keluar Barang untuk Nota: {{ session('no_notajual') }}</h5>
+                                <p style="color: azure">Nomor keluar: {{ session('no_keluar') }}</p>
+
+                                <form action="{{ route('keluar.simpan') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_nota_jual" value="{{ session('id_nota_jual') }}">
+                                    <input type="hidden" name="id_no_keluar" value="{{ session('id_no_keluar') }}">
+                                    <input type="hidden" name="no_notajual" value="{{ session('no_notajual') }}">
+                                    <input type="hidden" name="no_keluar" value="{{ session('no_keluar') }}">
+                                    <input type="hidden" name="id_req_jual" value="{{ session('id_req_jual') }}">
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Nama Barang</label>
+                                            <select name="id_barang" id="id_barang" class="form-control">
+                                                <option value="">-- Pilih Barang --</option>
+                                                @foreach(session('barang') as $barang)
+                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Quantity Penjualan</label>
+                                            <input type="number" name="quantity" id="quantity" class="form-control">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Quantity Dikeluar</label>
+                                            <input type="number" name="dikeluar" id="dikeluar" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>&nbsp;</label>
+                                            <button type="submit" class="btn btn-warning btn-block">KELUAR BARANG</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form action="{{ route('keluar.tambah') }}" method="POST">
+                                    @csrf
+                                    <table class="table table-dark mt-4">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Barang</th>
+                                                <th>Qty Pemjualan</th>
+                                                <th>Qty Keluar</th>
+                                                <th>Kekurangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(session('list_keluar'))
+                                                @foreach(session('list_keluar', []) as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $item['nama_barang'] }}</td>
+                                                        <td>{{ $item['quantity'] }}</td>
+                                                        <td>{{ $item['dikeluar'] }}</td>
+                                                        <td>{{ $item['kekurangan'] }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+
+                                    <div class="col-md-5">
+                                        <label>&nbsp;</label>
+                                        <button type="submit" class="btn btn-success">Selesai & Simpan Semua</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            @else
+                                <h4 class="text-center text-white">Belum Terdapat Nomor Keluar</h4>
+
+                            @endif
+
                     </div>
                     <!-- End Default Form -->
                 </div>

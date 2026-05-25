@@ -30,7 +30,7 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">BARANG TERIMA</div>
 			</div>
 			<div class="row clearfix">
                 <table class="table table-bordered">
@@ -40,22 +40,21 @@
                             <th>No Penerimaan</th>
                             <th>Referensi</th>
                             <th>Tanggal</th>
-                            <th>File</th>
+                            <th>Detail</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach($b as $a)
+                        @foreach($data as $key => $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $a['nomor_terima'] }}</td>
-                                <td>{{ $a['deskripsi'] }}</td>
-                                <td>{{ $a['status'] }}</td>
-                                <td>{{ $a['tanggal'] }}</td>
+                                <td>{{ (int) $key + 1 }}</td>
+                                <td>{{ $item->no_terima }}</td>
+                                <td>{{ $item->no_notabeli }}</td>
+                                <td>{{ $item->tanggal }}</td>
                                 <td>
                                     <a href="">
                                         <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
+                                            <i>Detail</i>
                                         </button>
                                     </a>
                                 </td>
@@ -74,7 +73,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
                 </table>

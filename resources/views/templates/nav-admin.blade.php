@@ -54,9 +54,17 @@
 										<li class="{{ Route::currentRouteName() == 'dashboard' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboard') }}">Dashboard</a>
                                         </li>
-                                        <li class="{{ Route::currentRouteName() == 'dashboardTransaksi' ? 'active current' : '' }}">
+                                        <li class="dropdown {{ Route::currentRouteName() == 'dashboardTransaksi' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardTransaksi') }}">Transaksi</a>
-                                        </li>
+											<ul>
+												<li class="{{ Route::currentRouteName() == 'dashboardTransaksi' ? 'active current' : '' }}"><a href="{{ route('dashboardTransaksi') }}">Transaksi</a></li>
+												<li class="{{ Route::currentRouteName() == 'dashPembelian' ? 'active current' : '' }}"><a href="{{ route('dashPembelian') }}">Pembelian</a></li>
+                                                <li class="{{ Route::currentRouteName() == 'dashPenjualan' ? 'active current' : '' }}"><a href="{{ route('dashPenjualan') }}">Penjualan</a></li>
+											</ul>
+										</li>
+                                        {{-- <li class="{{ Route::currentRouteName() == 'dashboardTransaksi' ? 'active current' : '' }}">
+                                            <a href="{{ route('dashboardTransaksi') }}">Transaksi</a>
+                                        </li> --}}
                                         <li class="{{ Route::currentRouteName() == 'dashboardProduct' ? 'active current' : '' }}">
                                             <a href="{{ route('dashboardProduct') }}">Product</a>
                                         </li>
