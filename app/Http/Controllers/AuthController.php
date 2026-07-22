@@ -69,19 +69,64 @@ class AuthController extends Controller
         return view('dashboard');
     }
 
-    public function dashboardTransaksi()
+    public function dashboardTransaksi(Request $request)
     {
-        return view('dashboardtransaksi');
+        $tahun = $request->tahun ?? date('Y');
+        $notabeli = Notabeli::whereYear('tanggal', $tahun)->count();
+        $notajual = Notajual::whereYear('tanggal', $tahun)->count();
+        $total = $notabeli + $notajual;
+
+        $tahunBeli = Notabeli::selectRaw('YEAR(tanggal) as tahun')
+            ->distinct()
+            ->pluck('tahun')
+            ->toArray();
+
+        $tahunJual = Notajual::selectRaw('YEAR(tanggal) as tahun')
+            ->distinct()
+            ->pluck('tahun')
+            ->toArray();
+
+        $listTahun = collect(array_merge($tahunBeli, $tahunJual))
+            ->unique()
+            ->sort()
+            ->reverse()
+            ->values();
+
+        return view('dashboardtransaksi', compact(
+            'notabeli',
+            'notajual',
+            'total',
+            'tahun',
+            'listTahun'
+        ));
     }
 
-    public function dashPembelian()
+    public function dashPembelian(Request $request)
     {
-        return view('dashpembelian');
+        $tahun = $request->tahun ?? date('Y');
+        $ongoing = Notabeli::where('status', 'on going')->whereYear('tanggal', $tahun)->count();
+        $selesai = Notabeli::where('status', 'selesai')->whereYear('tanggal', $tahun)->count();
+        $cancel = Notabeli::where('status', 'cancel')->whereYear('tanggal', $tahun)->count();
+        $notabeli = Notabeli::whereYear('tanggal', $tahun)->count();
+        $listTahun = Notabeli::selectRaw('YEAR(tanggal) as tahun')
+        ->distinct()
+        ->orderBy('tahun', 'desc')
+        ->pluck('tahun');
+        return view('dashpembelian', compact('ongoing', 'selesai', 'cancel', 'notabeli', 'tahun', 'listTahun'));
     }
 
-    public function dashPenjualan()
+    public function dashPenjualan(Request $request)
     {
-        return view('dashpenjualan');
+        $tahun = $request->tahun ?? date('Y');
+        $ongoing = Notajual::where('status', 'on going')->whereYear('tanggal', $tahun)->count();
+        $selesai = Notajual::where('status', 'selesai')->whereYear('tanggal', $tahun)->count();
+        $cancel = Notajual::where('status', 'cancel')->whereYear('tanggal', $tahun)->count();
+        $notajual = Notajual::whereYear('tanggal', $tahun)->count();
+        $listTahun = Notajual::selectRaw('YEAR(tanggal) as tahun')
+        ->distinct()
+        ->orderBy('tahun', 'desc')
+        ->pluck('tahun');
+        return view('dashpenjualan', compact('ongoing', 'selesai', 'cancel', 'notajual', 'tahun', 'listTahun'));
     }
 
     public function dashStok()
@@ -100,13 +145,15 @@ class AuthController extends Controller
             'notabeli.no_notabeli',
             'notabeli.tanggal',
             'vendor.nama_vendor',
-            DB::raw('SUM(reqbeli.total) as grandtotal')
+            DB::raw('SUM(reqbeli.total) as grandtotal'),
+            'notabeli.status'
         )
         ->groupBy(
             'reqbeli.id_nota_beli',
             'notabeli.no_notabeli',
             'notabeli.tanggal',
-            'vendor.nama_vendor'
+            'vendor.nama_vendor',
+            'notabeli.status'
         )
         ->get();
 
@@ -123,6 +170,7 @@ class AuthController extends Controller
             'reqbeli.*',
             'notabeli.no_notabeli',
             'notabeli.tanggal',
+            'notabeli.status',
             'vendor.nama_vendor',
             'barang.nama_barang',
         )
@@ -140,18 +188,43 @@ class AuthController extends Controller
         ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
         ->select(
             'terima.id_terima',
+            'terima.id_no_terima',
             'noterima.no_terima',
             'noterima.tanggal',
             'notabeli.no_notabeli'
         )
         ->groupBy(
             'terima.id_terima',
+            'terima.id_no_terima',
             'noterima.no_terima',
             'noterima.tanggal',
             'notabeli.no_notabeli'
         )
         ->get();
         return view('dashtrans-terima', compact('data'));
+    }
+
+    public function detailTerima($id_no_terima)
+    {
+        $data = DB::table('terima')
+        ->join('noterima', 'terima.id_no_terima', '=', 'noterima.id_no_terima')
+        ->join('reqbeli', 'terima.id_req_beli', '=', 'reqbeli.id_req_beli')
+        ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
+        ->join('barang', 'reqbeli.id_barang', '=', 'barang.id_barang')
+        ->join('vendor', 'notabeli.id_vendor', '=', 'vendor.id_vendor')
+        ->select(
+            'terima.*',
+            'reqbeli.quantity as qty',
+            'noterima.no_terima',
+            'noterima.tanggal',
+            'notabeli.no_notabeli',
+            'notabeli.status',
+            'barang.nama_barang',
+            'vendor.nama_vendor'
+        )
+        ->where('terima.id_no_terima', $id_no_terima)
+        ->get();
+        return view('detterima', compact('data'));
     }
 
     public function dashtransper(Request $request)
@@ -164,13 +237,15 @@ class AuthController extends Controller
             'notajual.no_notajual',
             'notajual.tanggal',
             'customer.nama_customer',
-            DB::raw('SUM(reqjual.total) as grandtotal')
+            DB::raw('SUM(reqjual.total) as grandtotal'),
+            'notajual.status'
         )
         ->groupBy(
             'reqjual.id_nota_jual',
             'notajual.no_notajual',
             'notajual.tanggal',
-            'customer.nama_customer'
+            'customer.nama_customer',
+            'notajual.status'
         )
         ->get();
 
@@ -187,8 +262,9 @@ class AuthController extends Controller
             'reqjual.*',
             'notajual.no_notajual',
             'notajual.tanggal',
+            'notajual.status',
             'customer.nama_customer',
-            'barang.nama_barang',
+            'barang.nama_barang'
         )
         ->where('reqjual.id_nota_jual', $id_nota_jual)
         ->get();
@@ -204,18 +280,42 @@ class AuthController extends Controller
         ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
         ->select(
             'keluar.id_keluar',
+            'keluar.id_no_keluar',
             'nokeluar.no_keluar',
             'nokeluar.tanggal',
             'notajual.no_notajual'
         )
         ->groupBy(
             'keluar.id_keluar',
+            'keluar.id_no_keluar',
             'nokeluar.no_keluar',
             'nokeluar.tanggal',
             'notajual.no_notajual'
         )
         ->get();
         return view('dashtrans-keluar', compact('data'));
+    }
+
+    public function detailKeluar($id_no_keluar)
+    {
+        $data = DB::table('keluar')
+        ->join('nokeluar', 'keluar.id_no_keluar', '=', 'nokeluar.id_no_keluar')
+        ->join('reqjual', 'keluar.id_req_jual', '=', 'reqjual.id_req_jual')
+        ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+        ->join('barang', 'reqjual.id_barang', '=', 'barang.id_barang')
+        ->join('customer', 'notajual.id_customer', '=', 'customer.id_customer')
+        ->select(
+            'keluar.*',
+            'reqjual.quantity as qty',
+            'nokeluar.no_keluar',
+            'nokeluar.tanggal',
+            'notajual.no_notajual',
+            'barang.nama_barang',
+            'customer.nama_customer'
+        )
+        ->where('keluar.id_no_keluar', $id_no_keluar)
+        ->get();
+        return view('detkeluar', compact('data'));
     }
 
     public function dashboardProduct(Request $request)
@@ -528,6 +628,7 @@ class AuthController extends Controller
                 'tanggal' => $request->tanggal,
                 'id_vendor' => $request->id_vendor,
                 'no_notabeli' => $nomorNota,
+                'status' => 'on going'
             ]);
 
             $vendor = Vendor::where('id_vendor', $request->id_vendor)->first();
@@ -637,8 +738,18 @@ class AuthController extends Controller
         return redirect()->route('detail.req')->with('success', 'Berita Berhasil Terupdate');
     }
 
+    public function cancelNotaBeli($id_nota_beli){
+        $notabeli = Notabeli::where('id_nota_beli', $id_nota_beli)->first();
+
+        $notabeli->update([
+            'status' => 'cancel'
+        ]);
+        return redirect()->route('detail.req', ['id' => $id_nota_beli])->with('success', 'Berita Berhasil Terupdate');
+    }
+
     public function formTerima(){
         $reqbeli = Reqbeli::join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
+        ->whereNotIn('notabeli.status', ['cancel', 'selesai'])
         ->select('reqbeli.*', 'notabeli.no_notabeli')
         ->get();
         return view('formin', compact('reqbeli'));
@@ -673,7 +784,8 @@ class AuthController extends Controller
 
             $barang = Barang::join('reqbeli', 'barang.id_barang', '=', 'reqbeli.id_barang')
             ->where('reqbeli.id_nota_beli', $request->id_nota_beli)
-            ->select('barang.*')
+            ->select('barang.*', 'reqbeli.id_req_beli', 'reqbeli.quantity')
+            ->distinct()
             ->get();
 
             return back()->with([
@@ -703,6 +815,15 @@ class AuthController extends Controller
 
             Barang::where('id_barang', $item['id_barang'])
             ->increment('stok', (int) $item['diterima']);
+
+            $reqbeli = Reqbeli::where('id_req_beli', $item['id_req_beli'])->first();
+
+            if ($reqbeli) {
+                Notabeli::where('id_nota_beli', $reqbeli->id_nota_beli)
+                    ->update([
+                        'status' => 'selesai'
+                    ]);
+            }
         }
 
         session()->forget(['list_terima', 'success_step1']);
@@ -730,7 +851,12 @@ class AuthController extends Controller
         $reqbeli = Reqbeli::where('reqbeli.id_nota_beli', $request->id_nota_beli)
         ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
         ->select('reqbeli.*', 'notabeli.no_notabeli')->first();
-        $barang = Barang::all();
+        $barang = Barang::join('reqbeli', 'barang.id_barang', '=', 'reqbeli.id_barang')
+        ->where('reqbeli.id_nota_beli', $request->id_nota_beli)
+        ->select('barang.*', 'reqbeli.id_req_beli', 'reqbeli.quantity')
+        ->distinct()
+        ->get();
+
 
         session()->put('list_terima', $list_terima);
         return back()->with([
@@ -741,6 +867,13 @@ class AuthController extends Controller
                 'no_nota'       => $request->no_nota,
                 'barang'        => $barang
             ]);
+    }
+
+    public function formTambahItemBeli($id_nota_beli){
+        $notabeli= Notabeli::where('id_nota_beli', $id_nota_beli)->first();
+        $barang= Barang::all();
+
+        return view('formitembeli', compact('notabeli', 'barang'));
     }
 
     public function reqJual(){
@@ -776,6 +909,7 @@ class AuthController extends Controller
                 'tanggal' => $request->tanggal,
                 'id_customer' => $request->id_customer,
                 'no_notajual' => $nomorNota,
+                'status' => 'on going'
             ]);
 
             $customer = Customer::where('id_customer', $request->id_customer)->first();
@@ -854,8 +988,14 @@ class AuthController extends Controller
         return back()->with(['success', 'Data Berhasil Dihapus!']);
     }
 
-    public function formJualEdit(){
-        return view('formnews');
+    public function formJualEdit($id_req_jual){
+        $reqjual = Reqjual::join('barang', 'reqjual.id_barang', '=', 'barang.id_barang')
+        ->select('reqjual.*', 'barang.nama_barang')
+        ->where('id_req_jual', $id_req_jual)
+        ->first();
+        $barang = Barang::all();
+
+        return view('formjual-edit', compact('reqjual', 'barang'));
     }
 
     public function updateJual(Request $request, $id_req_jual){
@@ -876,11 +1016,22 @@ class AuthController extends Controller
             'total'         => $total
         ]);
 
-        return redirect()->route('detail.per')->with('success', 'Berita Berhasil Terupdate');
+        return redirect()->route('detail.per', ['id' => $id_nota_jual])->with('success', 'Berita Berhasil Terupdate');
+    }
+
+    public function cancelNotaJual($id_nota_jual){
+        $notajual = Notajual::where('id_nota_jual', $id_nota_jual)->first();
+
+        $notajual->update([
+            'status' => 'cancel'
+        ]);
+
+        return redirect()->route('detail.per', ['id' => $id_nota_jual])->with('success', 'Berita Berhasil Terupdate');
     }
 
     public function formKeluar(){
         $reqjual = Reqjual::join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
+        ->whereNotIn('notajual.status', ['cancel', 'selesai'])
         ->select('reqjual.*', 'notajual.no_notajual')
         ->get();
         return view('formout', compact('reqjual'));
@@ -914,7 +1065,7 @@ class AuthController extends Controller
 
             $barang = Barang::join('reqjual', 'barang.id_barang', '=', 'reqjual.id_barang')
             ->where('reqjual.id_nota_jual', $request->id_nota_jual)
-            ->select('barang.*')
+            ->select('barang.*', 'reqjual.id_req_jual', 'reqjual.quantity')
             ->distinct()
             ->get();
 
@@ -945,6 +1096,15 @@ class AuthController extends Controller
 
             Barang::where('id_barang', $item['id_barang'])
             ->decrement('stok', (int) $item['dikeluar']);
+
+            $reqjual = Reqjual::where('id_req_jual', $item['id_req_jual'])->first();
+
+            if ($reqjual) {
+                Notajual::where('id_nota_jual', $reqjual->id_nota_jual)
+                    ->update([
+                        'status' => 'selesai'
+                    ]);
+            }
         }
 
         session()->forget(['list_keluar', 'success_step1']);
@@ -972,7 +1132,11 @@ class AuthController extends Controller
         $reqjual = Reqjual::where('reqjual.id_nota_jual', $request->id_nota_jual)
         ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
         ->select('reqjual.*', 'notajual.no_notajual')->first();
-        $barang = Barang::all();
+        $barang = Barang::join('reqjual', 'barang.id_barang', '=', 'reqjual.id_barang')
+        ->where('reqjual.id_nota_jual', $request->id_nota_jual)
+        ->select('barang.*', 'reqjual.id_req_jual', 'reqjual.quantity')
+        ->distinct()
+        ->get();
 
         session()->put('list_keluar', $list_keluar);
         return back()->with([

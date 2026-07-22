@@ -56,9 +56,9 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('dashboardPorto') }}" class="template-btn btn-style-one">
+                <a href="{{ route('detail.per', ['id' => $reqjual->id_req_jual]) }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -68,29 +68,47 @@
 
             <div class="auto-container">
                 <div class="inner-container">
-                    <h3 class="text-center">Tambah Portofolio</h3>
-                    <!-- Register Form -->
+                    <h3 class="text-center">Edit Jual</h3>
                     <div class="register-form">
-                        <form method="post" action="{{ route('tambahPorto') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('update.reqjual', ['id' => $reqjual->id_req_jual]) }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Nama Portofolio</label>
-                                <input type="text" id="nama_porto" name="nama_porto" placeholder="" required="">
-                            </div>
+                            @method('PUT')
+                            <input type="hidden" name="id_req_jual" value="{{ $reqjual->id_req_jual }}">
 
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                            </div>
+                            <div class="countainer-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                                <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Nama Barang</label>
+                                            <select name="id_barang" id="id_barang" class="form-control">
+                                                <option value="{{ $reqjual->id_barang }}">{{ $reqjual->nama_barang }}</option>
+                                                @foreach($barang as $barang)
+                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" id="quantity" value="{{ $reqjual->quantity }}" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>Harga</label>
+                                            <input type="number" name="harga_jual" id="harga_jual" value="{{ $reqjual->harga_jual }}" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>&nbsp;</label>
+                                                <button type="submit" class="btn btn-warning btn-block">UPDATE ITEM</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

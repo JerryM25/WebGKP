@@ -58,7 +58,7 @@
         <!-- Register One -->
         <section class="register-two">
             <div class="team-detail_button">
-                <a href="{{ route('detail.req') }}" class="template-btn btn-style-one">
+                <a href="{{ route('detail.req', ['id' => $reqbeli->id_req_beli]) }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
                         <span class="text-one">Cancel</span>
                         <span class="text-two">Cancel</span>
@@ -73,7 +73,7 @@
                         <form method="post" action="{{ route('update.reqbeli', ['id' => $reqbeli->id_req_beli]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" name="id_nota_beli" value="{{ $reqbeli->id_req_beli }}">
+                            <input type="hidden" name="id_req_beli" value="{{ $reqbeli->id_req_beli }}">
 
                             <div class="countainer-fluid">
                                 <div class="row">

@@ -932,6 +932,35 @@
 	font-family: 'Graphie';
 }
 
+.badge-status{
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px; /* membuat oval */
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.badge-warning{
+    background-color: #ffc107; /* kuning */
+    color: #000;
+}
+
+.badge-danger{
+    background-color: #dc3545; /* merah */
+}
+
+.badge-success{
+    background-color: #28a745; /* hijau */
+}
+
+.transparent-text{
+    margin-top: 0,5cm;
+    size: 0,3cm;
+    color: transparent;
+}
+
 /***
 
 ====================================================================
@@ -5704,6 +5733,14 @@
     font-family: 'Graphie';
 }
 
+.team-block_two-designation{
+	position: relative;
+	font-size: 12px;
+	margin-top: 3px;
+	color: white;
+    font-family: 'Graphie';
+}
+
 .team-block_one-title a:hover{
 	color: var(--main-color);
 }
@@ -7411,6 +7448,7 @@
 	margin-bottom: 10px;
 	color: var(--color-six);
     font-family: 'Graphie';
+    text-align: justify;
 }
 
 .team-detail_info{

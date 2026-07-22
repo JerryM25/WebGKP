@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="{{ route('dashboardTransaksi') }}">Kembali</a>
+                <a class="template-btn price-one_button" href="{{ route('dashPembelian') }}">Kembali</a>
             </div>
             <div class="col-md-8">
 
@@ -41,7 +41,6 @@
                             <th>Referensi</th>
                             <th>Tanggal</th>
                             <th>Detail</th>
-                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,25 +51,11 @@
                                 <td>{{ $item->no_notabeli }}</td>
                                 <td>{{ $item->tanggal }}</td>
                                 <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
+                                    <a href="{{ route('terima.detail', $item->id_no_terima) }}">
+                                        <button class="price-one_button" style="color: black">
                                             <i>Detail</i>
                                         </button>
                                     </a>
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                        </a>
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach

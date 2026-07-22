@@ -134,13 +134,15 @@
                                             <select name="id_barang" id="id_barang" class="form-control">
                                                 <option value="">-- Pilih Barang --</option>
                                                 @foreach(session('barang') as $barang)
-                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                    <option value="{{ $barang->id_barang }}" data-qty="{{ $barang->quantity }}" data-req="{{ $barang->id_req_jual }}">
+                                                        {{ $barang->nama_barang }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-2">
                                             <label>Quantity Penjualan</label>
-                                            <input type="number" name="quantity" id="quantity" class="form-control">
+                                            <input type="number" name="quantity" id="quantity" class="form-control" readonly>
                                         </div>
                                         <div class="col-md-2">
                                             <label>Quantity Dikeluar</label>
@@ -208,6 +210,19 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+    <script>
+    document.getElementById('id_barang').addEventListener('change', function() {
+
+        let option = this.options[this.selectedIndex];
+
+        document.getElementById('quantity').value =
+            option.dataset.qty || '';
+
+        document.getElementById('id_req_jual').value =
+            option.dataset.req || '';
+    });
+    </script>
 
 
     <script src="{{ asset('assets/js/jquery.js') }}"></script>

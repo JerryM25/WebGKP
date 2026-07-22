@@ -63,13 +63,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/deletereqjual/{id}', 'AuthController@deleteReqJual')->name('delete.reqjual');
     Route::get('/editJual/{id}', 'AuthController@formJualEdit')->name('edit.reqjual');
     Route::put('/updateJual/{id}', 'AuthController@updateJual')->name('update.reqjual');
+    Route::put('/cancelNotaJual/{id}', 'AuthController@cancelNotaJual')->name('notajual.cancel');
 
     Route::get('/dashkeluar', 'AuthController@dashtranskeluar')->name('keluar');
+    Route::get('/detailkeluar/{id}', 'AuthController@detailKeluar')->name('keluar.detail');
 
     Route::get('/formkeluar', 'AuthController@formKeluar')->name('formKeluar');
     Route::post('/tambahnokeluar', 'AuthController@tambahNoKeluar')->name('nokeluar.tambah');
     Route::post('/simpanKeluar', 'AuthController@simpanKeluar')->name('keluar.simpan');
     Route::post('/tambahKeluar', 'AuthController@tambahKeluar')->name('keluar.tambah');
+    Route::post('/returjual/{id}', 'AuthController@returPenjualan')->name('jual.retur');
 
         //Beli
     Route::get('/dashtransreq', 'AuthController@dashtransreq')->name('request');
@@ -82,13 +85,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/deletereqbeli/{id}', 'AuthController@deleteReqBeli')->name('delete.reqbeli');
     Route::get('/editBeli/{id}', 'AuthController@formBeliEdit')->name('edit.reqbeli');
     Route::put('/updateBeli/{id}', 'AuthController@updateBeli')->name('update.reqbeli');
+    Route::put('/cancelNotaBeli/{id}', 'AuthController@cancelNotaBeli')->name('notabeli.cancel');
+    Route::get('/tambahItemBeli/{id}', "AuthController@formTambahItemBeli")->name('tambahitem.reqbeli');
 
     Route::get('/dashterima', 'AuthController@dashtranster')->name('terima');
+    Route::get('/detailterima/{id}', 'AuthController@detailTerima')->name('terima.detail');
 
     Route::get('/formterima', 'AuthController@formTerima')->name('formTerima');
     Route::post('/tambahnoterima', 'AuthController@tambahNoTerima')->name('noterima.tambah');
     Route::post('/simpanTerima', 'AuthController@simpanTerima')->name('terima.simpan');
     Route::post('/tambahTerima', 'AuthController@tambahTerima')->name('terima.tambah');
+    Route::put('/returbeli/{id}', 'AuthController@returPembelian')->name('beli.retur');
 
         //Vendor
     Route::get('/dashvendor', 'AuthController@vendor')->name('vend.dash');

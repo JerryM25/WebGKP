@@ -11,7 +11,9 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-md-10">
+            </div>
+            <div class="col-md-2">
                 <a class="template-btn price-one_button" href="/formbarang">Tambah Barang</a><br>
             </div>
         </div>
@@ -76,6 +78,11 @@
                                         <a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}">{{ $barang->nama_barang }}</a>
                                     </h4>
                                     <div class="team-block_one-designation">{{ $barang->kategori }}</div>
+                                    @if($barang->tayang)
+                                        <div class="team-block_two-designation">Tayang</div>
+                                    @else
+                                        <div class="team-block_two-designation">Tidak Tayang</div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

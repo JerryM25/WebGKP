@@ -1,5 +1,5 @@
 @extends('templates.nav-admin')
-@section('title', 'Dashboard Transaksi')
+@section('title', 'Dashboard Transaksi Pembelian')
 
 @section('content')
 {{-- Tambah Barang --}}
@@ -42,34 +42,63 @@
 <section class="contact-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">TRANSAKSI PEMBELIAN</div>
 			</div>
+            <div class="row clearfix">
+                <div class="footer-newsletter col-lg-2 col-md-2 col-sm-12">
+					<div class="product-form">
+                        <form method="get" action="{{ route('dashPembelian') }}">
+                            <div class="form-group">
+                                <label class="label" for="tahun">Tahun</label>
+                                <select name="tahun" class="form-control" onchange="this.form.submit()">
+                                    @foreach($listTahun as $item)
+                                        <option value="{{ $item }}"
+                                            {{ $tahun == $item ? 'selected' : '' }}>
+                                            {{ $item }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form>
+					</div>
+				</div>
+            </div>
+            <br>
 			<div class="row clearfix">
+				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="trans-block_one-inner">
+						<h4>Transaksi On Going</h4>
+						<h1>{{ $ongoing }}</h1>
+					</div>
+				</div>
 
-				<!-- Info Block One -->
+				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="trans-block_one-inner">
+						<h4>Transaksi Selesai</h4>
+						<h1>{{ $selesai }}</h1>
+					</div>
+				</div>
+
+				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
+					<div class="trans-block_one-inner">
+						<h4>Transaksi Cancel</h4>
+						<h1>{{ $cancel }}</h1>
+					</div>
+				</div>
+			</div>
+            <div class="row clearfix">
+				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
+				</div>
+
 				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
 					<div class="trans-block_one-inner">
 						<h4>Total Transaksi Pembelian</h4>
-						<h1>35</h1>
+						<h1>{{ $notabeli }}</h1>
 					</div>
 				</div>
 
-				<!-- Info Block One -->
 				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
-					<div class="trans-block_one-inner">
-						<h4>Total Transaksi</h4>
-						<h1>70</h1>
-					</div>
 				</div>
-
-				<!-- Info Block One -->
-				<div class="trans-block_one col-lg-4 col-md-4 col-sm-12">
-					<div class="trans-block_one-inner">
-						<h4>Total Transaksi Penjualan</h4>
-						<h1>35</h1>
-					</div>
-				</div>
-
 			</div>
 		</div>
         <br>

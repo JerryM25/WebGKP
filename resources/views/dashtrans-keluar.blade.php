@@ -1,5 +1,5 @@
 @extends('templates.nav-admin')
-@section('title', 'Dashboard Transaksi Penjualan')
+@section('title', 'Dashboard Transaksi Keluar Barang')
 
 @section('content')
 {{-- Tambah Barang --}}
@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="{{ route('dashboardTransaksi') }}">Kembali</a>
+                <a class="template-btn price-one_button" href="{{ route('dashPenjualan') }}">Kembali</a>
             </div>
             <div class="col-md-8">
 
@@ -39,10 +39,8 @@
                             <th>No</th>
                             <th>No Pengantaran</th>
                             <th>Deskripsi</th>
-                            <th>Status</th>
                             <th>Tanggal</th>
-                            <th>File</th>
-                            <th>action</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,25 +51,11 @@
                                 <td>{{ $item->no_notajual }}</td>
                                 <td>{{ $item->tanggal }}</td>
                                 <td>
-                                    <a href="">
-                                        <button class="trans-block_one-icon">
-                                            <i class="bi bi-file-earmark"></i>
+                                    <a href="{{ route('keluar.detail', $item->id_no_keluar) }}">
+                                        <button class="price-one_button" style="color: black">
+                                            <i>Detail</i>
                                         </button>
                                     </a>
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="trans-block_one-icon">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                        </a>
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach

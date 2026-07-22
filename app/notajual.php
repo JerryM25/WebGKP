@@ -14,6 +14,7 @@ class notajual extends Model
         'id_nota_jual',
         'id_customer',
         'no_notajual',
-        'tanggal'
+        'tanggal',
+        'status'
     ];
 }

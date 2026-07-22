@@ -14,6 +14,7 @@ class notabeli extends Model
         'id_nota_beli',
         'id_vendor',
         'no_notabeli',
-        'tanggal'
+        'tanggal',
+        'status'
     ];
 }

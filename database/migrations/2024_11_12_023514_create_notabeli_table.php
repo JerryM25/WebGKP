@@ -22,6 +22,7 @@ class CreateNotabeliTable extends Migration
                 ->onDelete('set null');
             $table->string('no_notabeli')->unique();
             $table->date('tanggal');
+            $table->string('status');
             $table->timestamps();
         });
     }

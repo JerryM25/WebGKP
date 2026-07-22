@@ -22,6 +22,7 @@ class CreateNotajualTable extends Migration
                 ->onDelete('set null');
             $table->string('no_notajual')->unique();
             $table->date('tanggal');
+            $table->string('status');
             $table->timestamps();
         });
     }

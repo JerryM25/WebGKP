@@ -1,5 +1,5 @@
 @extends('templates.nav-admin')
-@section('title', 'Dashboard Transaksi Penjualan')
+@section('title', 'Dashboard Stok Barang')
 
 @section('content')
 {{-- Tambah Barang --}}
@@ -30,7 +30,7 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">STOK BARANG</div>
 			</div>
 			<div class="row clearfix">
                 <table class="table table-bordered">

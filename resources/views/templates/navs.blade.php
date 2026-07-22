@@ -72,12 +72,13 @@
 										<li class="{{ Route::currentRouteName() == 'home' ? 'active current' : '' }}">
                                             <a href="{{ route('home') }}">Home</a>
                                         </li>
-                                        <li class="{{ Route::currentRouteName() == 'portofolio' ? 'active current' : '' }}">
-                                            <a href="{{ route('portofolio') }}">Portofolio</a>
-                                        </li>
-                                        <li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
-                                            <a href="{{ route('about') }}">About Us</a>
-                                        </li>
+                                        <li class="dropdown {{ Route::currentRouteName() == 'about' ? 'active current' : '' }}">
+                                            <a href="{{ route('about') }}">About</a>
+											<ul>
+												<li class="{{ Route::currentRouteName() == 'about' ? 'active current' : '' }}"><a href="{{ route('about') }}">About Us</a></li>
+												<li class="{{ Route::currentRouteName() == 'portofolio' ? 'active current' : '' }}"><a href="{{ route('portofolio') }}">Portofolio</a></li>
+											</ul>
+										</li>
                                         <li class="{{ Route::currentRouteName() == 'service' ? 'active current' : '' }}">
                                             <a href="{{ route('service') }}">Service</a>
                                         </li>

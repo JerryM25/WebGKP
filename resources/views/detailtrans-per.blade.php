@@ -16,6 +16,21 @@
                 <a class="template-btn price-one_button" href="{{ route('permintaan') }}">Kembali</a>
                 <br class="space">
             </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+                @if($data->first()->status == 'on going')
+                    <form action="{{ route('notajual.cancel', $data->first()->id_nota_jual) }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin Cancel Transaksi?');">
+                        @method('PUT')
+                        @csrf
+                        <button type="submit" class="submit-btn btn-style-one">
+                            <span class="btn-wrap">
+                                <span class="text-one">CANCEL PENJUALAN</span>
+                                <span class="text-two">CANCEL PENJUALAN</span>
+                            </span>
+                        </button>
+                    </form>
+                @endif
+            </div>
         </div>
     </div>
     <br>
@@ -25,7 +40,7 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">TRANSAKSI PENJUALAN</div>
 			</div>
             <br>
             <div class="container-fluid">
@@ -42,6 +57,21 @@
                         <h4 class="sec-title_title1">Tanggal</h4>
                         <h4 class="sec-title_title2">{{ $data->first()->tanggal }}</h4>
                     </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4 centered"></div>
+                    <div class="col-md-4 centered">
+                        <h4 class="sec-title_title1">Status</h4>
+                        @if($data->first()->status == 'on going')
+                            <span class="badge-status badge-warning">On Going</span>
+                        @elseif($data->first()->status == 'cancel')
+                            <span class="badge-status badge-danger">Cancel</span>
+                        @elseif($data->first()->status == 'selesai')
+                            <span class="badge-status badge-success">Selesai</span>
+                        @endif
+                    </div>
+                    <div class="col-md-4 centered"></div>
                 </div>
                 <br>
             </div>

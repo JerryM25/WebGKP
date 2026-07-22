@@ -79,6 +79,7 @@
                                 <br>
                                 <img id="preview" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
                                 <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                <p style="color: white;">format file (.jpg, .jpeg, .png) Maksimal 5MB.</p>
                             </div>
 
                             <div class="form-group">

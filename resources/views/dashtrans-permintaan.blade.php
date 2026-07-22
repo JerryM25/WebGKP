@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <a class="template-btn price-one_button" href="{{ route('dashboardTransaksi') }}">Kembali</a>
+                <a class="template-btn price-one_button" href="{{ route('dashPenjualan') }}">Kembali</a>
             </div>
             <div class="col-md-8">
 
@@ -41,6 +41,7 @@
                             <th>Tanggal</th>
                             <th>Customer</th>
                             <th>Total</th>
+                            <th>Status</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
@@ -52,6 +53,15 @@
                                 <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->nama_customer }}</td>
                                 <td>{{ number_format($item->grandtotal) }}</td>
+                                <td>
+                                    @if($item->status == 'on going')
+                                        <span class="badge-status badge-warning">On Going</span>
+                                    @elseif($item->status == 'cancel')
+                                        <span class="badge-status badge-danger">Cancel</span>
+                                    @elseif($item->status == 'selesai')
+                                        <span class="badge-status badge-success">Selesai</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('detail.per', $item->id_nota_jual) }}">
                                         <button class="price-one_button" style="color: black">

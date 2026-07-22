@@ -16,6 +16,21 @@
                 <a class="template-btn price-one_button" href="{{ route('request') }}">Kembali</a>
                 <br class="space">
             </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+                @if($data->first()->status == 'on going')
+                    <form action="{{ route('notabeli.cancel', $data->first()->id_nota_beli) }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin Cancel Transaksi?');">
+                        @method('PUT')
+                        @csrf
+                        <button type="submit" class="submit-btn btn-style-one">
+                            <span class="btn-wrap">
+                                <span class="text-one">CANCEL PEMBELIAN</span>
+                                <span class="text-two">CANCEL PEMBELIAN</span>
+                            </span>
+                        </button>
+                    </form>
+                @endif
+            </div>
         </div>
     </div>
     <br>
@@ -25,7 +40,7 @@
 <section class="trans-info">
 		<div class="auto-container">
             <div class="sec-title style-four centered">
-				<div class="sec-title_title">TRANSAKSI</div>
+				<div class="sec-title_title">TRANSAKSI PEMBELIAN</div>
 			</div>
             <br>
             <div class="container-fluid">
@@ -44,8 +59,36 @@
                     </div>
                 </div>
                 <br>
+                <div class="row">
+                    <div class="col-md-4 centered"></div>
+                    <div class="col-md-4 centered">
+                        <h4 class="sec-title_title1">Status</h4>
+                        @if($data->first()->status == 'on going')
+                            <span class="badge-status badge-warning">On Going</span>
+                        @elseif($data->first()->status == 'cancel')
+                            <span class="badge-status badge-danger">Cancel</span>
+                        @elseif($data->first()->status == 'selesai')
+                            <span class="badge-status badge-success">Selesai</span>
+                            @elseif($data->first()->status == 'retur')
+                            <span class="badge-status badge-primary">Retur</span>
+                        @endif
+                    </div>
+                    <div class="col-md-4 centered"></div>
+                </div>
+                <br>
             </div>
 			<div class="row clearfix">
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    @if($data->first()->status == 'on going')
+                    <a href="{{ route('tambahitem.reqbeli', $data->first()->id_nota_beli) }}">
+                        <button class="trans-block_one-icon align-items-right text-right">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                    </a>
+                    <br>
+                    @endif
+                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
