@@ -188,14 +188,12 @@ class AuthController extends Controller
         ->join('reqbeli', 'terima.id_req_beli', '=', 'reqbeli.id_req_beli')
         ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
         ->select(
-            'terima.id_terima',
             'terima.id_no_terima',
             'noterima.no_terima',
             'noterima.tanggal',
             'notabeli.no_notabeli'
         )
         ->groupBy(
-            'terima.id_terima',
             'terima.id_no_terima',
             'noterima.no_terima',
             'noterima.tanggal',
@@ -280,14 +278,12 @@ class AuthController extends Controller
         ->join('reqjual', 'keluar.id_req_jual', '=', 'reqjual.id_req_jual')
         ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
         ->select(
-            'keluar.id_keluar',
             'keluar.id_no_keluar',
             'nokeluar.no_keluar',
             'nokeluar.tanggal',
             'notajual.no_notajual'
         )
         ->groupBy(
-            'keluar.id_keluar',
             'keluar.id_no_keluar',
             'nokeluar.no_keluar',
             'nokeluar.tanggal',
@@ -760,7 +756,8 @@ class AuthController extends Controller
     public function formTerima(){
         $reqbeli = Reqbeli::join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
         ->whereNotIn('notabeli.status', ['cancel', 'selesai'])
-        ->select('reqbeli.*', 'notabeli.no_notabeli')
+        ->select('reqbeli.id_nota_beli', 'notabeli.no_notabeli')
+        ->groupBy('reqbeli.id_nota_beli', 'notabeli.no_notabeli')
         ->get();
         return view('formin', compact('reqbeli'));
     }
@@ -790,7 +787,8 @@ class AuthController extends Controller
 
             $reqbeli = Reqbeli::where('reqbeli.id_nota_beli', $request->id_nota_beli)
             ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
-            ->select('reqbeli.*', 'notabeli.no_notabeli')->first();
+            ->select('reqbeli.id_nota_beli', 'notabeli.no_notabeli')
+            ->first();
 
             $barang = Barang::join('reqbeli', 'barang.id_barang', '=', 'reqbeli.id_barang')
             ->where('reqbeli.id_nota_beli', $request->id_nota_beli)
@@ -842,43 +840,50 @@ class AuthController extends Controller
     }
 
     public function simpanTerima(Request $request){
+        $reqbeli = Reqbeli::where('id_nota_beli', $request->id_nota_beli)
+        ->where('id_barang', $request->id_barang)
+        ->first() ?? Reqbeli::find($request->id_req_beli);
+
+        if (!$reqbeli) {
+            return back()->with('error', 'Barang tidak ditemukan dalam permintaan pembelian.');
+        }
+
         $list_terima = session()->get('list_terima', []);
-
-        $dataBarang = Barang::find($request->id_barang);
-
-        $kekurangan = $request->quantity - $request->diterima;
+        $dataBarang  = Barang::find($reqbeli->id_barang);
+        $kekurangan  = $request->quantity - $request->diterima;
 
         $list_terima[] = [
+            'id_nota_beli' => $reqbeli->id_nota_beli,
             'id_no_terima' => $request->id_no_terima,
-            'id_req_beli'  => $request->id_req_beli,
-            'id_barang'    => $request->id_barang,
+            'id_req_beli'  => $reqbeli->id_req_beli,
+            'id_barang'    => $reqbeli->id_barang,
             'nama_barang'  => $dataBarang->nama_barang,
             'quantity'     => $request->quantity,
             'diterima'     => $request->diterima,
             'kekurangan'   => $kekurangan
         ];
 
-        $reqbeli = Reqbeli::where('reqbeli.id_nota_beli', $request->id_nota_beli)
-        ->join('notabeli', 'reqbeli.id_nota_beli', '=', 'notabeli.id_nota_beli')
-        ->select('reqbeli.*', 'notabeli.no_notabeli')->first();
+        session()->put('list_terima', $list_terima);
+
         $barang = Barang::join('reqbeli', 'barang.id_barang', '=', 'reqbeli.id_barang')
-        ->where('reqbeli.id_nota_beli', $request->id_nota_beli)
+        ->where('reqbeli.id_nota_beli', $reqbeli->id_nota_beli)
         ->select('barang.*', 'reqbeli.id_req_beli', 'reqbeli.quantity')
         ->distinct()
         ->get();
-        $nomorTerima = Terima::where('id_no_terima', $request->id_no_terima)->select('no_terima');
 
+        $nomorTerima = Noterima::where('id_no_terima', $request->id_no_terima)->value('no_terima')
+                ?? $request->no_terima;
 
-        session()->put('list_terima', $list_terima);
         return back()->with([
-                'success_step1' => true,
-                'id_nota_beli'  => $request->id_nota_beli,
-                'no_notabeli'   => $reqbeli->no_notabeli,
-                'nama_vendor'   => $request->nama_vendor,
-                'no_nota'       => $request->no_nota,
-                'barang'        => $barang,
-                'no_terima'     => $nomorTerima
-            ]);
+            'success_step1' => true,
+            'list_barang'   => true,
+            'id_nota_beli' => $reqbeli->id_nota_beli,
+            'id_no_terima' => $request->id_no_terima,
+            'nama_vendor'  => $request->nama_vendor,
+            'no_nota'      => $request->no_notabeli,
+            'barang'       => $barang,
+            'no_terima'    => $nomorTerima
+        ]);
     }
 
     public function formTambahItemBeli($id_nota_beli){
@@ -1044,7 +1049,8 @@ class AuthController extends Controller
     public function formKeluar(){
         $reqjual = Reqjual::join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
         ->whereNotIn('notajual.status', ['cancel', 'selesai'])
-        ->select('reqjual.*', 'notajual.no_notajual')
+        ->select('reqjual.id_nota_jual', 'notajual.no_notajual')
+        ->distinct()
         ->get();
         return view('formout', compact('reqjual'));
     }
@@ -1073,7 +1079,9 @@ class AuthController extends Controller
             ]);
             $reqjual = Reqjual::where('reqjual.id_nota_jual', $request->id_nota_jual)
             ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
-            ->select('reqjual.*', 'notajual.no_notajual')->first();
+            ->select('reqjual.id_nota_jual', 'notajual.no_notajual')
+            ->distinct()
+            ->first();
 
             $barang = Barang::join('reqjual', 'barang.id_barang', '=', 'reqjual.id_barang')
             ->where('reqjual.id_nota_jual', $request->id_nota_jual)
@@ -1125,40 +1133,50 @@ class AuthController extends Controller
     }
 
     public function simpanKeluar(Request $request){
+        $reqjual = Reqjual::where('id_nota_jual', $request->id_nota_jual)
+        ->where('id_barang', $request->id_barang)
+        ->first() ?? Reqjual::find($request->id_req_jual);
+
+        if (!$reqjual) {
+            return back()->with('error', 'Barang tidak ditemukan dalam permintaan pembelian.');
+        }
+
         $list_keluar = session()->get('list_keluar', []);
-
-        $dataBarang = Barang::find($request->id_barang);
-
-        $kekurangan = $request->quantity - $request->dikeluar;
+        $dataBarang  = Barang::find($reqjual->id_barang);
+        $kekurangan  = $request->quantity - $request->dikeluar;
 
         $list_keluar[] = [
+            'id_nota_jual' => $reqjual->id_nota_jual,
             'id_no_keluar' => $request->id_no_keluar,
-            'id_req_jual'  => $request->id_req_jual,
-            'id_barang'    => $request->id_barang,
+            'id_req_jual'  => $reqjual->id_req_jual,
+            'id_barang'    => $reqjual->id_barang,
             'nama_barang'  => $dataBarang->nama_barang,
             'quantity'     => $request->quantity,
             'dikeluar'     => $request->dikeluar,
             'kekurangan'   => $kekurangan
         ];
 
-        $reqjual = Reqjual::where('reqjual.id_nota_jual', $request->id_nota_jual)
-        ->join('notajual', 'reqjual.id_nota_jual', '=', 'notajual.id_nota_jual')
-        ->select('reqjual.*', 'notajual.no_notajual')->first();
+        session()->put('list_keluar', $list_keluar);
+
         $barang = Barang::join('reqjual', 'barang.id_barang', '=', 'reqjual.id_barang')
-        ->where('reqjual.id_nota_jual', $request->id_nota_jual)
+        ->where('reqjual.id_nota_jual', $reqjual->id_nota_jual)
         ->select('barang.*', 'reqjual.id_req_jual', 'reqjual.quantity')
         ->distinct()
         ->get();
 
-        session()->put('list_keluar', $list_keluar);
+        $nomorKeluar = Nokeluar::where('id_no_keluar', $request->id_no_keluar)->value('no_keluar')
+                ?? $request->no_keluar;
+
         return back()->with([
-                'success_step1' => true,
-                'id_nota_jual'  => $request->id_nota_jual,
-                'no_notajual'   => $reqjual->no_notajual,
-                'nama_vendor'   => $request->nama_vendor,
-                'no_nota'       => $request->no_nota,
-                'barang'        => $barang
-            ]);
+            'success_step1' => true,
+            'list_barang'   => true,
+            'id_nota_jual' => $reqjual->id_nota_jual,
+            'id_no_keluar' => $request->id_no_keluar,
+            'nama_customer'=> $request->nama_customer,
+            'no_nota'      => $request->no_notajual,
+            'barang'       => $barang,
+            'no_keluar'    => $nomorKeluar
+        ]);
     }
 
     public function vendor(){

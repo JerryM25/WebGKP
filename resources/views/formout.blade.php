@@ -162,7 +162,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Barang</th>
-                                                <th>Qty Pemjualan</th>
+                                                <th>Qty Penjualan</th>
                                                 <th>Qty Keluar</th>
                                                 <th>Kekurangan</th>
                                             </tr>

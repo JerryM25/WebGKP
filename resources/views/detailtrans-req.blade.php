@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-8"></div>
             <div class="col-md-2">
-                @if($data->first()->status == 'on going')
+                @if($data->isNotEmpty() && $data->first()->status == 'on going')
                     <form action="{{ route('notabeli.cancel', $data->first()->id_nota_beli) }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin Cancel Transaksi?');">
                         @method('PUT')
                         @csrf
@@ -78,17 +78,6 @@
                 <br>
             </div>
 			<div class="row clearfix">
-                <div class="col-md-9"></div>
-                <div class="col-md-3">
-                    @if($data->status == 'on going')
-                    <a href="{{ route('tambahitem.reqbeli', $data->first()->id_nota_beli) }}">
-                        <button class="trans-block_one-icon align-items-right text-right">
-                            <i class="bi bi-plus"></i>
-                        </button>
-                    </a>
-                    <br>
-                    @endif
-                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>

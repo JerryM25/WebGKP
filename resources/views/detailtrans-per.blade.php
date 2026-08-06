@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-8"></div>
             <div class="col-md-2">
-                @if($data->first()->status == 'on going')
+                @if($data->isNotEmpty() && $data->first()->status == 'on going')
                     <form action="{{ route('notajual.cancel', $data->first()->id_nota_jual) }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin Cancel Transaksi?');">
                         @method('PUT')
                         @csrf
