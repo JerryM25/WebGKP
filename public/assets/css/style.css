@@ -7336,6 +7336,11 @@
 	color: var(--color-six);
 }
 
+.image-link{
+    height: 50px;
+    width: 150px;
+}
+
 /***
 
 ====================================================================
@@ -8153,6 +8158,8 @@
 .register-form .form-group input[type="password"],
 .register-form .form-group input[type="tel"],
 .register-form .form-group input[type="email"],
+.register-form .form-group input[type="number"],
+.register-form .form-group input[type="date"],
 .register-form .form-group select{
 	position:relative;
 	display:block;
@@ -8378,6 +8385,75 @@
 .register-form .dropdown option {
     padding: 10px;
 }
+
+
+.news-container {
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+    .main-image-wrapper {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+    }
+    .main-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .news-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.85); /* Efek transparan putih di bawah gambar */
+        padding: 15px 20px;
+    }
+    .news-overlay-title {
+        color: #7b1113; /* Warna merah gelap seperti di gambar */
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-bottom: 5px;
+    }
+    .badge-custom {
+        background-color: #dc3545;
+        border-radius: 0;
+        padding: 8px 15px;
+        font-weight: 500;
+    }
+    .news-list-wrapper {
+        height: 450px;
+        overflow-y: auto; /* Scroll jika berita banyak */
+        border-left: 1px solid #ddd;
+    }
+    .news-list-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .news-list-item:hover {
+        background-color: #f8f9fa;
+    }
+    .news-list-item h6 {
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: #333;
+        line-height: 1.4;
+    }
+    .news-meta {
+        font-size: 0.75rem;
+        color: #6c757d;
+    }
+    .news-meta i {
+        color: #7b1113;
+    }
+    /* Styling untuk item yang sedang aktif diklik */
+    .news-list-item.active-item {
+        background-color: #f9f9f9;
+        border-left: 3px solid #7b1113;
+        border-top: 2px solid #7b1113;
+    }
 
 
 .product-form .dropdown {

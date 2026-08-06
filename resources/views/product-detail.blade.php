@@ -54,14 +54,9 @@
 
                         <div class="row clearfix">
                             <div class="column col-lg-6 col-md-12 col-sm-12">
-                                <div class="team-detail_button">
-                                    <a href="{{ $barang->link }}" target="_blank" class="template-btn btn-style-one">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">LINK</span>
-                                            <span class="text-two">LINK</span>
-                                        </span>
-                                    </a>
-                                </div>
+                                <a href="{{ $barang->link }}" target="_blank">
+                                    <img class="image-link" src="{{ asset('assets/images/icons/inaproc.png') }}" alt="InaProc">
+                                </a>
                             </div>
                             <div class="column col-lg-6 col-md-12 col-sm-12">
                                 <div class="team-detail_button">

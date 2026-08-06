@@ -10,6 +10,8 @@ class notabeli extends Model
 
     protected $primaryKey = 'id_nota_beli';
 
+    protected $foreignKey = 'id_vendor';
+
     protected $fillable =[
         'id_nota_beli',
         'id_vendor',

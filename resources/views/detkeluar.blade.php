@@ -39,19 +39,29 @@
                         <h4 class="sec-title_title2">{{ $data->first()->nama_customer }}</h4>
                     </div>
                     <div class="col-md-4 centered">
-                        <h4 class="sec-title_title1">Nota Jual</h4>
-                        <h4 class="sec-title_title2">{{ $data->first()->no_notajual }}</h4>
+                        <h4 class="sec-title_title1">Tanggal Barang Keluar</h4>
+                        <h4 class="sec-title_title2">{{ $data->first()->tanggal }}</h4>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-4 centered">
+                    <div class="col-md-3 centered">
                     </div>
-                    <div class="col-md-4 centered">
-                        <h4 class="sec-title_title1">Tanggal Barang Keluar</h4>
-                        <h4 class="sec-title_title2">{{ $data->first()->tanggal }}</h4>
+                    <div class="col-md-3 centered">
+                        <h4 class="sec-title_title1">Nota Jual</h4>
+                        <h4 class="sec-title_title2">{{ $data->first()->no_notajual }}</h4>
                     </div>
-                    <div class="col-md-4 centered">
+                    <div class="col-md-3 centered">
+                        <h4 class="sec-title_title1">Status Nota Jual</h4>
+                        @if($data->first()->status == 'on going')
+                            <span class="badge-status badge-warning">On Going</span>
+                        @elseif($data->first()->status == 'cancel')
+                            <span class="badge-status badge-danger">Cancel</span>
+                        @elseif($data->first()->status == 'selesai')
+                            <span class="badge-status badge-success">Selesai</span>
+                            @elseif($data->first()->status == 'retur')
+                            <span class="badge-status badge-primary">Retur</span>
+                        @endif
                     </div>
                 </div>
                 <br>

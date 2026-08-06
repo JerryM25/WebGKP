@@ -295,6 +295,49 @@
             </div>
         </div>
     </div>
+
+    @if($daftarBerita->isNotEmpty())
+    <div class="container mt-5">
+        <div class="row g-0 news-container shadow-sm">
+
+            <div class="col-md-8">
+                <div class="main-image-wrapper">
+
+                    <img src="{{ asset('storage/'.$daftarBerita[0]->foto1) }}" id="mainNewsImage" alt="Berita Utama">
+
+                    <div class="news-overlay">
+                        <div class="news-overlay-title" id="mainNewsTitle">
+                            {{ $daftarBerita->judul }}
+                        </div>
+                        <div class="news-meta" id="mainNewsMeta">
+                            <i class="bi bi-person-fill"></i> <span id="metaAuthor">{{ $daftarBerita->penulis }}</span> |
+                            <i class="bi bi-calendar-event"></i> <span id="metaDate">{{ $daftarBerita->tanggal }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="news-list-wrapper">
+                    @foreach($daftarBerita as $index => $berita)
+                        <div class="news-list-item {{ $index === 0 ? 'active-item' : '' }}"
+                            onclick="changeNews(this)"
+                            data-judul="{{ $berita->judul }}"
+                            data-gambar="{{ $berita->foto1 }}"
+                            data-penulis="{{ $berita->berita }}"
+                            data-tanggal="{{ $berita->tanggal }}">
+
+                            <h6>{{ $berita->judul }}</h6>
+                            <div class="news-meta">
+                                <i class="bi bi-calendar-event"></i> {{ $berita->tanggal }}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @endif
 </section>
 <!-- End Product One -->
 
@@ -308,4 +351,27 @@
         </div>
     </div>
 </div>
+
+<script>
+    function changeNews(element) {
+        const judul = element.getAttribute('data-judul');
+        const gambar = element.getAttribute('data-gambar');
+        const penulis = element.getAttribute('data-penulis');
+        const tanggal = element.getAttribute('data-tanggal');
+        const dilihat = element.getAttribute('data-dilihat');
+
+        document.getElementById('mainNewsTitle').innerText = judul;
+        document.getElementById('mainNewsImage').src = gambar;
+        document.getElementById('metaAuthor').innerText = penulis;
+        document.getElementById('metaDate').innerText = tanggal;
+        document.getElementById('metaViews').innerText = dilihat;
+
+        let items = document.querySelectorAll('.news-list-item');
+        items.forEach(function(item) {
+            item.classList.remove('active-item');
+        });
+
+        element.classList.add('active-item');
+    }
+</script>
 @endsection

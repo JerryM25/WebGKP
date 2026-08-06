@@ -15,16 +15,16 @@ class CreateKeluarTable extends Migration
     {
         Schema::create('keluar', function (Blueprint $table) {
             $table->bigIncrements('id_keluar');
-            $table->unsignedBigInteger('id_no_keluar')->nullable();
+            $table->unsignedBigInteger('id_no_keluar');
             $table->foreign('id_no_keluar')
                 ->references('id_no_keluar')
                 ->on('nokeluar')
-                ->onDelete('set null');
-            $table->unsignedBigInteger('id_req_jual')->nullable();
+                ->onDelete('restrict');
+            $table->unsignedBigInteger('id_req_jual');
             $table->foreign('id_req_jual')
                 ->references('id_req_jual')
                 ->on('reqjual')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->integer('quantity');
             $table->timestamps();
         });

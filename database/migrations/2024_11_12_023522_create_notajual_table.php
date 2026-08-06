@@ -15,11 +15,11 @@ class CreateNotajualTable extends Migration
     {
         Schema::create('notajual', function (Blueprint $table) {
             $table->bigIncrements('id_nota_jual');
-            $table->unsignedBigInteger('id_customer')->nullable();
+            $table->unsignedBigInteger('id_customer');
             $table->foreign('id_customer')
                 ->references('id_customer')
                 ->on('customer')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->string('no_notajual')->unique();
             $table->date('tanggal');
             $table->string('status');

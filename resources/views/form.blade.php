@@ -56,7 +56,7 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
                 <a href="{{ route('dashboardProduct') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
@@ -81,92 +81,118 @@
                                 <p id="file-warning" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
                                 <p style="color: white;">format file (.jpg, .jpeg, .png) Maksimal 5MB.</p>
                             </div>
-
-                            <div class="form-group">
-                                <label>Nama Barang</label>
-                                <input type="text" id="nama_barang" name="nama_barang" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <input type="text" id="keterangan" name="keterangan" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Kategori">Kategori</label>
-                                <select class="dropdown" id="kategori" name="kategori">
-                                    <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
-                                    <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
-                                    <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
-                                    <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
-                                    <option value="Alat Olahraga">Alat Olahraga</option>
-                                    <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
-                                    <option value="Jasa Sewa Server">Jasa Sewa Server</option>
-                                    <option value="Alat Kesehatan">Alat Kesehatan</option>
-                                    <option value="Alat Laboratorium">Alat Laboratorium</option>
-                                    <option value="Alat Kebakaran">Alat Kebakaran</option>
-                                    <option value="Mesin">Mesin</option>
-                                    <option value="Alat Musik">Alat Musik</option>
-                                    <option value="Furnitur">Furnitur</option>
-                                    <option value="Jasa Lainnya">Jasa Lainnya</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Beli</label>
-                                <input type="text" id="harga_beli" name="harga_beli" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Jual</label>
-                                <input type="text" id="harga_jual" name="harga_jual" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Stok</label>
-                                <input type="text" id="stok" name="stok" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="satuan">Satuan</label>
-                                <select class="dropdown" id="satuan" name="satuan">
-                                    <option value="Paket">Paket</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Box">Box</option>
-                                    <option value="Unit">Unit</option>
-                                    <option value="Botol">Botol</option>
-                                    <option value="Karung">Karung</option>
-                                    <option value="Hari">Hari</option>
-                                    <option value="Jam">Jam</option>
-                                    <option value="Liter">Liter</option>
-                                    <option value="Lusin">Lusin</option>
-                                    <option value="Gelas">Gelas</option>
-                                    <option value="Meter">Meter</option>
-                                    <option value="Porsi">Porsi</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" id="link" name="link" placeholder="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tayang</label>
-                                <select class="dropdown" id="tayang" name="tayang">
-                                    <option value="1">Tayang</option>
-                                    <option value="0">Tidak Tayang</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Tambah</span>
-                                        <span class="text-two">Tambah</span>
-                                    </span>
-                                </button>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nama Barang</label>
+                                            <input type="text" id="nama_barang" name="nama_barang" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Kategori">Kategori</label>
+                                            <select class="dropdown" id="kategori" name="kategori">
+                                                <option value="Komputer dan Pendukungnya">Komputer dan Pendukungnya</option>
+                                                <option value="Server dan Pendukungnya">Server dan Pendukungnya</option>
+                                                <option value="Peralatan Kantor dan Pendukungnya">Peralatan Kantor dan Pendukungnya</option>
+                                                <option value="Alat Elektronik dan Pendukungnya">Alat Elektronik dan Pendukungnya</option>
+                                                <option value="Alat Olahraga">Alat Olahraga</option>
+                                                <option value="Alat Pengolahan Sampah">Alat Pengolahan Sampah</option>
+                                                <option value="Jasa Sewa Server">Jasa Sewa Server</option>
+                                                <option value="Alat Kesehatan">Alat Kesehatan</option>
+                                                <option value="Alat Laboratorium">Alat Laboratorium</option>
+                                                <option value="Alat Kebakaran">Alat Kebakaran</option>
+                                                <option value="Mesin">Mesin</option>
+                                                <option value="Alat Musik">Alat Musik</option>
+                                                <option value="Furnitur">Furnitur</option>
+                                                <option value="Jasa Lainnya">Jasa Lainnya</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" id="keterangan" name="keterangan" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Harga Beli</label>
+                                            <input type="number" id="harga_beli" name="harga_beli" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Harga Jual</label>
+                                            <input type="number" id="harga_jual" name="harga_jual" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Stok</label>
+                                            <input type="number" id="stok" name="stok" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="satuan">Satuan</label>
+                                            <select class="dropdown" id="satuan" name="satuan">
+                                                <option value="Paket">Paket</option>
+                                                <option value="Pcs">Pcs</option>
+                                                <option value="Box">Box</option>
+                                                <option value="Unit">Unit</option>
+                                                <option value="Botol">Botol</option>
+                                                <option value="Karung">Karung</option>
+                                                <option value="Hari">Hari</option>
+                                                <option value="Jam">Jam</option>
+                                                <option value="Liter">Liter</option>
+                                                <option value="Lusin">Lusin</option>
+                                                <option value="Gelas">Gelas</option>
+                                                <option value="Meter">Meter</option>
+                                                <option value="Porsi">Porsi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tayang</label>
+                                            <select class="dropdown" id="tayang" name="tayang">
+                                                <option value="1">Tayang</option>
+                                                <option value="0">Tidak Tayang</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" id="link" name="link">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <button type="submit" class="submit-btn btn-style-one">
+                                                <span class="btn-wrap">
+                                                    <span class="text-one">Tambah</span>
+                                                    <span class="text-two">Tambah</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
                             </div>
                         </form>
                     </div>

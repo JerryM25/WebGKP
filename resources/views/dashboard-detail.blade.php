@@ -11,6 +11,18 @@
 </section>
 <!-- Team Detail -->
 <section class="team-detail">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="auto-container">
         <div class="row clearfix">
 
@@ -86,14 +98,9 @@
 
                         <div class="row clearfix">
                             <div class="column col-lg-6 col-md-12 col-sm-12">
-                                <div class="team-detail_button">
-                                    <a href="{{ $barang->link }}" class="template-btn btn-style-one" target="_blank">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Link</span>
-                                            <span class="text-two">Link</span>
-                                        </span>
-                                    </a>
-                                </div>
+                                <a href="{{ $barang->link }}" target="_blank">
+                                    <img class="image-link" src="{{ asset('assets/images/icons/inaproc.png') }}" alt="InaProc">
+                                </a>
                             </div>
                         </div>
                         <br>

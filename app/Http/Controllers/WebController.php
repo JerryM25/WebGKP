@@ -20,7 +20,8 @@ use App\portofolio as Portofolio;
 class WebController extends Controller
 {
     public function home() {
-        return view('home');
+        $daftarBerita = Berita::limit(5)->get();
+        return view('home', compact('daftarBerita'));
     }
 
     public function service() {

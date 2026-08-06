@@ -10,6 +10,11 @@ class reqjual extends Model
 
     protected $primaryKey = 'id_req_jual';
 
+    protected $foreignKey = [
+        'id_nota_jual',
+        'id_barang'
+    ];
+
     protected $fillable =[
         'id_req_jual',
         'id_nota_jual',

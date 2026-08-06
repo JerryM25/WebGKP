@@ -15,16 +15,16 @@ class CreateReqjualTable extends Migration
     {
         Schema::create('reqjual', function (Blueprint $table) {
             $table->bigIncrements('id_req_jual');
-            $table->unsignedBigInteger('id_nota_jual')->nullable();
-            $table->unsignedBigInteger('id_barang')->nullable();
+            $table->unsignedBigInteger('id_nota_jual');
+            $table->unsignedBigInteger('id_barang');
             $table->foreign('id_nota_jual')
                 ->references('id_nota_jual')
                 ->on('notajual')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->foreign('id_barang')
                 ->references('id_barang')
                 ->on('barang')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->integer('quantity');
             $table->decimal('harga_jual', 10, 2);
             $table->decimal('total', 15, 2);

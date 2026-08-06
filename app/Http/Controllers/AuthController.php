@@ -26,6 +26,7 @@ use App\berita as Berita;
 use App\portofolio as Portofolio;
 use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
+use Illuminate\Database\QueryException;
 
 class AuthController extends Controller
 {
@@ -310,6 +311,7 @@ class AuthController extends Controller
             'nokeluar.no_keluar',
             'nokeluar.tanggal',
             'notajual.no_notajual',
+            'notajual.status',
             'barang.nama_barang',
             'customer.nama_customer'
         )
@@ -476,9 +478,17 @@ class AuthController extends Controller
 
     public function deleteBarang($id_barang){
         $barang = Barang::where('id_barang', $id_barang)->first();
-        $barang->delete();
 
-        return redirect('dashprod');
+        try {
+            $barang->delete();
+            return redirect('dashprod')->with('success', 'Data barang berhasil dihapus.');
+
+        } catch (QueryException $e) {
+            if ($e->getCode() == "23000") {
+                return redirect('dashprod/'. $id_barang)->with('error', 'Gagal: Barang tidak dapat dihapus karena sudah terpakai di transaksi.');
+            }
+            throw $e;
+        }
     }
 
     public function detail($id_barang) {
@@ -856,6 +866,7 @@ class AuthController extends Controller
         ->select('barang.*', 'reqbeli.id_req_beli', 'reqbeli.quantity')
         ->distinct()
         ->get();
+        $nomorTerima = Terima::where('id_no_terima', $request->id_no_terima)->select('no_terima');
 
 
         session()->put('list_terima', $list_terima);
@@ -865,7 +876,8 @@ class AuthController extends Controller
                 'no_notabeli'   => $reqbeli->no_notabeli,
                 'nama_vendor'   => $request->nama_vendor,
                 'no_nota'       => $request->no_nota,
-                'barang'        => $barang
+                'barang'        => $barang,
+                'no_terima'     => $nomorTerima
             ]);
     }
 
@@ -1199,9 +1211,17 @@ class AuthController extends Controller
 
     public function deleteVendor($id_vendor){
         $vendor = Vendor::where('id_vendor', $id_vendor)->first();
-        $vendor->delete();
 
-        return redirect('dashvendor');
+        try {
+            $vendor->delete();
+            return redirect('dashvendor')->with('success', 'Data Vendor berhasil dihapus.');
+
+        } catch (QueryException $e) {
+            if ($e->getCode() == "23000") {
+                return redirect('dashvendor')->with('error', 'Gagal: Vendor tidak dapat dihapus karena sudah terpakai di transaksi.');
+            }
+            throw $e;
+        }
     }
 
     public function customer(){
@@ -1254,8 +1274,15 @@ class AuthController extends Controller
 
     public function deleteCustomer($id_customer){
         $customer = Customer::where('id_customer', $id_customer)->first();
-        $customer->delete();
+        try {
+            $customer->delete();
+            return redirect('dashcust')->with('success', 'Data Customer berhasil dihapus.');
 
-        return redirect('dashcust');
+        } catch (QueryException $e) {
+            if ($e->getCode() == "23000") {
+                return redirect('dashcust')->with('error', 'Gagal: Customer tidak dapat dihapus karena sudah terpakai di transaksi.');
+            }
+            throw $e;
+        }
     }
 }

@@ -28,6 +28,17 @@
 {{-- End Tambah Barang --}}
 
 <section class="trans-info">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 		<div class="auto-container">
             <div class="sec-title style-four centered">
 				<div class="sec-title_title">CUSTOMER</div>

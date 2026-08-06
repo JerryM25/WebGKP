@@ -15,11 +15,11 @@ class CreateNotabeliTable extends Migration
     {
         Schema::create('notabeli', function (Blueprint $table) {
             $table->bigIncrements('id_nota_beli');
-            $table->unsignedBigInteger('id_vendor')->nullable();
+            $table->unsignedBigInteger('id_vendor');
             $table->foreign('id_vendor')
                 ->references('id_vendor')
                 ->on('vendor')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->string('no_notabeli')->unique();
             $table->date('tanggal');
             $table->string('status');

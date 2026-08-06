@@ -80,7 +80,7 @@
 			<div class="row clearfix">
                 <div class="col-md-9"></div>
                 <div class="col-md-3">
-                    @if($data->first()->status == 'on going')
+                    @if($data->status == 'on going')
                     <a href="{{ route('tambahitem.reqbeli', $data->first()->id_nota_beli) }}">
                         <button class="trans-block_one-icon align-items-right text-right">
                             <i class="bi bi-plus"></i>

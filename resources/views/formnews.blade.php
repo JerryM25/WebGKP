@@ -56,7 +56,7 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
                 <a href="{{ route('dashboardNews') }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
@@ -73,69 +73,76 @@
                     <div class="register-form">
                         <form method="post" action="{{ route('tambahBerita') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label>Foto 1 (wajib)</label>
-                                <input type="file" id="foto1" name="foto1" accept=".jpg,.jpeg,.png" onchange="validateFoto1(event)">
-                                <br>
-                                <img id="preview1" src="" alt="Preview Gambar1" style="max-width: 200px; display: none; margin-top: 10px;">
-                                <p id="file-warning1" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
-                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Foto 1 (wajib)</label>
+                                        <input type="file" id="foto1" name="foto1" accept=".jpg,.jpeg,.png" onchange="validateFoto1(event)">
+                                        <br>
+                                        <img id="preview1" src="" alt="Preview Gambar1" style="max-width: 200px; display: none; margin-top: 10px;">
+                                        <p id="file-warning1" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Foto 2</label>
+                                        <input type="file" id="foto2" name="foto2" accept=".jpg,.jpeg,.png" onchange="validateFoto2(event)">
+                                        <br>
+                                        <img id="preview2" src="" alt="Preview Gambar2" style="max-width: 200px; display: none; margin-top: 10px;">
+                                        <p id="file-warning2" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Foto 3</label>
+                                        <input type="file" id="foto3" name="foto3" accept=".jpg,.jpeg,.png" onchange="validateFoto3(event)">
+                                        <br>
+                                        <img id="preview3" src="" alt="Preview Gambar3" style="max-width: 200px; display: none; margin-top: 10px;">
+                                        <p id="file-warning3" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Foto 2</label>
-                                <input type="file" id="foto2" name="foto2" accept=".jpg,.jpeg,.png" onchange="validateFoto2(event)">
-                                <br>
-                                <img id="preview2" src="" alt="Preview Gambar2" style="max-width: 200px; display: none; margin-top: 10px;">
-                                <p id="file-warning2" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
-                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
-                            </div>
-
-                            <div class="form-group">
-                                <label>Foto 3</label>
-                                <input type="file" id="foto3" name="foto3" accept=".jpg,.jpeg,.png" onchange="validateFoto3(event)">
-                                <br>
-                                <img id="preview3" src="" alt="Preview Gambar3" style="max-width: 200px; display: none; margin-top: 10px;">
-                                <p id="file-warning3" style="color: red; display: none;">Ukuran file terlalu besar! Maksimal 5MB.</p>
-                                {{-- <input type="file" id="foto" name="foto" placeholder="" required=""> --}}
-                            </div>
-
-                            <div class="form-group">
-                                <label>Judul Berita</label>
-                                <input type="text" id="judul" name="judul" placeholder="" required="">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Judul Berita</label>
+                                        <input type="text" id="judul" name="judul" placeholder="" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="penulis">Penulis</label>
+                                        <select class="dropdown" id="penulis" name="penulis">
+                                            <option value="Ali">Ali</option>
+                                            <option value="Gunadi">Gunadi</option>
+                                            <option value="Isa">Isa</option>
+                                            <option value="Jabbar">Jabbar</option>
+                                            <option value="Jerry">Jerry</option>
+                                            <option value="Brilly">Brilly</option>
+                                            <option value="Tisna">Tisna</option>
+                                            <option value="Andri">Andri</option>
+                                            <option value="Oka">Oka</option>
+                                            <option value="Khusni">Khusni</option>
+                                            <option value="Anna">Anna</option>
+                                            <option value="Eka">Eka</option>
+                                            <option value="Salis">Salis</option>
+                                            <option value="Dani">Dani</option>
+                                            <option value="Angel">Angel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Tanggal</label>
+                                        <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Isi Berita</label>
                                 <input type="text" id="berita" name="berita" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                {{-- <label>Kategori</label>
-                                <input type="text" id="kategori" name="kategori" placeholder="" required=""> --}}
-                                <label for="penulis">Penulis</label>
-                                <select class="dropdown" id="penulis" name="penulis">
-                                    <option value="Ali">Ali</option>
-                                    <option value="Gunadi">Gunadi</option>
-                                    <option value="Isa">Isa</option>
-                                    <option value="Jabbar">Jabbar</option>
-                                    <option value="Jerry">Jerry</option>
-                                    <option value="Brilly">Brilly</option>
-                                    <option value="Tisna">Tisna</option>
-                                    <option value="Andri">Andri</option>
-                                    <option value="Oka">Oka</option>
-                                    <option value="Khusni">Khusni</option>
-                                    <option value="Anna">Anna</option>
-                                    <option value="Eka">Eka</option>
-                                    <option value="Salis">Salis</option>
-                                    <option value="Dani">Dani</option>
-                                    <option value="Angel">Angel</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
                             </div>
 
                             <div class="form-group">

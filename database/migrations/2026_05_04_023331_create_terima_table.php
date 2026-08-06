@@ -15,16 +15,16 @@ class CreateTerimaTable extends Migration
     {
         Schema::create('terima', function (Blueprint $table) {
             $table->bigIncrements('id_terima');
-            $table->unsignedBigInteger('id_no_terima')->nullable();
+            $table->unsignedBigInteger('id_no_terima');
             $table->foreign('id_no_terima')
                 ->references('id_no_terima')
                 ->on('noterima')
-                ->onDelete('set null');
-            $table->unsignedBigInteger('id_req_beli')->nullable();
+                ->onDelete('restrict');
+            $table->unsignedBigInteger('id_req_beli');
             $table->foreign('id_req_beli')
                 ->references('id_req_beli')
                 ->on('reqbeli')
-                ->onDelete('set null');
+                ->onDelete('restrict');
             $table->integer('quantity');
             $table->timestamps();
         });

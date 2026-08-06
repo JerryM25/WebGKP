@@ -56,7 +56,7 @@
 
 
         <!-- Register One -->
-        <section class="register-one">
+        <section class="register-two">
             <div class="team-detail_button">
                 <a href="{{ route('dashboard.detail', ['id' => $barang->id_barang]) }}" class="template-btn btn-style-one">
                     <span class="btn-wrap">
@@ -85,95 +85,118 @@
 
                             <input type="hidden" id="id_barang" name="id_barang" value="{{ $barang->id_barang }}">
 
-                            <div class="form-group">
-                                <label>Nama Barang</label>
-                                <input type="text" id="nama_barang" name="nama_barang" value="{{ $barang->nama_barang }}" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <input type="text" id="keterangan" name="keterangan" value="{{ $barang->keterangan }}" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                {{-- <label>Kategori</label>
-                                <input type="text" id="kategori" name="kategori" placeholder="" required=""> --}}
-                                <label for="Kategori">Kategori</label>
-                                <select class="dropdown" id="kategori" name="kategori" value="{{ $barang->kategori }}">
-                                    <option value="Komputer dan Pendukungnya" {{ $barang->kategori == "Komputer dan Pendukungnya" ? 'selected' : '' }}>Komputer dan Pendukungnya</option>
-                                    <option value="Server dan Pendukungnya" {{ $barang->kategori == "Server dan Pendukungnya" ? 'selected' : '' }}>Server dan Pendukungnya</option>
-                                    <option value="Peralatan Kantor dan Pendukungnya" {{ $barang->kategori == "Peralatan Kantor dan Pendukungnya" ? 'selected' : '' }}>Peralatan Kantor dan Pendukungnya</option>
-                                    <option value="Alat Elektronik dan Pendukungnya" {{ $barang->kategori == "Alat Elektronik dan Pendukungnya" ? 'selected' : '' }}>Alat Elektronik dan Pendukungnya</option>
-                                    <option value="Alat Olahraga" {{ $barang->kategori == "Alat Olahraga" ? 'selected' : '' }}>Alat Olahraga</option>
-                                    <option value="Alat Pengolahan Sampah" {{ $barang->kategori == "Alat Pengolahan Sampah" ? 'selected' : '' }}>Alat Pengolahan Sampah</option>
-                                    <option value="Jasa Sewa Server" {{ $barang->kategori == "Jasa Sewa Server" ? 'selected' : '' }}>Jasa Sewa Server</option>
-                                    <option value="Alat Kesehatan" {{ $barang->kategori == "Alat Kesehatan" ? 'selected' : '' }}>Alat Kesehatan</option>
-                                    <option value="Alat Laboratorium" {{ $barang->kategori == "Alat Laboratorium" ? 'selected' : '' }}>Alat Laboratorium</option>
-                                    <option value="Alat Kebakaran" {{ $barang->kategori == "Alat Kebakaran" ? 'selected' : '' }}>Alat Kebakaran</option>
-                                    <option value="Mesin" {{ $barang->kategori == "Mesin" ? 'selected' : '' }}>Mesin</option>
-                                    <option value="Alat Musik" {{ $barang->kategori == "Alat Musik" ? 'selected' : '' }}>Alat Musik</option>
-                                    <option value="Furnitur" {{ $barang->kategori == "Furnitur" ? 'selected' : '' }}>Furnitur</option>
-                                    <option value="Jasa Lainnya" {{ $barang->kategori == "Jasa Lainnya" ? 'selected' : '' }}>Jasa Lainnya</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Beli</label>
-                                <input type="text" id="harga_beli" name="harga_beli" value="{{ $barang->harga_beli }}" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Jual</label>
-                                <input type="text" id="harga_jual" name="harga_jual" value="{{ $barang->harga_jual }}" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Stok</label>
-                                <input type="text" id="stok" name="stok" value="{{ $barang->stok }}" placeholder="" required="">
-                            </div>
-
-                            <div class="form-group">
-                                {{-- <label>Satuan</label>
-                                <input type="text" id="satuan" name="satuan" placeholder="" required=""> --}}
-                                <label for="satuan">Satuan</label>
-                                <select class="dropdown" id="satuan" name="satuan" value="{{ $barang->satuan }}">
-                                    <option value="Paket">Paket</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Box">Box</option>
-                                    <option value="Unit">Unit</option>
-                                    <option value="Botol">Botol</option>
-                                    <option value="Karung">Karung</option>
-                                    <option value="Hari">Hari</option>
-                                    <option value="Jam">Jam</option>
-                                    <option value="Liter">Liter</option>
-                                    <option value="Lusin">Lusin</option>
-                                    <option value="Gelas">Gelas</option>
-                                    <option value="Meter">Meter</option>
-                                    <option value="Porsi">Porsi</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" id="link" name="link" value="{{ $barang->link }}" placeholder="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tayang</label>
-                                <select class="dropdown" id="tayang" name="tayang" value="{{ $barang->satuan }}">
-                                    <option value="1">Tayang</option>
-                                    <option value="0">Tidak Tayang</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Button Box -->
-                                <button type="submit" class="submit-btn btn-style-one">
-                                    <span class="btn-wrap">
-                                        <span class="text-one">Update</span>
-                                        <span class="text-two">Update</span>
-                                    </span>
-                                </button>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nama Barang</label>
+                                            <input type="text" id="nama_barang" name="nama_barang" value="{{ $barang->nama_barang }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Kategori">Kategori</label>
+                                            <select class="dropdown" id="kategori" name="kategori" value="{{ $barang->kategori }}">
+                                                <option value="Komputer dan Pendukungnya" {{ $barang->kategori == "Komputer dan Pendukungnya" ? 'selected' : '' }}>Komputer dan Pendukungnya</option>
+                                                <option value="Server dan Pendukungnya" {{ $barang->kategori == "Server dan Pendukungnya" ? 'selected' : '' }}>Server dan Pendukungnya</option>
+                                                <option value="Peralatan Kantor dan Pendukungnya" {{ $barang->kategori == "Peralatan Kantor dan Pendukungnya" ? 'selected' : '' }}>Peralatan Kantor dan Pendukungnya</option>
+                                                <option value="Alat Elektronik dan Pendukungnya" {{ $barang->kategori == "Alat Elektronik dan Pendukungnya" ? 'selected' : '' }}>Alat Elektronik dan Pendukungnya</option>
+                                                <option value="Alat Olahraga" {{ $barang->kategori == "Alat Olahraga" ? 'selected' : '' }}>Alat Olahraga</option>
+                                                <option value="Alat Pengolahan Sampah" {{ $barang->kategori == "Alat Pengolahan Sampah" ? 'selected' : '' }}>Alat Pengolahan Sampah</option>
+                                                <option value="Jasa Sewa Server" {{ $barang->kategori == "Jasa Sewa Server" ? 'selected' : '' }}>Jasa Sewa Server</option>
+                                                <option value="Alat Kesehatan" {{ $barang->kategori == "Alat Kesehatan" ? 'selected' : '' }}>Alat Kesehatan</option>
+                                                <option value="Alat Laboratorium" {{ $barang->kategori == "Alat Laboratorium" ? 'selected' : '' }}>Alat Laboratorium</option>
+                                                <option value="Alat Kebakaran" {{ $barang->kategori == "Alat Kebakaran" ? 'selected' : '' }}>Alat Kebakaran</option>
+                                                <option value="Mesin" {{ $barang->kategori == "Mesin" ? 'selected' : '' }}>Mesin</option>
+                                                <option value="Alat Musik" {{ $barang->kategori == "Alat Musik" ? 'selected' : '' }}>Alat Musik</option>
+                                                <option value="Furnitur" {{ $barang->kategori == "Furnitur" ? 'selected' : '' }}>Furnitur</option>
+                                                <option value="Jasa Lainnya" {{ $barang->kategori == "Jasa Lainnya" ? 'selected' : '' }}>Jasa Lainnya</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" id="keterangan" name="keterangan" value="{{ $barang->keterangan }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Harga Beli</label>
+                                            <input type="number" id="harga_beli" name="harga_beli" value="{{ $barang->harga_beli }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Harga Jual</label>
+                                            <input type="number" id="harga_jual" name="harga_jual" value="{{ $barang->harga_jual }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Stok</label>
+                                            <input type="number" id="stok" name="stok" value="{{ $barang->stok }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="satuan">Satuan</label>
+                                            <select class="dropdown" id="satuan" name="satuan" value="{{ $barang->satuan }}">
+                                                <option value="Paket" {{ $barang->satuan == "Paket" ? 'selected' : '' }}>Paket</option>
+                                                <option value="Pcs" {{ $barang->satuan == "Pcs" ? 'selected' : '' }}>Pcs</option>
+                                                <option value="Box" {{ $barang->satuan == "Box" ? 'selected' : '' }}>Box</option>
+                                                <option value="Unit" {{ $barang->satuan == "Unit" ? 'selected' : '' }}>Unit</option>
+                                                <option value="Botol" {{ $barang->satuan == "Botol" ? 'selected' : '' }}>Botol</option>
+                                                <option value="Karung" {{ $barang->satuan == "Karung" ? 'selected' : '' }}>Karung</option>
+                                                <option value="Hari" {{ $barang->satuan == "Hari" ? 'selected' : '' }}>Hari</option>
+                                                <option value="Jam" {{ $barang->satuan == "Jam" ? 'selected' : '' }}>Jam</option>
+                                                <option value="Liter" {{ $barang->satuan == "Liter" ? 'selected' : '' }}>Liter</option>
+                                                <option value="Lusin" {{ $barang->satuan == "Lusin" ? 'selected' : '' }}>Lusin</option>
+                                                <option value="Gelas" {{ $barang->satuan == "Gelas" ? 'selected' : '' }}>Gelas</option>
+                                                <option value="Meter" {{ $barang->satuan == "Meter" ? 'selected' : '' }}>Meter</option>
+                                                <option value="Porsi" {{ $barang->satuan == "Porsi" ? 'selected' : '' }}>Porsi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tayang</label>
+                                            <select class="dropdown" id="tayang" name="tayang" value="{{ $barang->tayang }}">
+                                                <option value="1" {{ $barang->tayang == "1" ? 'selected' : '' }}>Tayang</option>
+                                                <option value="0" {{ $barang->tayang == "0" ? 'selected' : '' }}>Tidak Tayang</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" id="link" name="link" value="{{ $barang->link }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <button type="submit" class="submit-btn btn-style-one">
+                                                <span class="btn-wrap">
+                                                    <span class="text-one">Update</span>
+                                                    <span class="text-two">Update</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
                             </div>
                         </form>
                     </div>

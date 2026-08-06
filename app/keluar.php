@@ -10,6 +10,11 @@ class keluar extends Model
 
     protected $primaryKey = 'id_keluar';
 
+    protected $foreignKey = [
+        'id_no_keluar',
+        'id_req_jual'
+    ];
+
     protected $fillable =[
         'id_keluar',
         'id_no_keluar',

@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashnews/{id}/edit', 'AuthController@editBerita')->name('berita.edit');
     Route::put('/dashnews/{id}', 'AuthController@updateBerita')->name('berita.update');
     Route::get('/dashnews/{id}', 'AuthController@detNews')->name('news.dashdetail');
+
     Route::get('/dashprod/{id}', 'AuthController@detail')->name('dashboard.detail');
     Route::delete('/deleteprod/{id}', 'AuthController@deleteBarang')->name('barang.delete');
     Route::post('/uploadFoto', 'AuthController@uploadFoto')->name('uploadFoto');
