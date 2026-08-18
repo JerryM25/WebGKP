@@ -71,53 +71,11 @@
                     <h3 class="text-center">Keluar Barang</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('nokeluar.tambah') }}" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="id_req_jual" value="{{ session('id_req_jual') }}">
-
-                            <div class="countainer-fluid">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Tanggal</label>
-                                            <input type="date" id="tanggal" name="tanggal" placeholder="" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Nomor Nota Jual</label>
-                                            <select class="dropdown" id="id_nota_jual" name="id_nota_jual" required>
-                                                <option value="">-- Pilih Nota --</option>
-                                                @if($reqjual->count() > 0)
-                                                    @foreach($reqjual as $n)
-                                                        <option value="{{ $n->id_nota_jual }}">{{ $n->no_notajual }}</option>
-                                                    @endforeach
-                                                @else
-                                                    <option value="">Data Nota Jual Tidak Ada</option>
-                                                @endif
-
-                                                </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <button type="submit" class="submit-btn btn-style-one">
-                                                <span class="btn-wrap">
-                                                    <span class="text-one">Tambah</span>
-                                                    <span class="text-two">Tambah</span>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                        <br>
 
                         @if(session('success_step1'))
                             <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
                                 <h5 style="color: orange;">keluar Barang untuk Nota: {{ session('no_notajual') }}</h5>
+                                <p style="color: azure">Tanggal Pengeluaran: {{ session('hari') }} {{ date('d-m-Y', strtotime(session('tanggal'))) }}</p>
                                 <p style="color: azure">Nomor keluar: {{ session('no_keluar') }}</p>
 
                                 <form action="{{ route('keluar.simpan') }}" method="POST">
@@ -127,6 +85,8 @@
                                     <input type="hidden" name="no_notajual" value="{{ session('no_notajual') }}">
                                     <input type="hidden" name="no_keluar" value="{{ session('no_keluar') }}">
                                     <input type="hidden" name="id_req_jual" value="{{ session('id_req_jual') }}">
+                                    <input type="hidden" name="hari" value="{{ session('hari') }}">
+                                    <input type="hidden" name="tanggal" value="{{ session('tanggal') }}">
 
                                     <div class="row">
                                         <div class="col-md-4">
@@ -190,6 +150,48 @@
                             </div>
 
                             @else
+                                <form method="post" action="{{ route('nokeluar.tambah') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id_req_jual" value="{{ session('id_req_jual') }}">
+
+                                    <div class="countainer-fluid">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Tanggal</label>
+                                                    <input type="date" id="tanggal" name="tanggal" placeholder="" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nomor Nota Jual</label>
+                                                    <select class="dropdown" id="id_nota_jual" name="id_nota_jual" required>
+                                                        <option value="">-- Pilih Nota --</option>
+                                                        @if($reqjual->count() > 0)
+                                                            @foreach($reqjual as $n)
+                                                                <option value="{{ $n->id_nota_jual }}">{{ $n->no_notajual }}</option>
+                                                            @endforeach
+                                                        @else
+                                                            <option value="">Data Nota Jual Tidak Ada</option>
+                                                        @endif
+
+                                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="submit-btn btn-style-one">
+                                                        <span class="btn-wrap">
+                                                            <span class="text-one">Tambah</span>
+                                                            <span class="text-two">Tambah</span>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
                                 <h4 class="text-center text-white">Belum Terdapat Nomor Keluar</h4>
 
                             @endif
@@ -212,16 +214,35 @@
     </div>
 
     <script>
-    document.getElementById('id_barang').addEventListener('change', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Logika Step 1: Hanya berjalan jika elemen #tanggal ada di DOM
+            const inputTanggal = document.getElementById('tanggal');
+            if (inputTanggal) {
+                inputTanggal.valueAsDate = new Date();
+            }
 
-        let option = this.options[this.selectedIndex];
+            // 2. Logika Step 2: Hanya berjalan jika elemen #barang_id & #harga ada di DOM
+            const selectBarang = document.getElementById('id_barang');
 
-        document.getElementById('quantity').value =
-            option.dataset.qty || '';
+            if (selectBarang) {
+                selectBarang.addEventListener('change', function () {
+                    const selectedOption = this.options[this.selectedIndex];
+                    if (!selectedOption) return;
 
-        document.getElementById('id_req_jual').value =
-            option.dataset.req || '';
-    });
+                    // Isi Quantity (menggunakan dataset.qty)
+                    const inputQty = document.getElementById('quantity');
+                    if (inputQty) {
+                        inputQty.value = selectedOption.dataset.qty || '';
+                    }
+
+                    // Isi Req Beli (menggunakan dataset.req)
+                    const inputReq = document.getElementById('id_req_jual');
+                    if (inputReq) {
+                        inputReq.value = selectedOption.dataset.req || '';
+                    }
+                });
+            }
+        });
     </script>
 
 

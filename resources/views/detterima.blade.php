@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-md-4 centered">
                         <h4 class="sec-title_title1">Tanggal Terima Barang</h4>
-                        <h4 class="sec-title_title2">{{ $data->first()->tanggal }}</h4>
+                        <h4 class="sec-title_title2">{{ date('d-m-Y', strtotime($data->first()->tanggal)) }}</h4>
                     </div>
                 </div>
                 <br>

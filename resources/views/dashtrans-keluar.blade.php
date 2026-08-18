@@ -49,7 +49,7 @@
                                 <td>{{ (int) $key + 1 }}</td>
                                 <td>{{ $item->no_keluar }}</td>
                                 <td>{{ $item->no_notajual }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ date('d-m-Y', strtotime($item->tanggal)) }}</td>
                                 <td>
                                     <a href="{{ route('keluar.detail', $item->id_no_keluar) }}">
                                         <button class="price-one_button" style="color: black">

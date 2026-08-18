@@ -613,6 +613,7 @@ class AuthController extends Controller
             $tanggal = Carbon::parse($request->tanggal);
             $tahun = $tanggal->format('y');
             $bulan = $tanggal->format('m');
+            $hari = $tanggal->format('l');
             $tahunPenuh = $tanggal->year;
 
             $lastRecord = Notabeli::whereYear('created_at', $tahunPenuh)
@@ -644,7 +645,9 @@ class AuthController extends Controller
                 'success_step1' => true,
                 'list_barang' => false,
                 'id_nota_beli' => $notabeli->id_nota_beli,
+                'tanggal'     => $notabeli->tanggal,
                 'nama_vendor' => $vendor->nama_vendor,
+                'hari'        => $hari,
                 'no_notabeli' => $nomorNota,
                 'barang' => $barang
             ]);
@@ -699,7 +702,9 @@ class AuthController extends Controller
         return back()->with([
                 'success_step1' => true,
                 'id_nota_beli'  => $request->id_nota_beli,
-                'no_notabeli'   => $notabeli ->no_notabeli,
+                'no_notabeli'   => $notabeli->no_notabeli,
+                'tanggal'       => $request->tanggal,
+                'hari'          => $request->hari,
                 'nama_vendor'   => $request->nama_vendor,
                 'no_nota'       => $request->no_nota,
                 'barang'        => $barang
@@ -767,6 +772,7 @@ class AuthController extends Controller
             $tanggal = Carbon::parse($request->tanggal);
             $tahun = $tanggal->format('y');
             $bulan = $tanggal->format('m');
+            $hari = $tanggal->format('l');
             $tahunPenuh = $tanggal->year;
             $lastRecord = Noterima::whereYear('created_at', $tahunPenuh)
                                     ->lockForUpdate()
@@ -802,6 +808,8 @@ class AuthController extends Controller
                 'id_no_terima'  => $noterima->id_no_terima,
                 'no_terima'     => $nomorTerima,
                 'barang'        => $barang,
+                'hari'          => $hari,
+                'tanggal'       => $request->tanggal,
                 'no_notabeli'   => $reqbeli->no_notabeli,
                 'id_nota_beli'  => $reqbeli->id_nota_beli,
                 'id_req_beli'   => $reqbeli->id_req_beli
@@ -879,6 +887,9 @@ class AuthController extends Controller
             'list_barang'   => true,
             'id_nota_beli' => $reqbeli->id_nota_beli,
             'id_no_terima' => $request->id_no_terima,
+            'no_notabeli'  => $request->no_notabeli,
+            'hari'         => $request->hari,
+            'tanggal'      => $request->tanggal,
             'nama_vendor'  => $request->nama_vendor,
             'no_nota'      => $request->no_notabeli,
             'barang'       => $barang,
@@ -905,6 +916,7 @@ class AuthController extends Controller
             $tanggal = Carbon::parse($request->tanggal);
             $tahun = $tanggal->format('y');
             $bulan = $tanggal->format('m');
+            $hari = $tanggal->format('l');
             $tahunPenuh = $tanggal->year;
 
             $lastRecord = Notajual::whereYear('created_at', $tahunPenuh)
@@ -937,6 +949,8 @@ class AuthController extends Controller
                 'list_barang' => false,
                 'id_nota_jual' => $notajual->id_nota_jual,
                 'nama_customer' => $customer->nama_customer,
+                'hari'         => $hari,
+                'tanggal'      => $tanggal,
                 'no_notajual' => $nomorNota,
                 'barang' => $barang
             ]);
@@ -993,6 +1007,8 @@ class AuthController extends Controller
                 'id_nota_jual'  => $request->id_nota_jual,
                 'no_notajual'   => $notajual ->no_notajual,
                 'nama_customer' => $request->nama_customer,
+                'hari'         => $request->hari,
+                'tanggal'      => $request->tanggal,
                 'no_nota'       => $request->no_nota,
                 'barang'        => $barang
             ]);
@@ -1060,6 +1076,7 @@ class AuthController extends Controller
             $tanggal = Carbon::parse($request->tanggal);
             $tahun = $tanggal->format('y');
             $bulan = $tanggal->format('m');
+            $hari = $tanggal->format('l');
             $tahunPenuh = $tanggal->year;
             $lastRecord = Nokeluar::whereYear('created_at', $tahunPenuh)
                                     ->lockForUpdate()
@@ -1095,6 +1112,8 @@ class AuthController extends Controller
                 'id_no_keluar'  => $nokeluar->id_no_keluar,
                 'no_keluar'     => $nomorKeluar,
                 'barang'        => $barang,
+                'hari'          => $hari,
+                'tanggal'       => $tanggal,
                 'no_notajual'   => $reqjual->no_notajual,
                 'id_nota_jual'  => $reqjual->id_nota_jual,
                 'id_req_jual'   => $reqjual->id_req_jual
@@ -1173,7 +1192,9 @@ class AuthController extends Controller
             'id_nota_jual' => $reqjual->id_nota_jual,
             'id_no_keluar' => $request->id_no_keluar,
             'nama_customer'=> $request->nama_customer,
-            'no_nota'      => $request->no_notajual,
+            'no_notajual'  => $request->no_notajual,
+            'hari'         => $request->hari,
+            'tanggal'      => $request->tanggal,
             'barang'       => $barang,
             'no_keluar'    => $nomorKeluar
         ]);

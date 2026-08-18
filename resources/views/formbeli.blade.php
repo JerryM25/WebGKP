@@ -71,51 +71,11 @@
                     <h3 class="text-center">Pembelian</h3>
                     <!-- Register Form -->
                     <div class="register-form">
-                        <form method="post" action="{{ route('notabeli.tambah') }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="countainer-fluid">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Tanggal</label>
-                                            <input type="date" id="tanggal" name="tanggal" placeholder="" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Vendor</label>
-                                            <select class="dropdown" id="id_vendor" name="id_vendor" required>
-                                                <option value="">-- Pilih Vendor --</option>
-                                                @if($vendor->count() > 0)
-                                                    @foreach($vendor as $v)
-                                                        <option value="{{ $v->id_vendor }}">{{ $v->nama_vendor }}</option>
-                                                    @endforeach
-                                                @else
-                                                    <option value="">Data Vendor Tidak Ada</option>
-                                                @endif
-
-                                                </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <button type="submit" class="submit-btn btn-style-one">
-                                                <span class="btn-wrap">
-                                                    <span class="text-one">Tambah</span>
-                                                    <span class="text-two">Tambah</span>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                        <br>
 
                         @if(session('success_step1'))
                             <div class="card p-3" style="background: #1e1e1e; border: 1px solid orange;">
                                 <h5 style="color: orange;">Tambah Barang untuk Nota: {{ session('no_notabeli') }}</h5>
+                                <p style="color: azure">Tanggal Pembelian: {{ session('hari') }} {{ date('d-m-Y', strtotime(session('tanggal'))) }}</p>
                                 <p style="color: azure">Vendor: {{ session('nama_vendor') }}</p>
 
                                 <form action="{{ route('item.simpan') }}" method="POST">
@@ -123,6 +83,8 @@
                                     <input type="hidden" name="id_nota_beli" value="{{ session('id_nota_beli') }}">
                                     <input type="hidden" name="no_notabeli" value="{{ session('no_notabeli') }}">
                                     <input type="hidden" name="nama_vendor" value="{{ session('nama_vendor') }}">
+                                    <input type="hidden" name="hari" value="{{ session('hari') }}">
+                                    <input type="hidden" name="tanggal" value="{{ session('tanggal') }}">
 
                                     <div class="row">
                                         <div class="col-md-4">
@@ -130,7 +92,9 @@
                                             <select name="id_barang" id="id_barang" class="form-control">
                                                 <option value="">-- Pilih Barang --</option>
                                                 @foreach(session('barang') as $barang)
-                                                    <option value="{{ $barang->id_barang }}">{{ $barang->nama_barang }}</option>
+                                                    <option value="{{ $barang->id_barang }}" data-harga="{{ $barang->harga_beli }}">
+                                                        {{ $barang->nama_barang }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -195,6 +159,47 @@
                             </div>
 
                             @else
+                                <form method="post" action="{{ route('notabeli.tambah') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="countainer-fluid">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Tanggal</label>
+                                                    <input type="date" id="tanggal" name="tanggal" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Vendor</label>
+                                                    <select class="dropdown" id="id_vendor" name="id_vendor" required>
+                                                        <option value="">-- Pilih Vendor --</option>
+                                                        @if($vendor->count() > 0)
+                                                            @foreach($vendor as $v)
+                                                                <option value="{{ $v->id_vendor }}">{{ $v->nama_vendor }}</option>
+                                                            @endforeach
+                                                        @else
+                                                            <option value="">Data Vendor Tidak Ada</option>
+                                                        @endif
+
+                                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="submit-btn btn-style-one">
+                                                        <span class="btn-wrap">
+                                                            <span class="text-one">Tambah</span>
+                                                            <span class="text-two">Tambah</span>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
+
                                 <h4 class="text-center text-white">Belum Terdapat Nota</h4>
 
                             @endif
@@ -215,6 +220,29 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Logika Step 1: Hanya berjalan jika elemen #tanggal ada di DOM
+            const inputTanggal = document.getElementById('tanggal');
+            if (inputTanggal) {
+                inputTanggal.valueAsDate = new Date();
+            }
+
+            // 2. Logika Step 2: Hanya berjalan jika elemen #barang_id & #harga ada di DOM
+            const selectBarang = document.getElementById('id_barang');
+            const inputHarga = document.getElementById('harga');
+
+            if (selectBarang && inputHarga) {
+                selectBarang.addEventListener('change', function () {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const hargaBeli = selectedOption ? selectedOption.getAttribute('data-harga') : '';
+                    inputHarga.value = hargaBeli || '';
+                });
+            }
+        });
+    </script>
+
 
 
     <script src="{{ asset('assets/js/jquery.js') }}"></script>

@@ -50,7 +50,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $item->no_notajual }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ date('d-m-Y', strtotime($item->tanggal)) }}</td>
                                 <td>{{ $item->nama_customer }}</td>
                                 <td>{{ number_format($item->grandtotal) }}</td>
                                 <td>
