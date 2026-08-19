@@ -1159,6 +1159,12 @@ class AuthController extends Controller
         if (!$reqjual) {
             return back()->with('error', 'Barang tidak ditemukan dalam permintaan pembelian.');
         }
+        $barang = Barang::findOrFail($request->id_barang);
+
+        // Cek apakah jumlah pengeluaran melebihi stok di tabel barang
+        if ($request->dikeluar > $barang->stok) {
+            return redirect()->back()->with('error', "Gagal! Jumlah dikeluar ({$request->dikeluar}) melebihi stok barang yang ada ({$barang->stok}).");
+        }
 
         $list_keluar = session()->get('list_keluar', []);
         $dataBarang  = Barang::find($reqjual->id_barang);

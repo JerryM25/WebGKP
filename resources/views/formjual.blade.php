@@ -92,7 +92,9 @@
                                             <select name="id_barang" id="id_barang" class="form-control">
                                                 <option value="">-- Pilih Barang --</option>
                                                 @foreach(session('barang') as $barang)
-                                                    <option value="{{ $barang->id_barang }}" data-harga="{{ $barang->harga_jual }}">
+                                                    <option value="{{ $barang->id_barang }}"
+                                                        data-harga="{{ $barang->harga_jual }}"
+                                                        data-stok="{{ $barang->stok }}">
                                                         {{ $barang->nama_barang }}
                                                     </option>
                                                 @endforeach
@@ -228,17 +230,64 @@
                 inputTanggal.valueAsDate = new Date();
             }
 
-            // 2. Logika Step 2: Hanya berjalan jika elemen #barang_id & #harga ada di DOM
+            // 2. Logika Penjualan
             const selectBarang = document.getElementById('id_barang');
             const inputHarga = document.getElementById('harga');
+            const inputQuantity = document.getElementById('quantity');
 
-            if (selectBarang && inputHarga) {
+            if (selectBarang) {
                 selectBarang.addEventListener('change', function () {
                     const selectedOption = this.options[this.selectedIndex];
-                    const hargaBeli = selectedOption ? selectedOption.getAttribute('data-harga') : '';
-                    inputHarga.value = hargaBeli || '';
+
+                    if (selectedOption && selectedOption.value !== '') {
+                        // Set harga otomatis
+                        if (inputHarga) {
+                            inputHarga.value = selectedOption.getAttribute('data-harga') || '';
+                        }
+
+                        // Ambil data stok & set atribut max pada input quantity
+                        const stokTersedia = selectedOption.getAttribute('data-stok') || '';
+                        if (inputQuantity) {
+                            if (stokTersedia !== '') {
+                                inputQuantity.max = stokTersedia;
+                                inputQuantity.placeholder = 'Maksimal: ' + stokTersedia;
+                            } else {
+                                inputQuantity.removeAttribute('max');
+                                inputQuantity.placeholder = '';
+                            }
+                        }
+                    } else {
+                        if (inputHarga) inputHarga.value = '';
+                        if (inputQuantity) {
+                            inputQuantity.value = '';
+                            inputQuantity.removeAttribute('max');
+                            inputQuantity.placeholder = '';
+                        }
+                    }
                 });
-            }
+
+                // Validasi pembatasan saat form di-submit
+                const form = selectBarang.closest('form');
+                if (form) {
+                    form.addEventListener('submit', function (e) {
+                        const selectedOption = selectBarang.options[selectBarang.selectedIndex];
+                        if (!selectedOption || !selectedOption.value) return;
+
+                        const stok = parseInt(selectedOption.getAttribute('data-stok') || 0);
+                        const qtyJual = parseInt(inputQuantity ? inputQuantity.value : 0);
+
+                        if (qtyJual > stok) {
+                            e.preventDefault(); // Batalkan submit
+                            alert('Quantity penjualan (' + qtyJual + ') melebihi stok yang tersedia (' + stok + ')!');
+                            inputQuantity.focus();
+                        } else if (qtyJual <= 0) {
+                            e.preventDefault();
+                            alert('Quantity harus lebih dari 0!');
+                            inputQuantity.focus();
+                        }
+                    });
+                }
+            }any
         });
     </script>
 

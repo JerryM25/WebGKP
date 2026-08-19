@@ -94,7 +94,10 @@
                                             <select name="id_barang" id="id_barang" class="form-control">
                                                 <option value="">-- Pilih Barang --</option>
                                                 @foreach(session('barang') as $barang)
-                                                    <option value="{{ $barang->id_barang }}" data-qty="{{ $barang->quantity }}" data-req="{{ $barang->id_req_jual }}">
+                                                    <option value="{{ $barang->id_barang }}"
+                                                        data-qty="{{ $barang->quantity }}"
+                                                        data-req="{{ $barang->id_req_jual }}"
+                                                        data-stok="{{ $barang->stok }}">
                                                         {{ $barang->nama_barang }}
                                                     </option>
                                                 @endforeach
@@ -221,26 +224,63 @@
                 inputTanggal.valueAsDate = new Date();
             }
 
-            // 2. Logika Step 2: Hanya berjalan jika elemen #barang_id & #harga ada di DOM
+            // 2. Logika Step 2: Auto-fill & Batas Maksimum Stok
             const selectBarang = document.getElementById('id_barang');
+            const inputDikeluar = document.getElementById('dikeluar');
 
             if (selectBarang) {
                 selectBarang.addEventListener('change', function () {
                     const selectedOption = this.options[this.selectedIndex];
                     if (!selectedOption) return;
 
-                    // Isi Quantity (menggunakan dataset.qty)
+                    // Ambil stok dari data-qty
+                    const stokTersedia = selectedOption.dataset.qty || '';
+
+                    // Isi Quantity Penjualan / Stok
                     const inputQty = document.getElementById('quantity');
                     if (inputQty) {
-                        inputQty.value = selectedOption.dataset.qty || '';
+                        inputQty.value = stokTersedia;
                     }
 
-                    // Isi Req Beli (menggunakan dataset.req)
+                    // Isi Req Jual (jika ada)
                     const inputReq = document.getElementById('id_req_jual');
                     if (inputReq) {
                         inputReq.value = selectedOption.dataset.req || '';
                     }
+
+                    // [TAMBAHAN] Set batas max pada input 'dikeluar'
+                    if (inputDikeluar) {
+                        if (stokTersedia !== '') {
+                            inputDikeluar.max = stokTersedia;
+                            inputDikeluar.placeholder = 'Max: ' + stokTersedia;
+                        } else {
+                            inputDikeluar.removeAttribute('max');
+                            inputDikeluar.placeholder = '';
+                        }
+                    }
                 });
+
+                // [TAMBAHAN] Validasi saat Form di-submit
+                const form = selectBarang.closest('form');
+                if (form) {
+                    form.addEventListener('submit', function (e) {
+                        const selectedOption = selectBarang.options[selectBarang.selectedIndex];
+                        if (!selectedOption || !selectedOption.value) return;
+
+                        const stok = parseInt(selectedOption.dataset.qty || 0);
+                        const dikeluar = parseInt(inputDikeluar ? inputDikeluar.value : 0);
+
+                        if (dikeluar > stok) {
+                            e.preventDefault(); // Hentikan proses simpan
+                            alert('Jumlah barang dikeluar (' + dikeluar + ') tidak boleh melebihi stok yang ada (' + stok + ')!');
+                            inputDikeluar.focus();
+                        } else if (dikeluar <= 0) {
+                            e.preventDefault();
+                            alert('Jumlah dikeluar harus lebih dari 0!');
+                            inputDikeluar.focus();
+                        }
+                    });
+                }
             }
         });
     </script>
